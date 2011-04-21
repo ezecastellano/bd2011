@@ -182,15 +182,15 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`medida_producto` (
   `idmedida` INT NOT NULL ,
   PRIMARY KEY (`idproducto`, `idmedida`) ,
   INDEX `fk_medida_producto_1` (`idproducto` ASC) ,
-  INDEX `fk_medida_producto_2` () ,
+  INDEX `fk_medida_producto_2` (`idmedida` ASC) ,
   CONSTRAINT `fk_medida_producto_1`
     FOREIGN KEY (`idproducto` )
     REFERENCES `mydb`.`producto` (`idproducto` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_medida_producto_2`
-    FOREIGN KEY ()
-    REFERENCES `mydb`.`medida_por_producto` ()
+    FOREIGN KEY (`idmedida` )
+    REFERENCES `mydb`.`medida_por_producto` (`idmedida` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -229,17 +229,17 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`ext_pais_medpp` (
   `idmedida` INT NOT NULL ,
   `idpais` INT NOT NULL ,
   PRIMARY KEY (`idproducto`, `idmedida`, `idpais`) ,
-  INDEX `fk_ext_pais_medpp_1` () ,
-  INDEX `fk_ext_pais_medpp_2` () ,
+  INDEX `fk_ext_pais_medpp_1` (`idproducto` ASC) ,
+  INDEX `fk_ext_pais_medpp_2` (`idmedida` ASC) ,
   INDEX `fk_ext_pais_medpp_3` (`idpais` ASC) ,
   CONSTRAINT `fk_ext_pais_medpp_1`
-    FOREIGN KEY ()
-    REFERENCES `mydb`.`producto_extranjero` ()
+    FOREIGN KEY (`idproducto` )
+    REFERENCES `mydb`.`producto_extranjero` (`productid` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_ext_pais_medpp_2`
-    FOREIGN KEY ()
-    REFERENCES `mydb`.`medida_por_prod_pais` ()
+    FOREIGN KEY (`idmedida` )
+    REFERENCES `mydb`.`medida_por_prod_pais` (`idmedida` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_ext_pais_medpp_3`
@@ -301,11 +301,11 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`prod_nacional_fabrica` (
   `idproducto` INT NOT NULL ,
   `idfabrica` INT NOT NULL ,
   PRIMARY KEY (`idproducto`, `idfabrica`) ,
-  INDEX `fk_prod_nacional_fabrica_1` () ,
+  INDEX `fk_prod_nacional_fabrica_1` (`idproducto` ASC) ,
   INDEX `fk_prod_nacional_fabrica_2` (`idfabrica` ASC) ,
   CONSTRAINT `fk_prod_nacional_fabrica_1`
-    FOREIGN KEY ()
-    REFERENCES `mydb`.`producto_nacional` ()
+    FOREIGN KEY (`idproducto` )
+    REFERENCES `mydb`.`producto_nacional` (`idproducto` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_prod_nacional_fabrica_2`
@@ -324,11 +324,11 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`prod_extranjero_pais` (
   `idpais` INT NOT NULL ,
   `cantanual` FLOAT NULL ,
   PRIMARY KEY (`idproducto`, `idpais`) ,
-  INDEX `fk_prod_extranjero_pais_1` () ,
+  INDEX `fk_prod_extranjero_pais_1` (`idproducto` ASC) ,
   INDEX `fk_prod_extranjero_pais_2` (`idpais` ASC) ,
   CONSTRAINT `fk_prod_extranjero_pais_1`
-    FOREIGN KEY ()
-    REFERENCES `mydb`.`producto_extranjero` ()
+    FOREIGN KEY (`idproducto` )
+    REFERENCES `mydb`.`producto_extranjero` (`productid` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_prod_extranjero_pais_2`
