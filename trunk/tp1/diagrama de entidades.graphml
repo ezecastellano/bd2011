@@ -15,7 +15,19 @@
   <graph edgedefault="directed" id="G">
     <data key="d7"/>
     <node id="n0">
-      <data key="d5"/>
+      <data key="d6">
+        <y:GenericNode configuration="EntityRelationship_Entity">
+          <y:Geometry height="361.1250901554405" width="208.0" x="207.31679834196905" y="237.4374549222797"/>
+          <y:Fill color="#FFFFFF00" color2="#FFFFFF00" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="4.0" x="102.0" y="178.56254507772024"/>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n1">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
           <y:Geometry height="40.0" width="80.0" x="179.0" y="131.0"/>
@@ -28,8 +40,7 @@
         </y:GenericNode>
       </data>
     </node>
-    <node id="n1">
-      <data key="d5"/>
+    <node id="n2">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
           <y:Geometry height="40.0" width="80.0" x="501.0" y="131.0"/>
@@ -42,8 +53,7 @@
         </y:GenericNode>
       </data>
     </node>
-    <node id="n2">
-      <data key="d5"/>
+    <node id="n3">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
           <y:Geometry height="40.0" width="80.0" x="642.0" y="254.0"/>
@@ -57,8 +67,7 @@ producto</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
-    <node id="n3">
-      <data key="d5"/>
+    <node id="n4">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
           <y:Geometry height="40.0" width="80.0" x="641.0" y="398.0"/>
@@ -72,8 +81,7 @@ producto-pais</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
-    <node id="n4">
-      <data key="d5"/>
+    <node id="n5">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
           <y:Geometry height="40.0" width="80.0" x="766.0" y="326.0"/>
@@ -87,8 +95,7 @@ control</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
-    <node id="n5">
-      <data key="d5"/>
+    <node id="n6">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
           <y:Geometry height="40.0" width="80.0" x="59.0" y="260.0"/>
@@ -101,8 +108,7 @@ control</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
-    <node id="n6">
-      <data key="d5"/>
+    <node id="n7">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
           <y:Geometry height="40.0" width="80.0" x="59.0" y="440.0"/>
@@ -115,8 +121,7 @@ control</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
-    <node id="n7">
-      <data key="d5"/>
+    <node id="n8">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
           <y:Geometry height="20.0" width="20.0" x="200.0" y="197.5"/>
@@ -129,22 +134,20 @@ control</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
-    <node id="n8">
-      <data key="d5"/>
+    <node id="n9">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
-          <y:Geometry height="56.0" width="90.0" x="363.5" y="123.0"/>
+          <y:Geometry height="56.0" width="115.70912762694297" x="337.790872373057" y="123.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="64.990234375" x="12.5048828125" y="19.015625">pertenece</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="94.521484375" x="10.593821625971486" y="19.015625">producto-rubro</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
     </node>
-    <node id="n9">
-      <data key="d5"/>
+    <node id="n10">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
           <y:Geometry height="20.0" width="20.0" x="702.0" y="336.0"/>
@@ -157,28 +160,13 @@ control</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
-    <node id="n10">
-      <data key="d5"/>
-      <data key="d6">
-        <y:GenericNode configuration="EntityRelationship_Relationship">
-          <y:Geometry height="56.0" width="90.0" x="432.25" y="209.0"/>
-          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="53.212890625" x="18.3935546875" y="19.015625">controla</y:NodeLabel>
-          <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
-          </y:StyleProperties>
-        </y:GenericNode>
-      </data>
-    </node>
     <node id="n11">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
-          <y:Geometry height="56.0" width="90.0" x="491.0" y="390.0"/>
+          <y:Geometry height="56.0" width="111.11821197927452" x="432.25" y="209.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="94.521484375" x="-2.2607421875" y="19.015625">producto-rubro</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="107.083984375" x="2.01711380213726" y="19.015625">medida-producto</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -186,13 +174,12 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n12">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
-          <y:Geometry height="56.0" width="90.0" x="54.0" y="338.5"/>
+          <y:Geometry height="56.0" width="158.86373471502588" x="447.8453929119171" y="390.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="64.990234375" x="12.5048828125" y="19.015625">pertenece</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="142.884765625" x="7.989484545012942" y="19.015625">extranjero_pais-medpp</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -200,7 +187,19 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n13">
-      <data key="d5"/>
+      <data key="d6">
+        <y:GenericNode configuration="EntityRelationship_Relationship">
+          <y:Geometry height="56.0" width="132.2364239585492" x="32.88178802072541" y="338.5"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="104.318359375" x="13.959032291774605" y="19.015625">Nacional-Fabrica</y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n14">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
           <y:Geometry height="40.0" width="80.0" x="318.6666666666667" y="270.0"/>
@@ -213,8 +212,7 @@ control</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
-    <node id="n14">
-      <data key="d5"/>
+    <node id="n15">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
           <y:Geometry height="40.0" width="80.0" x="318.6666666666667" y="450.0"/>
@@ -227,25 +225,23 @@ control</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
-    <node id="n15">
-      <data key="d5"/>
+    <node id="n16">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
-          <y:Geometry height="56.0" width="90.0" x="313.6666666666667" y="352.0"/>
+          <y:Geometry height="56.0" width="115.70912762694297" x="300.8121028531952" y="352.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="64.990234375" x="12.5048828125" y="19.015625">pertenece</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="94.779296875" x="10.464915375971486" y="19.015625">Extranjero-Pais</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
     </node>
-    <node id="n16">
-      <data key="d5"/>
+    <node id="n17">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="218.66666666666669" y="360.0"/>
+          <y:Geometry height="40.0" width="80.0" x="213.1575678894646" y="360.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="64.369140625" x="7.8154296875" y="11.015625">cantAnual</y:NodeLabel>
@@ -255,22 +251,7 @@ control</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
-    <node id="n17">
-      <data key="d5"/>
-      <data key="d6">
-        <y:GenericNode configuration="EntityRelationship_Entity">
-          <y:Geometry height="298.0" width="208.0" x="218.66666666666669" y="231.0"/>
-          <y:Fill color="#FFFFFF00" color2="#FFFFFF00" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="4.0" x="102.0" y="147.0"/>
-          <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
-          </y:StyleProperties>
-        </y:GenericNode>
-      </data>
-    </node>
     <node id="n18">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
           <y:Geometry height="40.0" width="80.0" x="766.0" y="516.0"/>
@@ -284,13 +265,12 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n19">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
-          <y:Geometry height="56.0" width="90.0" x="761.0" y="413.0"/>
+          <y:Geometry height="56.0" width="139.58188899481866" x="737.1272386321243" y="413.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="62.0078125" x="13.99609375" y="19.015625">establece</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="125.078125" x="7.251881997409328" y="19.015625">Medida Ctrl - Norma</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -298,7 +278,6 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n20">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
           <y:Geometry height="40.0" width="80.0" x="1025.0" y="326.0"/>
@@ -312,13 +291,12 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n21">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
           <y:Geometry height="56.0" width="90.0" x="890.5" y="318.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="34.41015625" x="27.794921875" y="19.015625">tiene</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="110.40625" x="-10.203125" y="19.015625">Medida Ctrl - Tipo</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -326,7 +304,6 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n22">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
           <y:Geometry height="56.0" width="90.0" x="761.0" y="203.0"/>
@@ -341,7 +318,6 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n23">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
           <y:Geometry height="40.0" width="80.0" x="766.0" y="110.0"/>
@@ -356,7 +332,6 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n24">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
           <y:Geometry height="40.0" width="80.0" x="767.0" y="-41.0"/>
@@ -370,13 +345,12 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n25">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
           <y:Geometry height="56.0" width="90.0" x="762.0" y="26.5"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="43.990234375" x="23.0048828125" y="19.015625">realiza</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="115.99609375" x="-12.998046875" y="19.015625">Usuario - Auditoria</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -384,7 +358,6 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n26">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
           <y:Geometry height="40.0" width="80.0" x="1025.0" y="516.0"/>
@@ -398,13 +371,12 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n27">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
-          <y:Geometry height="56.0" width="90.0" x="1020.0" y="413.0"/>
+          <y:Geometry height="56.0" width="128.56369144041446" x="1000.4999999999998" y="413.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="53.212890625" x="18.3935546875" y="19.015625">controla</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="99.525390625" x="14.51915040770723" y="19.015625">Tipo-Organismo</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -412,7 +384,6 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n28">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
           <y:Geometry height="40.0" width="80.0" x="58.0" y="592.5"/>
@@ -426,13 +397,12 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n29">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
-          <y:Geometry height="56.0" width="90.0" x="54.0" y="506.5"/>
+          <y:Geometry height="56.0" width="132.2364239585492" x="32.88178802072542" y="506.5"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="72.466796875" x="8.7666015625" y="19.015625">ubicada_en</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="109.65625" x="11.290086979274605" y="19.015625">Fabrica-Localidad</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -440,13 +410,12 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n30">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
-          <y:Geometry height="56.0" width="90.0" x="53.0" y="669.0"/>
+          <y:Geometry height="56.0" width="132.2364239585492" x="31.881788020725395" y="669.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="78.34375" x="5.828125" y="19.015625">pertenece_a</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="128.03125" x="2.102586979274605" y="19.015625">Localidad - Provincia</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -454,7 +423,6 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n31">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
           <y:Geometry height="40.0" width="80.0" x="58.0" y="761.5"/>
@@ -468,7 +436,6 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n32">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
           <y:Geometry height="40.0" width="80.0" x="179.0" y="42.5"/>
@@ -482,10 +449,9 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n33">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="46.0" y="139.0"/>
+          <y:Geometry height="40.0" width="80.0" x="54.0" y="181.5"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="56.599609375" x="11.7001953125" y="11.015625">umedida</y:NodeLabel>
@@ -496,13 +462,12 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n34">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
           <y:Geometry height="40.0" width="80.0" x="611.0" y="103.33333333333333"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" underlinedText="true" visible="true" width="53.916015625" x="13.0419921875" y="11.015625">idrubro</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" underlinedText="true" visible="true" width="53.916015625" x="13.0419921875" y="11.015624999999986">idrubro</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -510,7 +475,6 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n35">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
           <y:Geometry height="40.0" width="80.0" x="946.8333333333334" y="64.33333333333333"/>
@@ -524,13 +488,12 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n36">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="652.0" y="-47.33333333333336"/>
+          <y:Geometry height="40.0" width="121.0" x="611.0" y="-47.33333333333336"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" underlinedText="true" visible="true" width="106.5390625" x="-13.26953125" y="11.015625">nombreusuario</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" underlinedText="true" visible="true" width="106.5390625" x="7.23046875" y="11.015625">nombreusuario</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -538,7 +501,6 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n37">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
           <y:Geometry height="40.0" width="80.0" x="-76.66666666666663" y="407.16666666666663"/>
@@ -552,7 +514,6 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n38">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
           <y:Geometry height="40.0" width="80.0" x="-100.66666666666669" y="532.6666666666666"/>
@@ -566,7 +527,6 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n39">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
           <y:Geometry height="40.0" width="80.0" x="-100.66666666666669" y="724.0"/>
@@ -580,7 +540,6 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n40">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
           <y:Geometry height="40.0" width="80.0" x="890.4999999999999" y="398.0"/>
@@ -594,7 +553,6 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n41">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
           <y:Geometry height="40.0" width="80.0" x="890.4999999999999" y="472.50000000000006"/>
@@ -608,7 +566,6 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n42">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
           <y:Geometry height="40.0" width="80.0" x="1025.0" y="254.0"/>
@@ -622,7 +579,6 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n43">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
           <y:Geometry height="40.0" width="80.0" x="1146.75" y="460.75000000000006"/>
@@ -636,7 +592,6 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n44">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
           <y:Geometry height="40.0" width="80.0" x="218.66666666666669" y="450.0"/>
@@ -649,8 +604,150 @@ control</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
-    <edge id="e0" source="n5" target="n7">
-      <data key="d9"/>
+    <node id="n45">
+      <data key="d6">
+        <y:GenericNode configuration="EntityRelationship_Attribute">
+          <y:Geometry height="40.0" width="80.0" x="21.124945906735775" y="123.0"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="50.5703125" x="14.71484375" y="11.015625">nombre</y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n46">
+      <data key="d6">
+        <y:GenericNode configuration="EntityRelationship_Attribute">
+          <y:Geometry height="40.0" width="80.0" x="2.7612833160621904" y="64.33333333333333"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="72.61328125" x="3.693359375" y="11.015625">descripcion</y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n47">
+      <data key="d6">
+        <y:GenericNode configuration="EntityRelationship_Attribute">
+          <y:Geometry height="40.0" width="80.0" x="-76.66666666666663" y="260.0"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="81.232421875" x="-0.6162109375" y="11.015625">cant puestos</y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n48">
+      <data key="d6">
+        <y:GenericNode configuration="EntityRelationship_Attribute">
+          <y:Geometry height="40.0" width="80.0" x="501.0" y="53.0"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="50.5703125" x="14.71484375" y="11.015625">nombre</y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n49">
+      <data key="d6">
+        <y:GenericNode configuration="EntityRelationship_Attribute">
+          <y:Geometry height="40.0" width="80.0" x="927.7392215544041" y="147.86583765112258"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="l" textColor="#000000" visible="true" width="80.37109375" x="4.0" y="11.015625">modificacion</y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n50">
+      <data key="d6">
+        <y:GenericNode configuration="EntityRelationship_Attribute">
+          <y:Geometry height="40.0" width="122.84854604490499" x="-110.42742107081176" y="462.66666666666663"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="100.046875" x="11.400835522452496" y="11.015625">cant empleados</y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n51">
+      <data key="d6">
+        <y:GenericNode configuration="EntityRelationship_Attribute">
+          <y:Geometry height="40.0" width="80.0" x="-91.31679834196905" y="602.6666666666666"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="50.5703125" x="14.71484375" y="11.015625">nombre</y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n52">
+      <data key="d6">
+        <y:GenericNode configuration="EntityRelationship_Attribute">
+          <y:Geometry height="40.0" width="80.0" x="993.5036783419687" y="603.0"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="50.5703125" x="14.71484375" y="11.015625">nombre</y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n53">
+      <data key="d6">
+        <y:GenericNode configuration="EntityRelationship_Attribute">
+          <y:Geometry height="40.0" width="80.0" x="300.50617588946477" y="529.2047585492228"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="50.5703125" x="14.71484375" y="11.015625">nombre</y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n54">
+      <data key="d6">
+        <y:GenericNode configuration="EntityRelationship_Attribute">
+          <y:Geometry height="40.0" width="80.0" x="168.0" y="778.2166549222798"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="50.5703125" x="14.71484375" y="11.015625">nombre</y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n55">
+      <data key="d6">
+        <y:GenericNode configuration="EntityRelationship_Attribute">
+          <y:Geometry height="40.0" width="80.0" x="1146.75" y="326.0"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="50.5703125" x="14.71484375" y="11.015625">nombre</y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <edge id="e0" source="n6" target="n8">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -660,8 +757,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e1" source="n13" target="n7">
-      <data key="d9"/>
+    <edge id="e1" source="n14" target="n8">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -671,8 +767,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e2" source="n0" target="n7">
-      <data key="d9"/>
+    <edge id="e2" source="n1" target="n8">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -682,8 +777,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e3" source="n1" target="n8">
-      <data key="d9"/>
+    <edge id="e3" source="n2" target="n9">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -693,8 +787,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e4" source="n0" target="n8">
-      <data key="d9"/>
+    <edge id="e4" source="n1" target="n9">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -704,8 +797,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e5" source="n2" target="n9">
-      <data key="d9"/>
+    <edge id="e5" source="n3" target="n10">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -715,8 +807,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e6" source="n3" target="n9">
-      <data key="d9"/>
+    <edge id="e6" source="n4" target="n10">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -726,8 +817,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e7" source="n9" target="n4">
-      <data key="d9"/>
+    <edge id="e7" source="n10" target="n5">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -737,8 +827,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e8" source="n0" target="n10">
-      <data key="d9"/>
+    <edge id="e8" source="n1" target="n11">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -748,8 +837,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e9" source="n2" target="n10">
-      <data key="d9"/>
+    <edge id="e9" source="n3" target="n11">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -759,8 +847,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e10" source="n6" target="n12">
-      <data key="d9"/>
+    <edge id="e10" source="n7" target="n13">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -770,8 +857,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e11" source="n5" target="n12">
-      <data key="d9"/>
+    <edge id="e11" source="n6" target="n13">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -781,8 +867,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e12" source="n13" target="n15">
-      <data key="d9"/>
+    <edge id="e12" source="n14" target="n16">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -792,8 +877,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e13" source="n14" target="n15">
-      <data key="d9"/>
+    <edge id="e13" source="n15" target="n16">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -803,8 +887,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e14" source="n15" target="n16">
-      <data key="d9"/>
+    <edge id="e14" source="n16" target="n17">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -814,8 +897,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e15" source="n17" target="n11">
-      <data key="d9"/>
+    <edge id="e15" source="n0" target="n12">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -825,8 +907,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e16" source="n3" target="n11">
-      <data key="d9"/>
+    <edge id="e16" source="n4" target="n12">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -836,8 +917,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e17" source="n4" target="n19">
-      <data key="d9"/>
+    <edge id="e17" source="n5" target="n19">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -848,7 +928,6 @@ control</y:NodeLabel>
       </data>
     </edge>
     <edge id="e18" source="n18" target="n19">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -859,7 +938,6 @@ control</y:NodeLabel>
       </data>
     </edge>
     <edge id="e19" source="n20" target="n21">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -869,19 +947,17 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e20" source="n4" target="n21">
-      <data key="d9"/>
+    <edge id="e20" source="n5" target="n21">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="crows_foot_one_mandatory" target="none"/>
+          <y:Arrows source="crows_foot_many_mandatory" target="none"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e21" source="n4" target="n22">
-      <data key="d9"/>
+    <edge id="e21" source="n5" target="n22">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -892,7 +968,6 @@ control</y:NodeLabel>
       </data>
     </edge>
     <edge id="e22" source="n23" target="n22">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -903,7 +978,6 @@ control</y:NodeLabel>
       </data>
     </edge>
     <edge id="e23" source="n24" target="n25">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -914,7 +988,6 @@ control</y:NodeLabel>
       </data>
     </edge>
     <edge id="e24" source="n23" target="n25">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -925,7 +998,6 @@ control</y:NodeLabel>
       </data>
     </edge>
     <edge id="e25" source="n26" target="n27">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -936,7 +1008,6 @@ control</y:NodeLabel>
       </data>
     </edge>
     <edge id="e26" source="n20" target="n27">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -947,7 +1018,6 @@ control</y:NodeLabel>
       </data>
     </edge>
     <edge id="e27" source="n28" target="n29">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -957,8 +1027,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e28" source="n6" target="n29">
-      <data key="d9"/>
+    <edge id="e28" source="n7" target="n29">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -969,7 +1038,6 @@ control</y:NodeLabel>
       </data>
     </edge>
     <edge id="e29" source="n31" target="n30">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -980,7 +1048,6 @@ control</y:NodeLabel>
       </data>
     </edge>
     <edge id="e30" source="n28" target="n30">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -990,8 +1057,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e31" source="n32" target="n0">
-      <data key="d9"/>
+    <edge id="e31" source="n32" target="n1">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1001,8 +1067,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e32" source="n33" target="n0">
-      <data key="d9"/>
+    <edge id="e32" source="n33" target="n1">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1012,8 +1077,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e33" source="n34" target="n1">
-      <data key="d9"/>
+    <edge id="e33" source="n34" target="n2">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1024,7 +1088,6 @@ control</y:NodeLabel>
       </data>
     </edge>
     <edge id="e34" source="n39" target="n31">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1034,8 +1097,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e35" source="n37" target="n6">
-      <data key="d9"/>
+    <edge id="e35" source="n37" target="n7">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1046,7 +1108,6 @@ control</y:NodeLabel>
       </data>
     </edge>
     <edge id="e36" source="n38" target="n28">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1056,8 +1117,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e37" source="n40" target="n4">
-      <data key="d9"/>
+    <edge id="e37" source="n40" target="n5">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1068,7 +1128,6 @@ control</y:NodeLabel>
       </data>
     </edge>
     <edge id="e38" source="n35" target="n23">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1079,7 +1138,6 @@ control</y:NodeLabel>
       </data>
     </edge>
     <edge id="e39" source="n41" target="n18">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1090,7 +1148,6 @@ control</y:NodeLabel>
       </data>
     </edge>
     <edge id="e40" source="n42" target="n20">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1100,8 +1157,7 @@ control</y:NodeLabel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e41" source="n44" target="n14">
-      <data key="d9"/>
+    <edge id="e41" source="n44" target="n15">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="9.53125000000017" ty="-5.0"/>
@@ -1112,7 +1168,6 @@ control</y:NodeLabel>
       </data>
     </edge>
     <edge id="e42" source="n43" target="n26">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1123,7 +1178,6 @@ control</y:NodeLabel>
       </data>
     </edge>
     <edge id="e43" source="n35" target="n23">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1134,6 +1188,126 @@ control</y:NodeLabel>
       </data>
     </edge>
     <edge id="e44" source="n36" target="n24">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="none"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e45" source="n45" target="n1">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="none"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e46" source="n46" target="n1">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="none"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e47" source="n47" target="n6">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="none"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e48" source="n48" target="n2">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="none"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e49" source="n49" target="n23">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="none"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e50" source="n50" target="n7">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="none"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e51" source="n51" target="n28">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="none"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e52" source="n52" target="n26">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="none"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e53" source="n53" target="n15">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="none"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e54" source="n54" target="n31">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="none"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e55" source="n55" target="n20">
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
