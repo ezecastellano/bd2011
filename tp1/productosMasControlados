@@ -1,0 +1,28 @@
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `mydb`.`productosMasControlados`$$
+CREATE PROCEDURE `mydb`.`productosMasControlados` ()
+BEGIN
+
+	SELECT nombre
+	FROM producto
+	RIGHT JOIN (
+		SELECT idproducto,MAX(cant_med)
+		FROM (
+			SELECT idproducto,SUM(cant_medida) cant_med
+			FROM (
+				(SELECT idproducto, COUNT(idmedida) cant_medida
+				FROM medida-producto
+				GROUP BY idproducto)
+				
+				UNION ALL
+				
+				(SELECT idproducto,COUNT(idmedida)
+				FROM extranjero_pais-medpp
+				GROUP BY idproducto)
+				)
+		GROUP BY idproducto
+
+END$$
+
+DELIMITER ;
