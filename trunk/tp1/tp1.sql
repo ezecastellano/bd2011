@@ -2498,6 +2498,31 @@ END $$
 DELIMITER ;
 
 
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `mydb`.`prodMasMC` $$
+CREATE PROCEDURE `mydb`.`prodMasMC` ()
+BEGIN
+SELECT  p.nombre,b.cantidad
+	FROM
+	producto p,
+	(SELECT idproducto, count(*) as cantidad
+		FROM
+		((SELECT idproducto,idmedida FROM `medida-producto`) UNION ALL (SELECT idproducto,idmedida FROM `extranjero_pais-medpp`)) a, medida c
+			WHERE  a.idmedida = c.idmedida AND c.enVigencia=1
+			GROUP BY idproducto) b,
+	(SELECT MAX(cantidad) maximo FROM 
+		(SELECT idproducto, count(*) as cantidad
+			FROM
+			((SELECT idproducto,idmedida FROM `medida-producto`) UNION ALL (SELECT idproducto,idmedida FROM `extranjero_pais-medpp`)) a, medida c
+				WHERE  a.idmedida = c.idmedida AND c.enVigencia=1
+				GROUP BY idproducto) b) n
+		WHERE p.idproducto = b.idproducto and n.maximo=b.cantidad;
+END $$
+
+DELIMITER ;
+
+
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
