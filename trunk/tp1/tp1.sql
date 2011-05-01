@@ -1,7 +1,7 @@
 -- MySQL Administrator dump 1.4
 --
 -- ------------------------------------------------------
--- Server version	5.5.11
+-- Server version	5.1.54-1ubuntu4
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -20,13 +20,7 @@
 
 CREATE DATABASE IF NOT EXISTS mydb;
 USE mydb;
-
---
--- Definition of table `auditoria`
---
-
-DROP TABLE IF EXISTS `auditoria`;
-CREATE TABLE `auditoria` (
+CREATE TABLE  `mydb`.`auditoria` (
   `idauditoria` int(11) NOT NULL AUTO_INCREMENT,
   `modificacion` text,
   `nombreusuario` char(30) DEFAULT NULL,
@@ -37,17 +31,7 @@ CREATE TABLE `auditoria` (
   CONSTRAINT `fk_auditoria_1` FOREIGN KEY (`nombreusuario`) REFERENCES `usuario` (`nombreusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_auditoria_2` FOREIGN KEY (`idmedida`) REFERENCES `medida` (`idmedida`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `auditoria`
---
-
---
--- Definition of table `extranjero_pais-medpp`
---
-
-DROP TABLE IF EXISTS `extranjero_pais-medpp`;
-CREATE TABLE `extranjero_pais-medpp` (
+CREATE TABLE  `mydb`.`extranjero_pais-medpp` (
   `idproducto` int(11) NOT NULL,
   `idmedida` int(11) NOT NULL,
   `idpais` int(11) NOT NULL,
@@ -59,17 +43,15 @@ CREATE TABLE `extranjero_pais-medpp` (
   CONSTRAINT `fk_ext_pais_medpp_2` FOREIGN KEY (`idmedida`) REFERENCES `medida_por_prod_pais` (`idmedida`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_ext_pais_medpp_3` FOREIGN KEY (`idpais`) REFERENCES `pais` (`idpais`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `extranjero_pais-medpp`
---
-INSERT INTO `extranjero_pais-medpp` (`idproducto`,`idmedida`,`idpais`) VALUES 
- (1,2,40),
- (3,4,62),
+INSERT INTO `mydb`.`extranjero_pais-medpp` VALUES  (1,2,40),
  (12,5,73),
  (28,9,60),
- (42,12,80),
+ (42,4,4),
+ (42,4,62),
+ (42,9,88),
  (42,14,202),
+ (42,16,49),
+ (42,17,80),
  (43,5,196),
  (43,15,73),
  (66,9,43),
@@ -89,13 +71,7 @@ INSERT INTO `extranjero_pais-medpp` (`idproducto`,`idmedida`,`idpais`) VALUES
  (180,2,81),
  (207,4,88),
  (223,12,94);
-
---
--- Definition of table `fabrica`
---
-
-DROP TABLE IF EXISTS `fabrica`;
-CREATE TABLE `fabrica` (
+CREATE TABLE  `mydb`.`fabrica` (
   `idfabrica` int(11) NOT NULL AUTO_INCREMENT,
   `cantempleados` int(11) DEFAULT NULL,
   `idlocalidad` int(11) DEFAULT NULL,
@@ -103,12 +79,7 @@ CREATE TABLE `fabrica` (
   KEY `fk_fabrica_1` (`idlocalidad`),
   CONSTRAINT `fk_fabrica_1` FOREIGN KEY (`idlocalidad`) REFERENCES `localidad` (`idlocalidad`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `fabrica`
---
-INSERT INTO `fabrica` (`idfabrica`,`cantempleados`,`idlocalidad`) VALUES 
- (1,27,1),
+INSERT INTO `mydb`.`fabrica` VALUES  (1,27,1),
  (2,15,2),
  (3,54,3),
  (4,20,4),
@@ -128,13 +99,7 @@ INSERT INTO `fabrica` (`idfabrica`,`cantempleados`,`idlocalidad`) VALUES
  (18,30,14),
  (19,10,53),
  (20,12,340);
-
---
--- Definition of table `localidad`
---
-
-DROP TABLE IF EXISTS `localidad`;
-CREATE TABLE `localidad` (
+CREATE TABLE  `mydb`.`localidad` (
   `idlocalidad` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   `idprovincia` int(11) DEFAULT NULL,
@@ -142,12 +107,7 @@ CREATE TABLE `localidad` (
   KEY `fk_localidad_1` (`idprovincia`),
   CONSTRAINT `fk_localidad_1` FOREIGN KEY (`idprovincia`) REFERENCES `provincia` (`idprovincia`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=575 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `localidad`
---
-INSERT INTO `localidad` (`idlocalidad`,`nombre`,`idprovincia`) VALUES 
- (1,'AZUL',1),
+INSERT INTO `mydb`.`localidad` VALUES  (1,'AZUL',1),
  (2,'PUAN',1),
  (3,'LA MATANZA',1),
  (4,'TIGRE',1),
@@ -721,50 +681,37 @@ INSERT INTO `localidad` (`idlocalidad`,`nombre`,`idprovincia`) VALUES
  (572,'GRANEROS',23),
  (573,'FAMAILLA',23),
  (574,'CAPITAL',23);
-
---
--- Definition of table `medida`
---
-
-DROP TABLE IF EXISTS `medida`;
-CREATE TABLE `medida` (
+CREATE TABLE  `mydb`.`medida` (
   `idmedida` int(11) NOT NULL,
   `idnorma` int(11) DEFAULT NULL,
   `idtipo` int(11) DEFAULT NULL,
   `tipo` enum('P','PP') DEFAULT NULL,
+  `enVigencia` tinyint(1) NOT NULL,
   PRIMARY KEY (`idmedida`),
   KEY `fk_medida_1` (`idnorma`),
   KEY `fk_medida_2` (`idtipo`),
   CONSTRAINT `fk_medida_1` FOREIGN KEY (`idnorma`) REFERENCES `norma` (`idnorma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_medida_2` FOREIGN KEY (`idtipo`) REFERENCES `tipo` (`idtipo`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `medida`
---
-INSERT INTO `medida` (`idmedida`,`idnorma`,`idtipo`,`tipo`) VALUES 
- (1,1,1,'P'),
- (2,2,1,'PP'),
- (3,3,1,'P'),
- (4,1,2,'PP'),
- (5,2,2,'PP'),
- (6,3,3,'P'),
- (7,1,3,'P'),
- (8,2,3,'P'),
- (9,1,4,'PP'),
- (10,3,4,'P'),
- (11,1,2,'P'),
- (12,2,4,'PP'),
- (13,3,2,'P'),
- (14,3,3,'PP'),
- (15,3,4,'PP');
-
---
--- Definition of table `medida-producto`
---
-
-DROP TABLE IF EXISTS `medida-producto`;
-CREATE TABLE `medida-producto` (
+INSERT INTO `mydb`.`medida` VALUES  (0,NULL,NULL,NULL,1),
+ (1,1,1,'P',1),
+ (2,2,1,'PP',1),
+ (3,3,1,'P',1),
+ (4,1,2,'PP',1),
+ (5,2,2,'PP',1),
+ (6,3,3,'P',1),
+ (7,1,3,'P',1),
+ (8,2,3,'P',1),
+ (9,1,4,'PP',1),
+ (10,3,4,'P',1),
+ (11,1,2,'P',1),
+ (12,2,4,'PP',1),
+ (13,3,2,'P',1),
+ (14,3,3,'PP',1),
+ (15,3,4,'PP',0),
+ (16,3,1,'PP',1),
+ (17,3,3,'PP',1);
+CREATE TABLE  `mydb`.`medida-producto` (
   `idproducto` int(11) NOT NULL,
   `idmedida` int(11) NOT NULL,
   PRIMARY KEY (`idproducto`,`idmedida`),
@@ -773,12 +720,7 @@ CREATE TABLE `medida-producto` (
   CONSTRAINT `fk_medida_producto_1` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_medida_producto_2` FOREIGN KEY (`idmedida`) REFERENCES `medida_por_producto` (`idmedida`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `medida-producto`
---
-INSERT INTO `medida-producto` (`idproducto`,`idmedida`) VALUES 
- (11,1),
+INSERT INTO `mydb`.`medida-producto` VALUES  (11,1),
  (12,2),
  (22,9),
  (23,8),
@@ -795,48 +737,28 @@ INSERT INTO `medida-producto` (`idproducto`,`idmedida`) VALUES
  (100,5),
  (104,8),
  (123,4);
-
---
--- Definition of table `medida_por_prod_pais`
---
-
-DROP TABLE IF EXISTS `medida_por_prod_pais`;
-CREATE TABLE `medida_por_prod_pais` (
+CREATE TABLE  `mydb`.`medida_por_prod_pais` (
   `idmedida` int(11) NOT NULL,
   PRIMARY KEY (`idmedida`),
   KEY `fk_medida_por_prod_pais_1` (`idmedida`),
   CONSTRAINT `fk_medida_por_prod_pais_1` FOREIGN KEY (`idmedida`) REFERENCES `medida` (`idmedida`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `medida_por_prod_pais`
---
-INSERT INTO `medida_por_prod_pais` (`idmedida`) VALUES 
- (2),
+INSERT INTO `mydb`.`medida_por_prod_pais` VALUES  (2),
  (4),
  (5),
  (9),
  (12),
  (14),
- (15);
-
---
--- Definition of table `medida_por_producto`
---
-
-DROP TABLE IF EXISTS `medida_por_producto`;
-CREATE TABLE `medida_por_producto` (
+ (15),
+ (16),
+ (17);
+CREATE TABLE  `mydb`.`medida_por_producto` (
   `idmedida` int(11) NOT NULL,
   PRIMARY KEY (`idmedida`),
   KEY `fk_medida_por_producto_1` (`idmedida`),
   CONSTRAINT `fk_medida_por_producto_1` FOREIGN KEY (`idmedida`) REFERENCES `medida` (`idmedida`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `medida_por_producto`
---
-INSERT INTO `medida_por_producto` (`idmedida`) VALUES 
- (1),
+INSERT INTO `mydb`.`medida_por_producto` VALUES  (1),
  (2),
  (3),
  (4),
@@ -846,60 +768,27 @@ INSERT INTO `medida_por_producto` (`idmedida`) VALUES
  (8),
  (9),
  (10);
-
---
--- Definition of table `norma`
---
-
-DROP TABLE IF EXISTS `norma`;
-CREATE TABLE `norma` (
+CREATE TABLE  `mydb`.`norma` (
   `idnorma` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`idnorma`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `norma`
---
-INSERT INTO `norma` (`idnorma`) VALUES 
- (1),
+INSERT INTO `mydb`.`norma` VALUES  (1),
  (2),
  (3);
-
---
--- Definition of table `organismo`
---
-
-DROP TABLE IF EXISTS `organismo`;
-CREATE TABLE `organismo` (
+CREATE TABLE  `mydb`.`organismo` (
   `idorganismo` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idorganismo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `organismo`
---
-INSERT INTO `organismo` (`idorganismo`,`nombre`) VALUES 
- (1,'indec'),
+INSERT INTO `mydb`.`organismo` VALUES  (1,'indec'),
  (2,'controladores anonimos'),
  (3,'seguro lo rechaza');
-
---
--- Definition of table `pais`
---
-
-DROP TABLE IF EXISTS `pais`;
-CREATE TABLE `pais` (
+CREATE TABLE  `mydb`.`pais` (
   `idpais` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idpais`)
 ) ENGINE=InnoDB AUTO_INCREMENT=241 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `pais`
---
-INSERT INTO `pais` (`idpais`,`nombre`) VALUES 
- (1,'Afganistán'),
+INSERT INTO `mydb`.`pais` VALUES  (1,'Afganistán'),
  (2,'Islas Gland'),
  (3,'Albania'),
  (4,'Alemania'),
@@ -1139,13 +1028,7 @@ INSERT INTO `pais` (`idpais`,`nombre`) VALUES
  (238,'Yibuti'),
  (239,'Zambia'),
  (240,'Zimbabue');
-
---
--- Definition of table `prod_extranjero-pais`
---
-
-DROP TABLE IF EXISTS `prod_extranjero-pais`;
-CREATE TABLE `prod_extranjero-pais` (
+CREATE TABLE  `mydb`.`prod_extranjero-pais` (
   `idproducto` int(11) NOT NULL,
   `idpais` int(11) NOT NULL,
   `cantanual` float DEFAULT NULL,
@@ -1155,12 +1038,7 @@ CREATE TABLE `prod_extranjero-pais` (
   CONSTRAINT `fk_prod_extranjero_pais_1` FOREIGN KEY (`idproducto`) REFERENCES `producto_extranjero` (`productid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_prod_extranjero_pais_2` FOREIGN KEY (`idpais`) REFERENCES `pais` (`idpais`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `prod_extranjero-pais`
---
-INSERT INTO `prod_extranjero-pais` (`idproducto`,`idpais`,`cantanual`) VALUES 
- (1,40,23),
+INSERT INTO `mydb`.`prod_extranjero-pais` VALUES  (1,40,23),
  (3,62,45),
  (12,73,56),
  (28,60,43),
@@ -1185,13 +1063,7 @@ INSERT INTO `prod_extranjero-pais` (`idproducto`,`idpais`,`cantanual`) VALUES
  (180,81,108),
  (207,88,115),
  (223,94,121);
-
---
--- Definition of table `prod_nacional_fabrica`
---
-
-DROP TABLE IF EXISTS `prod_nacional_fabrica`;
-CREATE TABLE `prod_nacional_fabrica` (
+CREATE TABLE  `mydb`.`prod_nacional_fabrica` (
   `idproducto` int(11) NOT NULL,
   `idfabrica` int(11) NOT NULL,
   PRIMARY KEY (`idproducto`,`idfabrica`),
@@ -1200,12 +1072,7 @@ CREATE TABLE `prod_nacional_fabrica` (
   CONSTRAINT `fk_prod_nacional_fabrica_1` FOREIGN KEY (`idproducto`) REFERENCES `producto_nacional` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_prod_nacional_fabrica_2` FOREIGN KEY (`idfabrica`) REFERENCES `fabrica` (`idfabrica`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `prod_nacional_fabrica`
---
-INSERT INTO `prod_nacional_fabrica` (`idproducto`,`idfabrica`) VALUES 
- (11,11),
+INSERT INTO `mydb`.`prod_nacional_fabrica` VALUES  (11,11),
  (12,12),
  (22,5),
  (23,8),
@@ -1229,13 +1096,7 @@ INSERT INTO `prod_nacional_fabrica` (`idproducto`,`idfabrica`) VALUES
  (206,3),
  (206,19),
  (206,20);
-
---
--- Definition of table `producto`
---
-
-DROP TABLE IF EXISTS `producto`;
-CREATE TABLE `producto` (
+CREATE TABLE  `mydb`.`producto` (
   `idproducto` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   `descripcion` varchar(45) DEFAULT NULL,
@@ -1248,12 +1109,7 @@ CREATE TABLE `producto` (
   CONSTRAINT `fk_producto_rubro` FOREIGN KEY (`rubro_idrubro`) REFERENCES `rubro` (`idrubro`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_producto_udemedida` FOREIGN KEY (`umedida`) REFERENCES `udemedida` (`udemedida`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=225 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `producto`
---
-INSERT INTO `producto` (`idproducto`,`nombre`,`descripcion`,`umedida`,`tipo`,`rubro_idrubro`) VALUES 
- (1,'Albaricoque','','kg','E',4),
+INSERT INTO `mydb`.`producto` VALUES  (1,'Albaricoque','','kg','E',4),
  (2,'Arandanos','','kg','N',4),
  (3,'Cereza','','kg','E',4),
  (4,'Ciruela Amarilla','','kg','N',4),
@@ -1477,24 +1333,13 @@ INSERT INTO `producto` (`idproducto`,`nombre`,`descripcion`,`umedida`,`tipo`,`ru
  (222,'Vermut','','ml','E',2),
  (223,'Vodka','','ml','E',2),
  (224,'Whisky','','l','E',2);
-
---
--- Definition of table `producto_extranjero`
---
-
-DROP TABLE IF EXISTS `producto_extranjero`;
-CREATE TABLE `producto_extranjero` (
+CREATE TABLE  `mydb`.`producto_extranjero` (
   `productid` int(11) NOT NULL,
   PRIMARY KEY (`productid`),
   KEY `fk_producto_extranjero_1` (`productid`),
   CONSTRAINT `fk_producto_extranjero_1` FOREIGN KEY (`productid`) REFERENCES `producto` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `producto_extranjero`
---
-INSERT INTO `producto_extranjero` (`productid`) VALUES 
- (1),
+INSERT INTO `mydb`.`producto_extranjero` VALUES  (1),
  (3),
  (12),
  (28),
@@ -1509,25 +1354,14 @@ INSERT INTO `producto_extranjero` (`productid`) VALUES
  (180),
  (207),
  (223);
-
---
--- Definition of table `producto_nacional`
---
-
-DROP TABLE IF EXISTS `producto_nacional`;
-CREATE TABLE `producto_nacional` (
+CREATE TABLE  `mydb`.`producto_nacional` (
   `idproducto` int(11) NOT NULL,
   `cantpuestos` float DEFAULT NULL,
   PRIMARY KEY (`idproducto`),
   KEY `fk_producto nacional_1` (`idproducto`),
   CONSTRAINT `fk_producto nacional_1` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `producto_nacional`
---
-INSERT INTO `producto_nacional` (`idproducto`,`cantpuestos`) VALUES 
- (11,11),
+INSERT INTO `mydb`.`producto_nacional` VALUES  (11,11),
  (12,12),
  (22,5),
  (23,8),
@@ -1546,23 +1380,12 @@ INSERT INTO `producto_nacional` (`idproducto`,`cantpuestos`) VALUES
  (123,4),
  (200,31),
  (206,7);
-
---
--- Definition of table `provincia`
---
-
-DROP TABLE IF EXISTS `provincia`;
-CREATE TABLE `provincia` (
+CREATE TABLE  `mydb`.`provincia` (
   `idprovincia` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idprovincia`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `provincia`
---
-INSERT INTO `provincia` (`idprovincia`,`nombre`) VALUES 
- (1,'Buenos Aires'),
+INSERT INTO `mydb`.`provincia` VALUES  (1,'Buenos Aires'),
  (2,'Catamarca'),
  (3,'Chaco'),
  (4,'Chubut'),
@@ -1585,34 +1408,17 @@ INSERT INTO `provincia` (`idprovincia`,`nombre`) VALUES
  (21,'Santiago del Estero'),
  (22,'Tierra del Fuego'),
  (23,'Tucuman');
-
---
--- Definition of table `rubro`
---
-
-DROP TABLE IF EXISTS `rubro`;
-CREATE TABLE `rubro` (
+CREATE TABLE  `mydb`.`rubro` (
   `idrubro` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idrubro`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `rubro`
---
-INSERT INTO `rubro` (`idrubro`,`nombre`) VALUES 
- (1,'Ganaderia'),
+INSERT INTO `mydb`.`rubro` VALUES  (1,'Ganaderia'),
  (2,'Alimento'),
  (3,'Bebida'),
  (4,'Agropecuario'),
  (5,'Pesca');
-
---
--- Definition of table `tipo`
---
-
-DROP TABLE IF EXISTS `tipo`;
-CREATE TABLE `tipo` (
+CREATE TABLE  `mydb`.`tipo` (
   `idtipo` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   `idorganismo` int(11) DEFAULT NULL,
@@ -1620,31 +1426,15 @@ CREATE TABLE `tipo` (
   KEY `fk_tipo_1` (`idorganismo`),
   CONSTRAINT `fk_tipo_1` FOREIGN KEY (`idorganismo`) REFERENCES `organismo` (`idorganismo`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `tipo`
---
-INSERT INTO `tipo` (`idtipo`,`nombre`,`idorganismo`) VALUES 
- (1,'monetaria',1),
+INSERT INTO `mydb`.`tipo` VALUES  (1,'monetaria',1),
  (2,'vencimiento',2),
  (3,'ingrediente',3),
  (4,'vacunacion',2);
-
---
--- Definition of table `udemedida`
---
-
-DROP TABLE IF EXISTS `udemedida`;
-CREATE TABLE `udemedida` (
+CREATE TABLE  `mydb`.`udemedida` (
   `udemedida` varchar(8) NOT NULL,
   PRIMARY KEY (`udemedida`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `udemedida`
---
-INSERT INTO `udemedida` (`udemedida`) VALUES 
- ('cm'),
+INSERT INTO `mydb`.`udemedida` VALUES  ('cm'),
  ('g'),
  ('kg'),
  ('km'),
@@ -1652,20 +1442,33 @@ INSERT INTO `udemedida` (`udemedida`) VALUES
  ('m'),
  ('ml'),
  ('tn');
-
---
--- Definition of table `usuario`
---
-
-DROP TABLE IF EXISTS `usuario`;
-CREATE TABLE `usuario` (
+CREATE TABLE  `mydb`.`usuario` (
   `nombreusuario` char(30) NOT NULL,
   PRIMARY KEY (`nombreusuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `usuario`
---
+DELIMITER $$
+
+/*!50003 SET @TEMP_SQL_MODE=@@SQL_MODE, SQL_MODE='' */ $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE  `mydb`.`prodTodasMC`()
+BEGIN
+		SELECT  p.nombre
+		FROM
+			producto p,
+			(
+				SELECT DISTINCT idproducto, idtipo 
+				FROM 
+					((SELECT idproducto,idmedida FROM `medida-producto`) UNION ALL (SELECT idproducto,idmedida FROM `extranjero_pais-medpp`)) a, medida c 
+					  WHERE  a.idmedida = c.idmedida AND c.enVigencia="1"
+			)  b
+		WHERE p.idproducto = b.idproducto
+		GROUP BY b.idproducto
+		HAVING COUNT(*) = (select COUNT(idtipo) from tipo);
+
+END $$
+/*!50003 SET SESSION SQL_MODE=@TEMP_SQL_MODE */  $$
+
+DELIMITER ;
 
 
 
