@@ -5,23 +5,26 @@ CREATE PROCEDURE `mydb`.`productosMasControlados` ()
 BEGIN
 
 	SELECT nombre
-	FROM producto
+	FROM producto p
 	RIGHT JOIN (
 		SELECT idproducto,MAX(cant_med)
 		FROM (
 			SELECT idproducto,SUM(cant_medida) cant_med
 			FROM (
-				(SELECT idproducto, COUNT(idmedida) cant_medida
-				FROM medida-producto
-				GROUP BY idproducto)
-				
-				UNION ALL
-				
-				(SELECT idproducto,COUNT(idmedida)
-				FROM extranjero_pais-medpp
-				GROUP BY idproducto)
-				)
-		GROUP BY idproducto
+				    (SELECT idproducto, COUNT(idmedida) cant_medida
+				     FROM `medida-producto`
+             GROUP BY idproducto)
+
+             UNION ALL
+
+    				(SELECT idproducto,COUNT(idmedida)
+		     		FROM `extranjero_pais-medpp`
+             GROUP BY idproducto)
+            ) g
+       ) f
+
+   ) d ON d.idproducto=p.idproducto
+		GROUP BY p.idproducto;
 
 END$$
 
