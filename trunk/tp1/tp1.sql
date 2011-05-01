@@ -1,7 +1,7 @@
 -- MySQL Administrator dump 1.4
 --
 -- ------------------------------------------------------
--- Server version	5.1.54-1ubuntu4
+-- Server version	5.5.11
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -20,7 +20,13 @@
 
 CREATE DATABASE IF NOT EXISTS mydb;
 USE mydb;
-CREATE TABLE  `mydb`.`auditoria` (
+
+--
+-- Definition of table `auditoria`
+--
+
+DROP TABLE IF EXISTS `auditoria`;
+CREATE TABLE `auditoria` (
   `idauditoria` int(11) NOT NULL AUTO_INCREMENT,
   `modificacion` text,
   `nombreusuario` char(30) DEFAULT NULL,
@@ -31,7 +37,17 @@ CREATE TABLE  `mydb`.`auditoria` (
   CONSTRAINT `fk_auditoria_1` FOREIGN KEY (`nombreusuario`) REFERENCES `usuario` (`nombreusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_auditoria_2` FOREIGN KEY (`idmedida`) REFERENCES `medida` (`idmedida`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-CREATE TABLE  `mydb`.`extranjero_pais-medpp` (
+
+--
+-- Dumping data for table `auditoria`
+--
+
+--
+-- Definition of table `extranjero_pais-medpp`
+--
+
+DROP TABLE IF EXISTS `extranjero_pais-medpp`;
+CREATE TABLE `extranjero_pais-medpp` (
   `idproducto` int(11) NOT NULL,
   `idmedida` int(11) NOT NULL,
   `idpais` int(11) NOT NULL,
@@ -43,35 +59,242 @@ CREATE TABLE  `mydb`.`extranjero_pais-medpp` (
   CONSTRAINT `fk_ext_pais_medpp_2` FOREIGN KEY (`idmedida`) REFERENCES `medida_por_prod_pais` (`idmedida`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_ext_pais_medpp_3` FOREIGN KEY (`idpais`) REFERENCES `pais` (`idpais`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`extranjero_pais-medpp` VALUES  (1,2,40),
+
+--
+-- Dumping data for table `extranjero_pais-medpp`
+--
+INSERT INTO `extranjero_pais-medpp` (`idproducto`,`idmedida`,`idpais`) VALUES 
+ (1,2,1),
+ (1,2,40),
+ (3,4,2),
+ (3,4,62),
+ (5,5,4),
+ (8,5,142),
+ (8,5,222),
+ (8,9,6),
  (12,5,73),
+ (12,9,143),
+ (12,9,232),
+ (12,12,7),
+ (13,12,144),
+ (13,12,175),
+ (13,14,8),
+ (14,14,145),
+ (14,14,175),
+ (14,15,9),
+ (15,2,10),
+ (15,15,146),
+ (15,15,200),
+ (17,2,147),
+ (17,2,222),
+ (17,4,11),
+ (17,4,106),
+ (19,4,148),
+ (19,4,232),
+ (19,5,12),
+ (19,5,144),
+ (22,5,149),
+ (22,5,175),
+ (22,9,13),
+ (22,9,145),
+ (26,9,150),
+ (26,9,175),
+ (26,12,14),
+ (26,12,146),
+ (27,5,15),
+ (27,5,147),
+ (27,12,151),
+ (27,12,201),
+ (28,5,152),
+ (28,9,16),
  (28,9,60),
- (42,4,4),
- (42,4,62),
- (42,9,88),
+ (28,9,148),
+ (28,14,202),
+ (29,2,17),
+ (29,2,149),
+ (29,9,153),
+ (29,15,203),
+ (31,2,204),
+ (31,4,18),
+ (31,4,150),
+ (33,4,205),
+ (33,5,19),
+ (33,5,151),
+ (36,5,206),
+ (36,9,20),
+ (36,9,152),
+ (40,9,207),
+ (40,12,21),
+ (40,12,153),
+ (41,12,208),
+ (41,14,22),
+ (41,14,154),
+ (42,5,209),
+ (42,12,80),
  (42,14,202),
- (42,16,49),
- (42,17,80),
+ (42,15,23),
+ (42,15,155),
+ (43,2,24),
  (43,5,196),
  (43,15,73),
+ (45,4,25),
+ (47,5,26),
+ (50,9,27),
+ (54,12,28),
+ (55,5,29),
+ (56,9,30),
+ (59,2,31),
+ (63,4,32),
+ (64,5,33),
+ (65,9,34),
  (66,9,43),
+ (66,12,35),
  (66,12,144),
  (66,14,170),
  (68,2,151),
  (68,4,176),
+ (68,14,36),
  (68,15,49),
+ (70,15,37),
+ (73,2,38),
+ (76,4,39),
+ (91,5,40),
+ (92,9,41),
+ (93,12,42),
+ (99,5,43),
+ (100,9,44),
+ (105,2,45),
+ (106,4,46),
  (107,2,56),
  (107,4,157),
+ (107,5,47),
  (107,14,183),
+ (113,9,48),
  (114,5,164),
+ (114,12,49),
  (114,15,62),
  (114,15,189),
+ (119,14,50),
+ (120,15,51),
+ (121,2,52),
+ (127,4,53),
+ (128,5,54),
+ (129,9,55),
+ (135,12,56),
+ (140,5,57),
+ (141,9,58),
+ (142,2,59),
+ (143,4,60),
+ (144,5,61),
+ (149,9,62),
+ (150,12,63),
+ (151,14,64),
+ (152,15,65),
+ (153,2,66),
+ (153,2,156),
+ (158,4,67),
+ (158,4,120),
+ (159,5,68),
+ (159,5,121),
+ (160,2,154),
+ (160,4,162),
+ (160,9,69),
+ (160,9,122),
+ (160,12,158),
  (161,2,68),
+ (161,2,70),
+ (161,4,155),
+ (161,5,163),
+ (161,12,123),
+ (161,14,159),
+ (162,4,71),
+ (162,5,124),
+ (162,5,156),
+ (162,5,166),
+ (162,9,164),
+ (162,15,160),
+ (167,2,161),
+ (167,5,72),
+ (167,9,125),
+ (167,9,157),
+ (167,9,167),
+ (167,12,165),
+ (168,2,126),
+ (168,2,168),
+ (168,9,73),
+ (169,4,127),
+ (169,4,169),
+ (169,12,74),
+ (170,5,128),
+ (170,5,170),
+ (170,14,75),
+ (171,9,129),
+ (171,9,171),
+ (171,15,76),
+ (176,2,77),
  (176,4,75),
+ (176,12,130),
+ (176,12,172),
+ (177,4,78),
+ (177,14,131),
+ (177,14,173),
+ (178,5,79),
+ (178,15,132),
+ (178,15,174),
+ (179,2,133),
+ (179,2,175),
+ (179,9,80),
  (180,2,81),
+ (180,4,134),
+ (180,4,176),
+ (180,12,81),
+ (185,5,82),
+ (185,5,135),
+ (185,5,177),
+ (186,9,83),
+ (186,9,136),
+ (186,9,178),
+ (187,2,84),
+ (187,12,137),
+ (187,12,179),
+ (188,4,85),
+ (188,5,138),
+ (188,5,200),
+ (189,5,124),
+ (189,9,139),
+ (189,9,230),
+ (194,2,140),
+ (194,2,175),
+ (194,9,125),
+ (195,4,141),
+ (195,4,200),
+ (195,12,126),
+ (196,14,127),
+ (197,15,90),
+ (198,2,91),
+ (203,4,92),
+ (204,5,93),
+ (205,9,94),
+ (206,12,95),
  (207,4,88),
- (223,12,94);
-CREATE TABLE  `mydb`.`fabrica` (
+ (207,5,96),
+ (212,9,97),
+ (213,2,98),
+ (214,4,99),
+ (215,5,100),
+ (216,9,101),
+ (221,12,102),
+ (222,14,103),
+ (223,12,94),
+ (223,15,104),
+ (224,2,105);
+
+--
+-- Definition of table `fabrica`
+--
+
+DROP TABLE IF EXISTS `fabrica`;
+CREATE TABLE `fabrica` (
   `idfabrica` int(11) NOT NULL AUTO_INCREMENT,
   `cantempleados` int(11) DEFAULT NULL,
   `idlocalidad` int(11) DEFAULT NULL,
@@ -79,7 +302,12 @@ CREATE TABLE  `mydb`.`fabrica` (
   KEY `fk_fabrica_1` (`idlocalidad`),
   CONSTRAINT `fk_fabrica_1` FOREIGN KEY (`idlocalidad`) REFERENCES `localidad` (`idlocalidad`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`fabrica` VALUES  (1,27,1),
+
+--
+-- Dumping data for table `fabrica`
+--
+INSERT INTO `fabrica` (`idfabrica`,`cantempleados`,`idlocalidad`) VALUES 
+ (1,27,1),
  (2,15,2),
  (3,54,3),
  (4,20,4),
@@ -99,7 +327,13 @@ INSERT INTO `mydb`.`fabrica` VALUES  (1,27,1),
  (18,30,14),
  (19,10,53),
  (20,12,340);
-CREATE TABLE  `mydb`.`localidad` (
+
+--
+-- Definition of table `localidad`
+--
+
+DROP TABLE IF EXISTS `localidad`;
+CREATE TABLE `localidad` (
   `idlocalidad` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   `idprovincia` int(11) DEFAULT NULL,
@@ -107,7 +341,12 @@ CREATE TABLE  `mydb`.`localidad` (
   KEY `fk_localidad_1` (`idprovincia`),
   CONSTRAINT `fk_localidad_1` FOREIGN KEY (`idprovincia`) REFERENCES `provincia` (`idprovincia`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=575 DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`localidad` VALUES  (1,'AZUL',1),
+
+--
+-- Dumping data for table `localidad`
+--
+INSERT INTO `localidad` (`idlocalidad`,`nombre`,`idprovincia`) VALUES 
+ (1,'AZUL',1),
  (2,'PUAN',1),
  (3,'LA MATANZA',1),
  (4,'TIGRE',1),
@@ -681,7 +920,13 @@ INSERT INTO `mydb`.`localidad` VALUES  (1,'AZUL',1),
  (572,'GRANEROS',23),
  (573,'FAMAILLA',23),
  (574,'CAPITAL',23);
-CREATE TABLE  `mydb`.`medida` (
+
+--
+-- Definition of table `medida`
+--
+
+DROP TABLE IF EXISTS `medida`;
+CREATE TABLE `medida` (
   `idmedida` int(11) NOT NULL,
   `idnorma` int(11) DEFAULT NULL,
   `idtipo` int(11) DEFAULT NULL,
@@ -693,6 +938,10 @@ CREATE TABLE  `mydb`.`medida` (
   CONSTRAINT `fk_medida_1` FOREIGN KEY (`idnorma`) REFERENCES `norma` (`idnorma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_medida_2` FOREIGN KEY (`idtipo`) REFERENCES `tipo` (`idtipo`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `medida`
+--
 INSERT INTO `mydb`.`medida` VALUES  (0,NULL,NULL,NULL,1),
  (1,1,1,'P',1),
  (2,2,1,'PP',1),
@@ -708,10 +957,14 @@ INSERT INTO `mydb`.`medida` VALUES  (0,NULL,NULL,NULL,1),
  (12,2,4,'PP',1),
  (13,3,2,'P',1),
  (14,3,3,'PP',1),
- (15,3,4,'PP',0),
- (16,3,1,'PP',1),
- (17,3,3,'PP',1);
-CREATE TABLE  `mydb`.`medida-producto` (
+ (15,3,4,'PP',0);
+
+--
+-- Definition of table `medida-producto`
+--
+
+DROP TABLE IF EXISTS `medida-producto`;
+CREATE TABLE `medida-producto` (
   `idproducto` int(11) NOT NULL,
   `idmedida` int(11) NOT NULL,
   PRIMARY KEY (`idproducto`,`idmedida`),
@@ -720,75 +973,243 @@ CREATE TABLE  `mydb`.`medida-producto` (
   CONSTRAINT `fk_medida_producto_1` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_medida_producto_2` FOREIGN KEY (`idmedida`) REFERENCES `medida_por_producto` (`idmedida`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`medida-producto` VALUES  (11,1),
- (12,2),
- (22,9),
+
+--
+-- Dumping data for table `medida-producto`
+--
+INSERT INTO `medida-producto` (`idproducto`,`idmedida`) VALUES 
+ (2,3),
+ (4,3),
+ (6,6),
+ (7,7),
+ (9,8),
+ (10,10),
+ (11,1),
+ (11,11),
+ (16,13),
+ (18,6),
+ (20,3),
+ (21,6),
+ (23,7),
  (23,8),
- (33,6),
- (34,2),
- (41,7),
- (42,1),
- (43,3),
- (56,10),
- (78,5),
- (89,2),
+ (24,8),
+ (25,10),
+ (30,11),
+ (32,13),
+ (34,6),
+ (35,7),
+ (37,7),
+ (38,11),
+ (39,13),
+ (44,3),
+ (46,3),
+ (48,6),
+ (49,7),
+ (51,8),
+ (52,10),
+ (53,11),
+ (57,13),
+ (58,6),
+ (60,3),
+ (61,6),
+ (62,7),
+ (67,8),
+ (69,10),
+ (71,11),
+ (72,13),
+ (74,6),
+ (75,7),
+ (77,7),
+ (78,11),
+ (79,13),
+ (80,3),
+ (81,3),
+ (82,6),
+ (83,7),
+ (84,8),
+ (85,10),
+ (86,11),
+ (87,13),
+ (88,6),
+ (89,3),
+ (90,6),
+ (94,7),
+ (95,8),
+ (96,10),
+ (97,11),
  (98,3),
- (99,4),
- (100,5),
+ (98,13),
+ (101,6),
+ (102,7),
+ (103,7),
  (104,8),
- (123,4);
-CREATE TABLE  `mydb`.`medida_por_prod_pais` (
+ (104,11),
+ (108,13),
+ (109,3),
+ (110,3),
+ (111,6),
+ (112,7),
+ (115,8),
+ (116,10),
+ (117,11),
+ (118,13),
+ (122,6),
+ (123,3),
+ (124,6),
+ (125,7),
+ (126,8),
+ (130,10),
+ (131,11),
+ (132,13),
+ (133,6),
+ (134,7),
+ (136,7),
+ (137,11),
+ (138,13),
+ (139,3),
+ (145,3),
+ (146,6),
+ (147,7),
+ (148,8),
+ (154,10),
+ (155,11),
+ (156,13),
+ (157,6),
+ (163,3),
+ (164,6),
+ (165,7),
+ (166,8),
+ (172,10),
+ (173,11),
+ (174,13),
+ (175,6),
+ (181,7),
+ (182,7),
+ (183,11),
+ (184,13),
+ (190,3),
+ (191,3),
+ (192,6),
+ (193,7),
+ (199,8),
+ (199,10),
+ (200,10),
+ (201,11),
+ (202,13),
+ (208,6),
+ (209,3),
+ (210,6),
+ (211,7),
+ (217,8),
+ (218,7),
+ (218,10),
+ (219,11),
+ (220,10),
+ (220,11),
+ (220,13);
+
+--
+-- Definition of table `medida_por_prod_pais`
+--
+
+DROP TABLE IF EXISTS `medida_por_prod_pais`;
+CREATE TABLE `medida_por_prod_pais` (
   `idmedida` int(11) NOT NULL,
   PRIMARY KEY (`idmedida`),
   KEY `fk_medida_por_prod_pais_1` (`idmedida`),
   CONSTRAINT `fk_medida_por_prod_pais_1` FOREIGN KEY (`idmedida`) REFERENCES `medida` (`idmedida`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`medida_por_prod_pais` VALUES  (2),
+
+--
+-- Dumping data for table `medida_por_prod_pais`
+--
+INSERT INTO `medida_por_prod_pais` (`idmedida`) VALUES 
+ (2),
  (4),
  (5),
  (9),
  (12),
  (14),
- (15),
- (16),
- (17);
-CREATE TABLE  `mydb`.`medida_por_producto` (
+ (15);
+
+--
+-- Definition of table `medida_por_producto`
+--
+
+DROP TABLE IF EXISTS `medida_por_producto`;
+CREATE TABLE `medida_por_producto` (
   `idmedida` int(11) NOT NULL,
   PRIMARY KEY (`idmedida`),
   KEY `fk_medida_por_producto_1` (`idmedida`),
   CONSTRAINT `fk_medida_por_producto_1` FOREIGN KEY (`idmedida`) REFERENCES `medida` (`idmedida`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`medida_por_producto` VALUES  (1),
- (2),
+
+--
+-- Dumping data for table `medida_por_producto`
+--
+INSERT INTO `medida_por_producto` (`idmedida`) VALUES 
+ (1),
  (3),
- (4),
- (5),
  (6),
  (7),
  (8),
- (9),
- (10);
-CREATE TABLE  `mydb`.`norma` (
+ (10),
+ (11),
+ (13);
+
+--
+-- Definition of table `norma`
+--
+
+DROP TABLE IF EXISTS `norma`;
+CREATE TABLE `norma` (
   `idnorma` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`idnorma`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`norma` VALUES  (1),
+
+--
+-- Dumping data for table `norma`
+--
+INSERT INTO `norma` (`idnorma`) VALUES 
+ (1),
  (2),
  (3);
-CREATE TABLE  `mydb`.`organismo` (
+
+--
+-- Definition of table `organismo`
+--
+
+DROP TABLE IF EXISTS `organismo`;
+CREATE TABLE `organismo` (
   `idorganismo` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idorganismo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`organismo` VALUES  (1,'indec'),
+
+--
+-- Dumping data for table `organismo`
+--
+INSERT INTO `organismo` (`idorganismo`,`nombre`) VALUES 
+ (1,'indec'),
  (2,'controladores anonimos'),
  (3,'seguro lo rechaza');
-CREATE TABLE  `mydb`.`pais` (
+
+--
+-- Definition of table `pais`
+--
+
+DROP TABLE IF EXISTS `pais`;
+CREATE TABLE `pais` (
   `idpais` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idpais`)
 ) ENGINE=InnoDB AUTO_INCREMENT=241 DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`pais` VALUES  (1,'Afganistán'),
+
+--
+-- Dumping data for table `pais`
+--
+INSERT INTO `pais` (`idpais`,`nombre`) VALUES 
+ (1,'Afganistán'),
  (2,'Islas Gland'),
  (3,'Albania'),
  (4,'Alemania'),
@@ -1028,7 +1449,13 @@ INSERT INTO `mydb`.`pais` VALUES  (1,'Afganistán'),
  (238,'Yibuti'),
  (239,'Zambia'),
  (240,'Zimbabue');
-CREATE TABLE  `mydb`.`prod_extranjero-pais` (
+
+--
+-- Definition of table `prod_extranjero-pais`
+--
+
+DROP TABLE IF EXISTS `prod_extranjero-pais`;
+CREATE TABLE `prod_extranjero-pais` (
   `idproducto` int(11) NOT NULL,
   `idpais` int(11) NOT NULL,
   `cantanual` float DEFAULT NULL,
@@ -1038,32 +1465,241 @@ CREATE TABLE  `mydb`.`prod_extranjero-pais` (
   CONSTRAINT `fk_prod_extranjero_pais_1` FOREIGN KEY (`idproducto`) REFERENCES `producto_extranjero` (`productid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_prod_extranjero_pais_2` FOREIGN KEY (`idpais`) REFERENCES `pais` (`idpais`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`prod_extranjero-pais` VALUES  (1,40,23),
- (3,62,45),
- (12,73,56),
- (28,60,43),
- (42,80,63),
- (42,202,185),
- (43,73,56),
- (43,196,179),
- (66,43,70),
- (66,144,127),
- (66,170,153),
- (68,49,76),
- (68,151,134),
- (68,176,159),
- (107,56,83),
- (107,157,140),
- (107,183,166),
- (114,62,89),
- (114,164,147),
- (114,189,172),
- (161,68,95),
- (176,75,102),
- (180,81,108),
- (207,88,115),
- (223,94,121);
-CREATE TABLE  `mydb`.`prod_nacional_fabrica` (
+
+--
+-- Dumping data for table `prod_extranjero-pais`
+--
+INSERT INTO `prod_extranjero-pais` (`idproducto`,`idpais`,`cantanual`) VALUES 
+ (1,1,5),
+ (1,40,5),
+ (3,2,7),
+ (3,62,7),
+ (5,4,8),
+ (8,6,12),
+ (8,142,8),
+ (8,222,8),
+ (12,7,15),
+ (12,73,8),
+ (12,143,12),
+ (12,232,12),
+ (13,8,17),
+ (13,144,15),
+ (13,175,15),
+ (14,9,18),
+ (14,145,17),
+ (14,175,17),
+ (15,10,5),
+ (15,146,18),
+ (15,200,18),
+ (17,11,7),
+ (17,106,7),
+ (17,147,5),
+ (17,222,5),
+ (19,12,8),
+ (19,144,8),
+ (19,148,7),
+ (19,232,7),
+ (22,13,12),
+ (22,145,12),
+ (22,149,8),
+ (22,175,8),
+ (26,14,15),
+ (26,146,15),
+ (26,150,12),
+ (26,175,12),
+ (27,15,8),
+ (27,147,8),
+ (27,151,15),
+ (27,201,15),
+ (28,16,12),
+ (28,60,12),
+ (28,148,12),
+ (28,152,8),
+ (28,202,17),
+ (29,17,5),
+ (29,149,5),
+ (29,153,12),
+ (29,203,18),
+ (31,18,7),
+ (31,150,7),
+ (31,204,5),
+ (33,19,8),
+ (33,151,8),
+ (33,205,7),
+ (36,20,12),
+ (36,152,12),
+ (36,206,8),
+ (40,21,15),
+ (40,153,15),
+ (40,207,12),
+ (41,22,17),
+ (41,154,17),
+ (41,208,15),
+ (42,23,18),
+ (42,80,15),
+ (42,155,18),
+ (42,202,17),
+ (42,209,8),
+ (43,24,5),
+ (43,73,18),
+ (43,196,8),
+ (45,25,7),
+ (47,26,8),
+ (50,27,12),
+ (54,28,15),
+ (55,29,8),
+ (56,30,12),
+ (59,31,5),
+ (63,32,7),
+ (64,33,8),
+ (65,34,12),
+ (66,35,15),
+ (66,43,12),
+ (66,144,15),
+ (66,170,17),
+ (68,36,17),
+ (68,49,18),
+ (68,151,5),
+ (68,176,7),
+ (70,37,18),
+ (73,38,5),
+ (76,39,7),
+ (91,40,8),
+ (92,41,12),
+ (93,42,15),
+ (99,43,8),
+ (100,44,12),
+ (105,45,5),
+ (106,46,7),
+ (107,47,8),
+ (107,56,5),
+ (107,157,7),
+ (107,183,17),
+ (113,48,12),
+ (114,49,15),
+ (114,62,18),
+ (114,164,8),
+ (114,189,18),
+ (119,50,17),
+ (120,51,18),
+ (121,52,5),
+ (127,53,7),
+ (128,54,8),
+ (129,55,12),
+ (135,56,15),
+ (140,57,8),
+ (141,58,12),
+ (142,59,5),
+ (143,60,7),
+ (144,61,8),
+ (149,62,12),
+ (150,63,15),
+ (151,64,17),
+ (152,65,18),
+ (153,66,5),
+ (153,156,5),
+ (158,67,7),
+ (158,120,7),
+ (159,68,8),
+ (159,121,8),
+ (160,69,12),
+ (160,122,12),
+ (160,154,5),
+ (160,158,15),
+ (160,162,7),
+ (161,68,5),
+ (161,70,5),
+ (161,123,15),
+ (161,155,7),
+ (161,159,17),
+ (161,163,8),
+ (162,71,7),
+ (162,124,8),
+ (162,156,8),
+ (162,160,18),
+ (162,164,12),
+ (162,166,8),
+ (167,72,8),
+ (167,125,12),
+ (167,157,12),
+ (167,161,5),
+ (167,165,15),
+ (167,167,12),
+ (168,73,12),
+ (168,126,5),
+ (168,168,5),
+ (169,74,15),
+ (169,127,7),
+ (169,169,7),
+ (170,75,17),
+ (170,128,8),
+ (170,170,8),
+ (171,76,18),
+ (171,129,12),
+ (171,171,12),
+ (176,75,7),
+ (176,77,5),
+ (176,130,15),
+ (176,172,15),
+ (177,78,7),
+ (177,131,17),
+ (177,173,17),
+ (178,79,8),
+ (178,132,18),
+ (178,174,18),
+ (179,80,12),
+ (179,133,5),
+ (179,175,5),
+ (180,81,5),
+ (180,134,7),
+ (180,176,7),
+ (185,82,8),
+ (185,135,8),
+ (185,177,8),
+ (186,83,12),
+ (186,136,12),
+ (186,178,12),
+ (187,84,5),
+ (187,137,15),
+ (187,179,15),
+ (188,85,7),
+ (188,138,8),
+ (188,200,8),
+ (189,124,8),
+ (189,139,12),
+ (189,230,12),
+ (194,125,12),
+ (194,140,5),
+ (194,175,5),
+ (195,126,15),
+ (195,141,7),
+ (195,200,7),
+ (196,127,17),
+ (197,90,18),
+ (198,91,5),
+ (203,92,7),
+ (204,93,8),
+ (205,94,12),
+ (206,95,15),
+ (207,88,7),
+ (207,96,8),
+ (212,97,12),
+ (213,98,5),
+ (214,99,7),
+ (215,100,8),
+ (216,101,12),
+ (221,102,15),
+ (222,103,17),
+ (223,94,15),
+ (223,104,18),
+ (224,105,5);
+
+--
+-- Definition of table `prod_nacional_fabrica`
+--
+
+DROP TABLE IF EXISTS `prod_nacional_fabrica`;
+CREATE TABLE `prod_nacional_fabrica` (
   `idproducto` int(11) NOT NULL,
   `idfabrica` int(11) NOT NULL,
   PRIMARY KEY (`idproducto`,`idfabrica`),
@@ -1072,31 +1708,151 @@ CREATE TABLE  `mydb`.`prod_nacional_fabrica` (
   CONSTRAINT `fk_prod_nacional_fabrica_1` FOREIGN KEY (`idproducto`) REFERENCES `producto_nacional` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_prod_nacional_fabrica_2` FOREIGN KEY (`idfabrica`) REFERENCES `fabrica` (`idfabrica`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`prod_nacional_fabrica` VALUES  (11,11),
- (12,12),
- (22,5),
+
+--
+-- Dumping data for table `prod_nacional_fabrica`
+--
+INSERT INTO `prod_nacional_fabrica` (`idproducto`,`idfabrica`) VALUES 
+ (2,1),
+ (4,1),
+ (6,1),
+ (7,1),
+ (9,1),
+ (10,1),
+ (11,1),
+ (11,11),
+ (16,2),
+ (18,2),
+ (20,2),
+ (21,2),
+ (23,2),
  (23,8),
- (33,6),
+ (24,3),
+ (25,3),
+ (30,3),
+ (32,3),
  (34,2),
- (41,7),
- (42,11),
- (43,3),
- (56,4),
+ (34,3),
+ (35,4),
+ (37,4),
+ (38,4),
+ (39,4),
+ (44,4),
+ (46,4),
+ (48,4),
+ (49,5),
+ (51,5),
+ (52,5),
+ (53,5),
+ (57,5),
+ (58,6),
+ (60,6),
+ (61,6),
+ (62,7),
+ (67,7),
+ (69,7),
+ (71,7),
+ (72,7),
+ (74,7),
+ (75,8),
+ (77,9),
  (78,5),
+ (78,9),
  (78,18),
+ (79,10),
+ (80,11),
+ (81,12),
+ (82,13),
+ (83,14),
+ (84,14),
+ (85,14),
+ (86,14),
+ (87,15),
+ (88,15),
  (89,2),
+ (89,15),
  (89,20),
+ (90,15),
+ (94,16),
+ (95,16),
+ (96,16),
+ (97,17),
  (98,3),
+ (98,18),
  (98,19),
- (99,4),
- (100,15),
+ (101,19),
+ (102,20),
+ (103,20),
  (104,18),
+ (104,20),
+ (108,20),
+ (109,1),
+ (110,2),
+ (111,3),
+ (112,7),
+ (115,8),
+ (116,10),
+ (117,11),
+ (118,13),
+ (122,6),
+ (123,3),
  (123,14),
+ (124,6),
+ (125,7),
+ (126,8),
+ (130,10),
+ (131,11),
+ (132,13),
+ (133,6),
+ (134,7),
+ (136,20),
+ (137,20),
+ (138,20),
+ (139,20),
+ (145,20),
+ (146,20),
+ (147,20),
+ (148,20),
+ (154,20),
+ (155,20),
+ (156,20),
+ (157,20),
+ (163,20),
+ (164,20),
+ (165,20),
+ (166,20),
+ (172,20),
+ (173,20),
+ (174,20),
+ (175,20),
+ (181,20),
+ (182,20),
+ (183,20),
+ (184,20),
+ (190,20),
+ (191,20),
+ (192,6),
+ (193,7),
+ (199,8),
+ (200,10),
  (200,15),
- (206,3),
- (206,19),
- (206,20);
-CREATE TABLE  `mydb`.`producto` (
+ (201,11),
+ (202,13),
+ (208,6),
+ (209,3),
+ (210,6),
+ (211,7),
+ (217,8),
+ (218,10),
+ (219,11),
+ (220,13);
+
+--
+-- Definition of table `producto`
+--
+
+DROP TABLE IF EXISTS `producto`;
+CREATE TABLE `producto` (
   `idproducto` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   `descripcion` varchar(45) DEFAULT NULL,
@@ -1109,7 +1865,12 @@ CREATE TABLE  `mydb`.`producto` (
   CONSTRAINT `fk_producto_rubro` FOREIGN KEY (`rubro_idrubro`) REFERENCES `rubro` (`idrubro`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_producto_udemedida` FOREIGN KEY (`umedida`) REFERENCES `udemedida` (`udemedida`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=225 DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`producto` VALUES  (1,'Albaricoque','','kg','E',4),
+
+--
+-- Dumping data for table `producto`
+--
+INSERT INTO `producto` (`idproducto`,`nombre`,`descripcion`,`umedida`,`tipo`,`rubro_idrubro`) VALUES 
+ (1,'Albaricoque','','kg','E',4),
  (2,'Arandanos','','kg','N',4),
  (3,'Cereza','','kg','E',4),
  (4,'Ciruela Amarilla','','kg','N',4),
@@ -1333,59 +2094,282 @@ INSERT INTO `mydb`.`producto` VALUES  (1,'Albaricoque','','kg','E',4),
  (222,'Vermut','','ml','E',2),
  (223,'Vodka','','ml','E',2),
  (224,'Whisky','','l','E',2);
-CREATE TABLE  `mydb`.`producto_extranjero` (
+
+--
+-- Definition of table `producto_extranjero`
+--
+
+DROP TABLE IF EXISTS `producto_extranjero`;
+CREATE TABLE `producto_extranjero` (
   `productid` int(11) NOT NULL,
   PRIMARY KEY (`productid`),
   KEY `fk_producto_extranjero_1` (`productid`),
   CONSTRAINT `fk_producto_extranjero_1` FOREIGN KEY (`productid`) REFERENCES `producto` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`producto_extranjero` VALUES  (1),
+
+--
+-- Dumping data for table `producto_extranjero`
+--
+INSERT INTO `producto_extranjero` (`productid`) VALUES 
+ (1),
  (3),
+ (5),
+ (8),
  (12),
+ (13),
+ (14),
+ (15),
+ (17),
+ (19),
+ (22),
+ (26),
+ (27),
  (28),
+ (29),
+ (31),
+ (33),
+ (36),
+ (40),
+ (41),
  (42),
  (43),
+ (45),
+ (47),
+ (50),
+ (54),
+ (55),
+ (56),
+ (59),
+ (63),
+ (64),
+ (65),
  (66),
  (68),
+ (70),
+ (73),
+ (76),
+ (91),
+ (92),
+ (93),
+ (99),
+ (100),
+ (105),
+ (106),
  (107),
+ (113),
  (114),
+ (119),
+ (120),
+ (121),
+ (127),
+ (128),
+ (129),
+ (135),
+ (140),
+ (141),
+ (142),
+ (143),
+ (144),
+ (149),
+ (150),
+ (151),
+ (152),
+ (153),
+ (158),
+ (159),
+ (160),
  (161),
+ (162),
+ (167),
+ (168),
+ (169),
+ (170),
+ (171),
  (176),
+ (177),
+ (178),
+ (179),
  (180),
+ (185),
+ (186),
+ (187),
+ (188),
+ (189),
+ (194),
+ (195),
+ (196),
+ (197),
+ (198),
+ (203),
+ (204),
+ (205),
+ (206),
  (207),
- (223);
-CREATE TABLE  `mydb`.`producto_nacional` (
+ (212),
+ (213),
+ (214),
+ (215),
+ (216),
+ (221),
+ (222),
+ (223),
+ (224);
+
+--
+-- Definition of table `producto_nacional`
+--
+
+DROP TABLE IF EXISTS `producto_nacional`;
+CREATE TABLE `producto_nacional` (
   `idproducto` int(11) NOT NULL,
   `cantpuestos` float DEFAULT NULL,
   PRIMARY KEY (`idproducto`),
   KEY `fk_producto nacional_1` (`idproducto`),
   CONSTRAINT `fk_producto nacional_1` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`producto_nacional` VALUES  (11,11),
- (12,12),
- (22,5),
+
+--
+-- Dumping data for table `producto_nacional`
+--
+INSERT INTO `producto_nacional` (`idproducto`,`cantpuestos`) VALUES 
+ (2,3),
+ (4,3),
+ (6,6),
+ (7,7),
+ (9,8),
+ (10,10),
+ (11,11),
+ (16,13),
+ (18,6),
+ (20,3),
+ (21,6),
  (23,8),
- (33,6),
+ (24,8),
+ (25,10),
+ (30,11),
+ (32,13),
  (34,2),
- (41,7),
- (42,34),
- (43,54),
- (56,76),
+ (35,7),
+ (37,7),
+ (38,11),
+ (39,13),
+ (44,3),
+ (46,3),
+ (48,6),
+ (49,7),
+ (51,8),
+ (52,10),
+ (53,11),
+ (57,13),
+ (58,6),
+ (60,3),
+ (61,6),
+ (62,7),
+ (67,8),
+ (69,10),
+ (71,11),
+ (72,13),
+ (74,6),
+ (75,7),
+ (77,7),
  (78,45),
+ (79,13),
+ (80,3),
+ (81,3),
+ (82,6),
+ (83,7),
+ (84,8),
+ (85,10),
+ (86,11),
+ (87,13),
+ (88,6),
  (89,9),
+ (90,6),
+ (94,7),
+ (95,8),
+ (96,10),
+ (97,11),
  (98,22),
- (99,67),
- (100,32),
+ (101,6),
+ (102,7),
+ (103,7),
  (104,5),
+ (108,13),
+ (109,3),
+ (110,3),
+ (111,6),
+ (112,7),
+ (115,8),
+ (116,10),
+ (117,11),
+ (118,13),
+ (122,6),
  (123,4),
+ (124,6),
+ (125,7),
+ (126,8),
+ (130,10),
+ (131,11),
+ (132,13),
+ (133,6),
+ (134,7),
+ (136,7),
+ (137,11),
+ (138,13),
+ (139,3),
+ (145,3),
+ (146,6),
+ (147,7),
+ (148,8),
+ (154,10),
+ (155,11),
+ (156,13),
+ (157,6),
+ (163,3),
+ (164,6),
+ (165,7),
+ (166,8),
+ (172,10),
+ (173,11),
+ (174,13),
+ (175,6),
+ (181,7),
+ (182,7),
+ (183,11),
+ (184,13),
+ (190,3),
+ (191,3),
+ (192,6),
+ (193,7),
+ (199,8),
  (200,31),
- (206,7);
-CREATE TABLE  `mydb`.`provincia` (
+ (201,11),
+ (202,13),
+ (208,6),
+ (209,3),
+ (210,6),
+ (211,7),
+ (217,8),
+ (218,10),
+ (219,11),
+ (220,13);
+
+--
+-- Definition of table `provincia`
+--
+
+DROP TABLE IF EXISTS `provincia`;
+CREATE TABLE `provincia` (
   `idprovincia` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idprovincia`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`provincia` VALUES  (1,'Buenos Aires'),
+
+--
+-- Dumping data for table `provincia`
+--
+INSERT INTO `provincia` (`idprovincia`,`nombre`) VALUES 
+ (1,'Buenos Aires'),
  (2,'Catamarca'),
  (3,'Chaco'),
  (4,'Chubut'),
@@ -1408,17 +2392,34 @@ INSERT INTO `mydb`.`provincia` VALUES  (1,'Buenos Aires'),
  (21,'Santiago del Estero'),
  (22,'Tierra del Fuego'),
  (23,'Tucuman');
-CREATE TABLE  `mydb`.`rubro` (
+
+--
+-- Definition of table `rubro`
+--
+
+DROP TABLE IF EXISTS `rubro`;
+CREATE TABLE `rubro` (
   `idrubro` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idrubro`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`rubro` VALUES  (1,'Ganaderia'),
+
+--
+-- Dumping data for table `rubro`
+--
+INSERT INTO `rubro` (`idrubro`,`nombre`) VALUES 
+ (1,'Ganaderia'),
  (2,'Alimento'),
  (3,'Bebida'),
  (4,'Agropecuario'),
  (5,'Pesca');
-CREATE TABLE  `mydb`.`tipo` (
+
+--
+-- Definition of table `tipo`
+--
+
+DROP TABLE IF EXISTS `tipo`;
+CREATE TABLE `tipo` (
   `idtipo` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   `idorganismo` int(11) DEFAULT NULL,
@@ -1426,15 +2427,31 @@ CREATE TABLE  `mydb`.`tipo` (
   KEY `fk_tipo_1` (`idorganismo`),
   CONSTRAINT `fk_tipo_1` FOREIGN KEY (`idorganismo`) REFERENCES `organismo` (`idorganismo`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`tipo` VALUES  (1,'monetaria',1),
+
+--
+-- Dumping data for table `tipo`
+--
+INSERT INTO `tipo` (`idtipo`,`nombre`,`idorganismo`) VALUES 
+ (1,'monetaria',1),
  (2,'vencimiento',2),
  (3,'ingrediente',3),
  (4,'vacunacion',2);
-CREATE TABLE  `mydb`.`udemedida` (
+
+--
+-- Definition of table `udemedida`
+--
+
+DROP TABLE IF EXISTS `udemedida`;
+CREATE TABLE `udemedida` (
   `udemedida` varchar(8) NOT NULL,
   PRIMARY KEY (`udemedida`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`udemedida` VALUES  ('cm'),
+
+--
+-- Dumping data for table `udemedida`
+--
+INSERT INTO `udemedida` (`udemedida`) VALUES 
+ ('cm'),
  ('g'),
  ('kg'),
  ('km'),
@@ -1442,10 +2459,20 @@ INSERT INTO `mydb`.`udemedida` VALUES  ('cm'),
  ('m'),
  ('ml'),
  ('tn');
-CREATE TABLE  `mydb`.`usuario` (
+
+--
+-- Definition of table `usuario`
+--
+
+DROP TABLE IF EXISTS `usuario`;
+CREATE TABLE `usuario` (
   `nombreusuario` char(30) NOT NULL,
   PRIMARY KEY (`nombreusuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `usuario`
+--
 
 DELIMITER $$
 
