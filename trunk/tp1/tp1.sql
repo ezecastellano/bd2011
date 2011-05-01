@@ -942,7 +942,7 @@ CREATE TABLE `medida` (
 --
 -- Dumping data for table `medida`
 --
-INSERT INTO `mydb`.`medida` VALUES  (0,NULL,NULL,NULL,1),
+INSERT INTO `mydb`.`medida` VALUES
  (1,1,1,'P',1),
  (2,2,1,'PP',1),
  (3,3,1,'P',1),
