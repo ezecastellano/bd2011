@@ -931,7 +931,8 @@ CREATE TABLE `medida` (
   `idnorma` int(11) DEFAULT NULL,
   `idtipo` int(11) DEFAULT NULL,
   `tipo` enum('P','PP') DEFAULT NULL,
-  `enVigencia` tinyint(1) NOT NULL,
+  `desde` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `hasta` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`idmedida`),
   KEY `fk_medida_1` (`idnorma`),
   KEY `fk_medida_2` (`idtipo`),
@@ -942,22 +943,22 @@ CREATE TABLE `medida` (
 --
 -- Dumping data for table `medida`
 --
-INSERT INTO `mydb`.`medida` VALUES
- (1,1,1,'P',1),
- (2,2,1,'PP',1),
- (3,3,1,'P',1),
- (4,1,2,'PP',1),
- (5,2,2,'PP',1),
- (6,3,3,'P',1),
- (7,1,3,'P',1),
- (8,2,3,'P',1),
- (9,1,4,'PP',1),
- (10,3,4,'P',1),
- (11,1,2,'P',1),
- (12,2,4,'PP',1),
- (13,3,2,'P',1),
- (14,3,3,'PP',1),
- (15,3,4,'PP',0);
+INSERT INTO `medida` (`idmedida`,`idnorma`,`idtipo`,`tipo`,`desde`,`hasta`) VALUES 
+ (1,1,1,'P','2011-02-01 00:00:00','2011-10-01 00:00:00'),
+ (2,2,1,'PP','2011-02-01 00:00:00','2011-10-01 00:00:00'),
+ (3,3,1,'P','2005-02-01 00:00:00','2011-10-01 00:00:00'),
+ (4,1,2,'PP','2011-02-01 00:00:00','2011-10-01 00:00:00'),
+ (5,2,2,'PP','2008-03-01 00:00:00','2011-10-01 00:00:00'),
+ (6,3,3,'P','2011-01-01 00:00:00','2011-05-01 00:00:00'),
+ (7,1,3,'P','2011-05-01 22:47:11','2011-12-01 00:00:00'),
+ (8,2,3,'P','2011-02-01 00:00:00','2011-10-01 00:00:00'),
+ (9,1,4,'PP','2011-02-01 00:00:00','2011-10-01 00:00:00'),
+ (10,3,4,'P','2011-02-01 00:00:00','2011-10-01 00:00:00'),
+ (11,1,2,'P','2011-02-01 00:00:00','2011-10-01 00:00:00'),
+ (12,2,4,'PP','2011-02-01 00:00:00','2011-10-01 00:00:00'),
+ (13,3,2,'P','2011-05-01 22:46:24','2011-08-01 00:00:00'),
+ (14,3,3,'PP','2011-02-01 00:00:00','2011-10-01 00:00:00'),
+ (15,3,4,'PP','2010-03-01 00:00:00','2011-01-01 00:00:00');
 
 --
 -- Definition of table `medida-producto`
@@ -2474,19 +2475,84 @@ CREATE TABLE `usuario` (
 -- Dumping data for table `usuario`
 --
 
+--
+-- Definition of procedure `medidasPorRubro`
+--
+
+DROP PROCEDURE IF EXISTS `medidasPorRubro`;
+
 DELIMITER $$
 
-/*!50003 SET @TEMP_SQL_MODE=@@SQL_MODE, SQL_MODE='' */ $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE  `mydb`.`prodTodasMC`()
+/*!50003 SET @TEMP_SQL_MODE=@@SQL_MODE, SQL_MODE='STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `medidasPorRubro`()
+BEGIN
+
+	SELECT r.idrubro, r.nombre, medidasxrubro.cant_medidas
+	FROM rubro r
+	LEFT JOIN (
+				SELECT p.rubro_idrubro, count(*) cant_medidas
+				FROM producto p
+				JOIN `medida-producto` m
+				ON m.idproducto = p.idproducto
+				GROUP BY p.rubro_idrubro
+	) AS medidasxrubro
+	ON r.idrubro = medidasxrubro.rubro_idrubro;
+	
+END $$
+/*!50003 SET SESSION SQL_MODE=@TEMP_SQL_MODE */  $$
+
+DELIMITER ;
+
+--
+-- Definition of procedure `prodMasMC`
+--
+
+DROP PROCEDURE IF EXISTS `prodMasMC`;
+
+DELIMITER $$
+
+/*!50003 SET @TEMP_SQL_MODE=@@SQL_MODE, SQL_MODE='STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `prodMasMC`()
+BEGIN
+SELECT  p.nombre
+	FROM
+	producto p,
+	(SELECT idproducto, count(*) as cantidad
+		FROM
+		((SELECT idproducto,idmedida FROM `medida-producto`) UNION ALL (SELECT idproducto,idmedida FROM `extranjero_pais-medpp`)) a, medida c
+			WHERE  a.idmedida = c.idmedida AND CURRENT_TIMESTAMP between c.desde and c.hasta
+			GROUP BY idproducto) b,
+	(SELECT MAX(cantidad) maximo FROM 
+		(SELECT idproducto, count(*) as cantidad
+			FROM
+			((SELECT idproducto,idmedida FROM `medida-producto`) UNION ALL (SELECT idproducto,idmedida FROM `extranjero_pais-medpp`)) a, medida c
+				WHERE  a.idmedida = c.idmedida AND CURRENT_TIMESTAMP between c.desde and c.hasta
+				GROUP BY idproducto) b) n
+		WHERE p.idproducto = b.idproducto and n.maximo=b.cantidad;
+END $$
+/*!50003 SET SESSION SQL_MODE=@TEMP_SQL_MODE */  $$
+
+DELIMITER ;
+
+--
+-- Definition of procedure `prodTodasMC`
+--
+
+DROP PROCEDURE IF EXISTS `prodTodasMC`;
+
+DELIMITER $$
+
+/*!50003 SET @TEMP_SQL_MODE=@@SQL_MODE, SQL_MODE='STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `prodTodasMC`()
 BEGIN
 		SELECT  p.nombre
 		FROM
 			producto p,
 			(
 				SELECT DISTINCT idproducto, idtipo 
-				FROM 
+				FROM
 					((SELECT idproducto,idmedida FROM `medida-producto`) UNION ALL (SELECT idproducto,idmedida FROM `extranjero_pais-medpp`)) a, medida c 
-					  WHERE  a.idmedida = c.idmedida AND c.enVigencia="1"
+					  WHERE  a.idmedida = c.idmedida AND CURRENT_TIMESTAMP between c.desde and c.hasta
 			)  b
 		WHERE p.idproducto = b.idproducto
 		GROUP BY b.idproducto
@@ -2494,31 +2560,6 @@ BEGIN
 
 END $$
 /*!50003 SET SESSION SQL_MODE=@TEMP_SQL_MODE */  $$
-
-DELIMITER ;
-
-
-DELIMITER $$
-
-DROP PROCEDURE IF EXISTS `mydb`.`prodMasMC` $$
-CREATE PROCEDURE `mydb`.`prodMasMC` ()
-BEGIN
-SELECT  p.nombre,b.cantidad
-	FROM
-	producto p,
-	(SELECT idproducto, count(*) as cantidad
-		FROM
-		((SELECT idproducto,idmedida FROM `medida-producto`) UNION ALL (SELECT idproducto,idmedida FROM `extranjero_pais-medpp`)) a, medida c
-			WHERE  a.idmedida = c.idmedida AND c.enVigencia=1
-			GROUP BY idproducto) b,
-	(SELECT MAX(cantidad) maximo FROM 
-		(SELECT idproducto, count(*) as cantidad
-			FROM
-			((SELECT idproducto,idmedida FROM `medida-producto`) UNION ALL (SELECT idproducto,idmedida FROM `extranjero_pais-medpp`)) a, medida c
-				WHERE  a.idmedida = c.idmedida AND c.enVigencia=1
-				GROUP BY idproducto) b) n
-		WHERE p.idproducto = b.idproducto and n.maximo=b.cantidad;
-END $$
 
 DELIMITER ;
 
