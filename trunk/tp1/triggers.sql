@@ -15,7 +15,7 @@ CREATE TABLE `mydb`.`auditoria`
 
 delimiter $$
 
-DROP TRIGGER medidaUpdate$$
+DROP TRIGGER IF EXISTS medidaUpdate$$
 CREATE TRIGGER medidaUpdate after UPDATE ON medida
    FOR each row
     BEGIN
@@ -23,7 +23,7 @@ CREATE TRIGGER medidaUpdate after UPDATE ON medida
     END;$$
 
 
-DROP TRIGGER medidaDelete$$
+DROP TRIGGER IF EXISTS medidaDelete$$
 CREATE TRIGGER medidaDelete after DELETE ON medida
    FOR each row
     BEGIN
@@ -31,7 +31,7 @@ CREATE TRIGGER medidaDelete after DELETE ON medida
     END;$$
 
 
-DROP TRIGGER medidaInsert$$
+DROP TRIGGER IF EXISTS medidaInsert$$
 CREATE TRIGGER medidaInsert after INSERT ON medida
    FOR each row
     BEGIN
