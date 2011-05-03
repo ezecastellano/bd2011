@@ -1,7 +1,7 @@
 -- MySQL Administrator dump 1.4
 --
 -- ------------------------------------------------------
--- Server version	5.1.54-1ubuntu4
+-- Server version	5.1.49-1ubuntu8.1
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -21,15 +21,24 @@
 CREATE DATABASE IF NOT EXISTS mydb;
 USE mydb;
 CREATE TABLE  `mydb`.`auditoria` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `idmedida` int(11) DEFAULT NULL,
-  `descripcion` varchar(50) DEFAULT NULL,
-  `valor_anterior` varchar(50) DEFAULT NULL,
-  `valor_nuevo` varchar(50) DEFAULT NULL,
-  `usuario` varchar(40) DEFAULT NULL,
-  `modificado` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `idauditoria` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(30) NOT NULL,
+  `descripcion` varchar(20) DEFAULT NULL,
+  `fecha_alteracion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `idmedida_nueva` int(11) DEFAULT NULL,
+  `idmedida_vieja` int(11) DEFAULT NULL,
+  `idnorma_nueva` int(11) DEFAULT NULL,
+  `idnorma_vieja` int(11) DEFAULT NULL,
+  `idtipo_nueva` int(11) DEFAULT NULL,
+  `idtipo_vieja` int(11) DEFAULT NULL,
+  `tipo_nuevo` enum('P','PP') DEFAULT NULL,
+  `tipo_viejo` enum('P','PP') DEFAULT NULL,
+  `desde_nuevo` timestamp NULL DEFAULT NULL,
+  `desde_viejo` timestamp NULL DEFAULT NULL,
+  `hasta_nuevo` timestamp NULL DEFAULT NULL,
+  `hasta_viejo` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`idauditoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 CREATE TABLE  `mydb`.`extranjero_pais-medpp` (
   `idproducto` int(11) NOT NULL,
   `idmedida` int(11) NOT NULL,
@@ -891,7 +900,7 @@ CREATE TABLE  `mydb`.`medida` (
   KEY `fk_medida_2` (`idtipo`),
   CONSTRAINT `fk_medida_1` FOREIGN KEY (`idnorma`) REFERENCES `norma` (`idnorma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_medida_2` FOREIGN KEY (`idtipo`) REFERENCES `tipo` (`idtipo`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 INSERT INTO `mydb`.`medida` (`idmedida`,`idnorma`,`idtipo`,`tipo`,`desde`,`hasta`) VALUES 
  (1,1,1,'P','2011-02-01 00:00:00','2011-10-01 00:00:00'),
  (2,2,1,'PP','2011-02-01 00:00:00','2011-10-01 00:00:00'),
@@ -912,24 +921,24 @@ INSERT INTO `mydb`.`medida` (`idmedida`,`idnorma`,`idtipo`,`tipo`,`desde`,`hasta
 DELIMITER $$
 
 CREATE DEFINER = `root`@`localhost` TRIGGER  `mydb`.`medidaInsert` AFTER INSERT ON `medida` FOR EACH ROW BEGIN
-      INSERT INTO auditoria (idmedida, descripcion, valor_nuevo, usuario  , modificado ) VALUES (NEW.idmedida,'INSERTED',  NEW.idnorma, CURRENT_USER(), NOW() );
-    END $$
+	INSERT INTO auditoria (usuario, descripcion, fecha_alteracion, idmedida_nueva, idnorma_nueva, idtipo_nueva, tipo_nuevo, desde_nuevo, hasta_nuevo) VALUES (CURRENT_USER(), 'INSERT', NOW(), NEW.idmedida, NEW.idnorma, NEW.idtipo, NEW.tipo, NEW.desde, NEW.hasta);
+END $$
 
 DELIMITER ;
 
 DELIMITER $$
 
 CREATE DEFINER = `root`@`localhost` TRIGGER  `mydb`.`medidaUpdate` AFTER UPDATE ON `medida` FOR EACH ROW BEGIN
-         INSERT INTO auditoria (idmedida, descripcion, valor_anterior , valor_nuevo, usuario  , modificado ) VALUES(OLD.idmedida,'UPDATED' , OLD.idnorma , NEW.idnorma, CURRENT_USER(), NOW() );
-    END $$
+	INSERT INTO auditoria (usuario, descripcion, fecha_alteracion, idmedida_nueva, idmedida_vieja, idnorma_nueva, idnorma_vieja, idtipo_nueva, idtipo_vieja, tipo_nuevo, tipo_viejo, desde_nuevo, desde_viejo, hasta_nuevo, hasta_viejo) VALUES (CURRENT_USER(), 'UPDATE', NOW(), NEW.idmedida, OLD.idmedida, NEW.idnorma, OLD.idnorma, NEW.idtipo, OLD.idtipo, NEW.tipo, OLD.tipo, NEW.desde, OLD.desde, NEW.hasta, OLD.hasta);
+END $$
 
 DELIMITER ;
 
 DELIMITER $$
 
 CREATE DEFINER = `root`@`localhost` TRIGGER  `mydb`.`medidaDelete` AFTER DELETE ON `medida` FOR EACH ROW BEGIN
-         INSERT INTO auditoria (idmedida, descripcion, valor_anterior ,  usuario  , modificado ) VALUES(OLD.idmedida,'DELETED' ,OLD.idnorma ,  CURRENT_USER(), NOW() );
-    END $$
+	INSERT INTO auditoria (usuario, descripcion, fecha_alteracion, idmedida_vieja, idnorma_vieja, idtipo_vieja, tipo_viejo, desde_viejo, hasta_viejo) VALUES (CURRENT_USER(), 'DELETE', NOW(), OLD.idmedida, OLD.idnorma, OLD.idtipo, OLD.tipo, OLD.desde, OLD.hasta);
+END $$
 
 DELIMITER ;
 CREATE TABLE  `mydb`.`medida-producto` (
