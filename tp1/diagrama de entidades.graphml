@@ -134,7 +134,7 @@ control</y:NodeLabel>
           <y:Geometry height="20.0" width="20.0" x="200.0" y="197.5"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#B7C9E3" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="69.783203125" x="-24.8916015625" y="1.015625">ORIGEN(D)</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="50.154296875" x="-15.0771484375" y="1.015625">TIPO(D)</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -199,7 +199,7 @@ control</y:NodeLabel>
           <y:Geometry height="31.917485265225935" width="132.2364239585492" x="32.88178802072541" y="317.2292117443868"/>
           <y:Fill color="#66FF66" color2="#99FF99" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="104.318359375" x="13.959032291774605" y="6.974367632612996">Nacional-Fabrica</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="104.318359375" x="13.959032291774605" y="6.974367632612939">Nacional-Fabrica</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -334,7 +334,7 @@ control</y:NodeLabel>
           <y:Geometry height="56.0" width="128.56369144041446" x="834.8487248610604" y="499.2931840808788"/>
           <y:Fill color="#66FF66" color2="#99FF99" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="99.525390625" x="14.51915040770723" y="19.015625">Tipo-Organismo</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="99.525390625" x="14.51915040770723" y="19.015624999999943">Tipo-Organismo</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
