@@ -28,12 +28,13 @@
       </data>
     </node>
     <node id="n1">
+      <data key="d4"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
-          <y:Geometry height="40.0" width="80.0" x="179.0" y="131.0"/>
+          <y:Geometry height="40.0" width="150.0" x="165.19253438113952" y="131.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="57.37890625" x="11.310546875" y="11.015625">Producto</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="27.28125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="105.97265625" x="22.013671875" y="6.359375">Producto</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -41,12 +42,13 @@
       </data>
     </node>
     <node id="n2">
+      <data key="d4"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
-          <y:Geometry height="40.0" width="80.0" x="501.0" y="131.0"/>
+          <y:Geometry height="40.0" width="150.0" x="466.0" y="131.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="39.8359375" x="20.08203125" y="11.015625">Rubro</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="27.28125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="71.55859375" x="39.220703125" y="6.359375">Rubro</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -54,12 +56,13 @@
       </data>
     </node>
     <node id="n3">
+      <data key="d4"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
-          <y:Geometry height="40.0" width="80.0" x="642.0" y="254.0"/>
+          <y:Geometry height="40.0" width="150.0" x="576.0" y="206.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="75.1796875" x="2.41015625" y="4.03125">Medida por 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="50.5625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="138.296875" x="5.8515625" y="-5.28125">Medida por 
 producto</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
@@ -68,12 +71,13 @@ producto</y:NodeLabel>
       </data>
     </node>
     <node id="n4">
+      <data key="d4"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
-          <y:Geometry height="40.0" width="80.0" x="641.0" y="398.0"/>
+          <y:Geometry height="40.0" width="150.0" x="537.3682119792745" y="350.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="86.646484375" x="-3.3232421875" y="4.03125">Medida por 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="50.5625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="160.50390625" x="-5.251953125" y="-5.28125">Medida por 
 producto-pais</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
@@ -82,12 +86,13 @@ producto-pais</y:NodeLabel>
       </data>
     </node>
     <node id="n5">
+      <data key="d4"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
-          <y:Geometry height="40.0" width="80.0" x="766.0" y="365.0"/>
+          <y:Geometry height="40.0" width="150.0" x="687.3682119792745" y="280.85656464516126"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="66.47265625" x="6.763671875" y="4.03125">Medida de
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="50.5625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="121.294921875" x="14.3525390625" y="-5.28125">Medida de
 control</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
@@ -96,12 +101,13 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n6">
+      <data key="d4"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
-          <y:Geometry height="40.0" width="80.0" x="59.0" y="260.0"/>
+          <y:Geometry height="40.0" width="150.0" x="24.0" y="260.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="55.896484375" x="12.0517578125" y="11.015625">Nacional</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="27.28125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="101.275390625" x="24.3623046875" y="6.359375">Nacional</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -109,12 +115,13 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n7">
+      <data key="d4"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
-          <y:Geometry height="40.0" width="80.0" x="59.0" y="440.0"/>
+          <y:Geometry height="40.0" width="150.0" x="24.0" y="375.3333333333333"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="48.091796875" x="15.9541015625" y="11.015625">Fabrica</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="27.28125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="87.544921875" x="31.2275390625" y="6.359375">Fabrica</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -150,7 +157,7 @@ control</y:NodeLabel>
     <node id="n10">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="20.0" width="20.0" x="702.0" y="336.0"/>
+          <y:Geometry height="20.0" width="20.0" x="633.3682119792745" y="288.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#B7C9E3" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="50.154296875" x="-15.0771484375" y="1.015625">TIPO(D)</y:NodeLabel>
@@ -176,7 +183,7 @@ control</y:NodeLabel>
     <node id="n12">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
-          <y:Geometry height="56.0" width="158.86373471502588" x="447.8453929119171" y="390.0"/>
+          <y:Geometry height="56.0" width="158.86373471502588" x="447.8453929119171" y="421.9540492156723"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="142.884765625" x="7.989484545012942" y="19.015625">extranjero_pais-medpp</y:NodeLabel>
@@ -189,10 +196,10 @@ control</y:NodeLabel>
     <node id="n13">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
-          <y:Geometry height="56.0" width="132.2364239585492" x="32.88178802072541" y="338.5"/>
+          <y:Geometry height="31.917485265225935" width="132.2364239585492" x="32.88178802072541" y="317.2292117443868"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="104.318359375" x="13.959032291774605" y="19.015625">Nacional-Fabrica</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="104.318359375" x="13.959032291774605" y="6.974367632612996">Nacional-Fabrica</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -200,12 +207,13 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n14">
+      <data key="d4"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
-          <y:Geometry height="40.0" width="80.0" x="318.6666666666667" y="270.0"/>
+          <y:Geometry height="40.0" width="150.0" x="240.85330713817945" y="270.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="66.2734375" x="6.86328125" y="11.015625">Extranjero</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="27.28125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="121.744140625" x="14.1279296875" y="6.359375">Extranjero</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -213,12 +221,13 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n15">
+      <data key="d4"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
-          <y:Geometry height="40.0" width="80.0" x="318.6666666666667" y="450.0"/>
+          <y:Geometry height="40.0" width="150.0" x="236.31679834196905" y="450.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="28.17578125" x="25.912109375" y="11.015625">Pais</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="27.28125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="50.9140625" x="49.54296875" y="6.359375">Pais</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -228,7 +237,7 @@ control</y:NodeLabel>
     <node id="n16">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
-          <y:Geometry height="56.0" width="115.70912762694297" x="300.8121028531952" y="352.0"/>
+          <y:Geometry height="56.0" width="115.70912762694297" x="253.46223452849756" y="352.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="94.779296875" x="10.464915375971486" y="19.015625">Extranjero-Pais</y:NodeLabel>
@@ -241,7 +250,7 @@ control</y:NodeLabel>
     <node id="n17">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="213.1575678894646" y="360.0"/>
+          <y:Geometry height="40.0" width="80.0" x="360.64702030124437" y="330.70333988212184"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="64.369140625" x="7.8154296875" y="11.015625">cantAnual</y:NodeLabel>
@@ -252,12 +261,13 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n18">
+      <data key="d4"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
-          <y:Geometry height="40.0" width="80.0" x="766.0" y="555.0"/>
+          <y:Geometry height="40.0" width="150.0" x="619.3002633506047" y="529.2047585492228"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="44.294921875" x="17.8525390625" y="11.015625">Norma</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="27.28125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="78.677734375" x="35.6611328125" y="6.359375">Norma</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -267,10 +277,10 @@ control</y:NodeLabel>
     <node id="n19">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
-          <y:Geometry height="56.0" width="139.58188899481866" x="737.1272386321243" y="452.0"/>
+          <y:Geometry height="40.0" width="139.58188899481866" x="634.2077917098446" y="451.2047585492228"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="125.078125" x="7.251881997409328" y="19.015625">Medida Ctrl - Norma</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="125.078125" x="7.251881997409328" y="11.015625">Medida Ctrl - Norma</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -278,12 +288,13 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n20">
+      <data key="d4"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
-          <y:Geometry height="40.0" width="80.0" x="1025.0" y="326.0"/>
+          <y:Geometry height="40.0" width="150.0" x="824.1305705812676" y="442.34819390406153"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="29.623046875" x="25.1884765625" y="11.015625">Tipo</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="27.28125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="52.5546875" x="48.72265625" y="6.359375">Tipo</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -293,10 +304,10 @@ control</y:NodeLabel>
     <node id="n21">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
-          <y:Geometry height="56.0" width="90.0" x="890.5" y="357.0"/>
+          <y:Geometry height="56.0" width="120.0" x="746.943930109755" y="350.85656464516126"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="110.40625" x="-10.203125" y="19.015625">Medida Ctrl - Tipo</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="110.40625" x="4.796875" y="19.015625">Medida Ctrl - Tipo</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -304,12 +315,13 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n22">
+      <data key="d4"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
-          <y:Geometry height="40.0" width="80.0" x="1025.0" y="516.0"/>
+          <y:Geometry height="40.0" width="150.0" x="824.1305705812676" y="591.3481939040615"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="69.572265625" x="5.2138671875" y="11.015625">Organismo</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="27.28125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="126.255859375" x="11.8720703125" y="6.359375">Organismo</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -319,7 +331,7 @@ control</y:NodeLabel>
     <node id="n23">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
-          <y:Geometry height="56.0" width="128.56369144041446" x="1000.4999999999998" y="413.0"/>
+          <y:Geometry height="56.0" width="128.56369144041446" x="834.8487248610604" y="499.2931840808788"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="99.525390625" x="14.51915040770723" y="19.015625">Tipo-Organismo</y:NodeLabel>
@@ -330,12 +342,13 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n24">
+      <data key="d4"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
-          <y:Geometry height="40.0" width="80.0" x="58.0" y="592.5"/>
+          <y:Geometry height="40.0" width="150.0" x="23.0" y="497.83333333333337"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="61.234375" x="9.3828125" y="11.015625">Localidad</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="27.28125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="111.67578125" x="19.162109375" y="6.359375">Localidad</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -345,10 +358,10 @@ control</y:NodeLabel>
     <node id="n25">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
-          <y:Geometry height="56.0" width="132.2364239585492" x="32.88178802072542" y="506.5"/>
+          <y:Geometry height="35.43745492227987" width="132.2364239585492" x="32.88178802072542" y="435.28127253886004"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="109.65625" x="11.290086979274605" y="19.015625">Fabrica-Localidad</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="109.65625" x="11.290086979274605" y="8.734352461139963">Fabrica-Localidad</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -358,10 +371,10 @@ control</y:NodeLabel>
     <node id="n26">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
-          <y:Geometry height="56.0" width="132.2364239585492" x="31.881788020725395" y="669.0"/>
+          <y:Geometry height="31.91748526522599" width="132.2364239585492" x="31.881788020725395" y="564.9479392055268"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="128.03125" x="2.102586979274605" y="19.015625">Localidad - Provincia</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="128.03125" x="2.102586979274605" y="6.974367632612939">Localidad - Provincia</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -369,12 +382,13 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n27">
+      <data key="d4"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
-          <y:Geometry height="40.0" width="80.0" x="58.0" y="761.5"/>
+          <y:Geometry height="40.0" width="150.0" x="23.0" y="629.3333333333334"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="58.837890625" x="10.5810546875" y="11.015625">Provincia</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="27.28125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="108.599609375" x="20.7001953125" y="6.359375">Provincia</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
           </y:StyleProperties>
@@ -384,7 +398,7 @@ control</y:NodeLabel>
     <node id="n28">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="179.0" y="42.5"/>
+          <y:Geometry height="40.0" width="80.0" x="115.85330713817945" y="75.71709233791748"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" underlinedText="true" visible="true" width="77.681640625" x="1.1591796875" y="11.015625">idproducto</y:NodeLabel>
@@ -397,7 +411,7 @@ control</y:NodeLabel>
     <node id="n29">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="611.0" y="103.33333333333333"/>
+          <y:Geometry height="40.0" width="80.0" x="616.0" y="84.56969393548377"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" underlinedText="true" visible="true" width="53.916015625" x="13.0419921875" y="11.015624999999986">idrubro</y:NodeLabel>
@@ -410,7 +424,7 @@ control</y:NodeLabel>
     <node id="n30">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="-76.66666666666663" y="407.16666666666663"/>
+          <y:Geometry height="40.0" width="80.0" x="-76.66666666666663" y="342.49999999999994"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" underlinedText="true" visible="true" width="63.853515625" x="8.0732421875" y="11.015625">idfabrica</y:NodeLabel>
@@ -423,7 +437,7 @@ control</y:NodeLabel>
     <node id="n31">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="-100.66666666666669" y="532.6666666666666"/>
+          <y:Geometry height="40.0" width="80.0" x="-78.1182119792746" y="470.7187274611399"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" underlinedText="true" visible="true" width="77.775390625" x="1.1123046875" y="11.015625">idlocalidad</y:NodeLabel>
@@ -436,7 +450,7 @@ control</y:NodeLabel>
     <node id="n32">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="-100.66666666666669" y="724.0"/>
+          <y:Geometry height="40.0" width="80.0" x="-78.1182119792746" y="596.8654244707528"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" underlinedText="true" visible="true" width="79.2578125" x="0.37109375" y="11.015625">idprovincia</y:NodeLabel>
@@ -449,7 +463,7 @@ control</y:NodeLabel>
     <node id="n33">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="890.4999999999999" y="437.0"/>
+          <y:Geometry height="40.0" width="80.0" x="734.7069225146804" y="168.5"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" underlinedText="true" visible="true" width="66.736328125" x="6.6318359375" y="11.015625">idmedida</y:NodeLabel>
@@ -462,7 +476,7 @@ control</y:NodeLabel>
     <node id="n34">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="890.4999999999999" y="511.50000000000006"/>
+          <y:Geometry height="40.0" width="80.0" x="654.3002633506047" y="599.2047585492228"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" underlinedText="true" visible="true" width="60.009765625" x="9.9951171875" y="11.015624999999943">idnorma</y:NodeLabel>
@@ -475,7 +489,7 @@ control</y:NodeLabel>
     <node id="n35">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="1025.0" y="254.0"/>
+          <y:Geometry height="40.0" width="80.0" x="877.8614153749809" y="345.40320372724426"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" underlinedText="true" visible="true" width="43.38671875" x="18.306640625" y="11.015625">idtipo</y:NodeLabel>
@@ -488,7 +502,7 @@ control</y:NodeLabel>
     <node id="n36">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="1146.75" y="460.75000000000006"/>
+          <y:Geometry height="40.0" width="80.0" x="786.943930109755" y="661.3481939040615"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" underlinedText="true" visible="true" width="88.099609375" x="-4.0498046875" y="11.015625">idorganismo</y:NodeLabel>
@@ -501,7 +515,7 @@ control</y:NodeLabel>
     <node id="n37">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="218.66666666666669" y="450.0"/>
+          <y:Geometry height="40.0" width="80.0" x="218.66666666666669" y="529.2047585492228"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" underlinedText="true" visible="true" width="44.646484375" x="17.6767578125" y="11.015625">idpais</y:NodeLabel>
@@ -514,7 +528,7 @@ control</y:NodeLabel>
     <node id="n38">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="59.0" y="77.90749678756477"/>
+          <y:Geometry height="40.0" width="80.0" x="195.85330713817945" y="75.71709233791748"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="50.5703125" x="14.71484375" y="11.015625">nombre</y:NodeLabel>
@@ -527,7 +541,7 @@ control</y:NodeLabel>
     <node id="n39">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="59.0" y="26.5"/>
+          <y:Geometry height="40.0" width="80.0" x="275.85330713817945" y="75.71709233791748"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="72.61328125" x="3.693359375" y="11.015625">descripcion</y:NodeLabel>
@@ -553,7 +567,7 @@ control</y:NodeLabel>
     <node id="n41">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="501.0" y="53.0"/>
+          <y:Geometry height="40.0" width="80.0" x="636.1296660117878" y="124.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="50.5703125" x="14.71484375" y="11.015625">nombre</y:NodeLabel>
@@ -566,7 +580,7 @@ control</y:NodeLabel>
     <node id="n42">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="122.84854604490499" x="-110.42742107081176" y="462.66666666666663"/>
+          <y:Geometry height="40.0" width="122.84854604490499" x="-99.5424850017271" y="397.99999999999994"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="100.046875" x="11.400835522452496" y="11.015625">cant empleados</y:NodeLabel>
@@ -579,7 +593,7 @@ control</y:NodeLabel>
     <node id="n43">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="-91.31679834196905" y="602.6666666666666"/>
+          <y:Geometry height="40.0" width="80.0" x="-78.1182119792746" y="529.2047585492228"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="50.5703125" x="14.71484375" y="11.015625">nombre</y:NodeLabel>
@@ -592,7 +606,7 @@ control</y:NodeLabel>
     <node id="n44">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="993.5036783419687" y="603.0"/>
+          <y:Geometry height="40.0" width="80.0" x="901.943930109755" y="661.3481939040615"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="50.5703125" x="14.71484375" y="11.015625">nombre</y:NodeLabel>
@@ -605,7 +619,7 @@ control</y:NodeLabel>
     <node id="n45">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="300.50617588946477" y="529.2047585492228"/>
+          <y:Geometry height="40.0" width="80.0" x="318.6666666666667" y="529.2047585492228"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="50.5703125" x="14.71484375" y="11.015625">nombre</y:NodeLabel>
@@ -618,7 +632,7 @@ control</y:NodeLabel>
     <node id="n46">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="168.0" y="778.2166549222798"/>
+          <y:Geometry height="40.0" width="80.0" x="-78.11821197927463" y="654.7537655533727"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="50.5703125" x="14.71484375" y="11.015625">nombre</y:NodeLabel>
@@ -631,7 +645,7 @@ control</y:NodeLabel>
     <node id="n47">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="1146.75" y="326.0"/>
+          <y:Geometry height="40.0" width="80.0" x="936.943930109755" y="385.40320372724426"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="50.5703125" x="14.71484375" y="11.015625">nombre</y:NodeLabel>
@@ -644,7 +658,7 @@ control</y:NodeLabel>
     <node id="n48">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Relationship">
-          <y:Geometry height="56.0" width="122.84854604490499" x="7.9105658031087955" y="123.0"/>
+          <y:Geometry height="56.0" width="122.84854604490499" x="34.57257892918824" y="123.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="114.689453125" x="4.079546459952496" y="19.015625">umedida-producto</y:NodeLabel>
@@ -655,12 +669,13 @@ control</y:NodeLabel>
       </data>
     </node>
     <node id="n49">
+      <data key="d4"/>
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Entity">
-          <y:Geometry height="40.0" width="80.0" x="-110.42742107081176" y="131.0"/>
+          <y:Geometry height="40.0" width="150.0" x="-145.42742107081176" y="131.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="65.125" x="7.4375" y="4.03125">Unidad de
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="50.5625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="118.306640625" x="15.8466796875" y="-5.28125">Unidad de
 medida</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="shadow" value="true"/>
@@ -671,7 +686,7 @@ medida</y:NodeLabel>
     <node id="n50">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="-110.42742107081176" y="201.0"/>
+          <y:Geometry height="40.0" width="80.0" x="-102.0894341968912" y="75.71709233791748"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" underlinedText="true" visible="true" width="62.576171875" x="8.7119140625" y="11.015625">umedida</y:NodeLabel>
@@ -684,7 +699,7 @@ medida</y:NodeLabel>
     <node id="n51">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="890.5" y="300.7131292903225"/>
+          <y:Geometry height="40.0" width="80.0" x="883.4124163014749" y="206.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="37.26953125" x="21.365234375" y="11.015625">hasta</y:NodeLabel>
@@ -697,7 +712,7 @@ medida</y:NodeLabel>
     <node id="n52">
       <data key="d6">
         <y:GenericNode configuration="EntityRelationship_Attribute">
-          <y:Geometry height="40.0" width="80.0" x="820.6317880207255" y="267.77467274789683"/>
+          <y:Geometry height="40.0" width="80.0" x="803.4124163014749" y="182.7131292903225"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="40.251953125" x="19.8740234375" y="11.015625">desde</y:NodeLabel>
