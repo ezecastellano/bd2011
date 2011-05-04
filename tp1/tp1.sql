@@ -1,7 +1,7 @@
 -- MySQL Administrator dump 1.4
 --
 -- ------------------------------------------------------
--- Server version	5.1.49-1ubuntu8.1
+-- Server version	5.1.54-1ubuntu4
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -51,8 +51,7 @@ CREATE TABLE  `mydb`.`extranjero_pais-medpp` (
   CONSTRAINT `fk_ext_pais_medpp_2` FOREIGN KEY (`idmedida`) REFERENCES `medida_por_prod_pais` (`idmedida`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_ext_pais_medpp_3` FOREIGN KEY (`idpais`) REFERENCES `pais` (`idpais`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`extranjero_pais-medpp` (`idproducto`,`idmedida`,`idpais`) VALUES 
- (1,2,1),
+INSERT INTO `mydb`.`extranjero_pais-medpp` VALUES  (1,2,1),
  (1,2,40),
  (3,4,2),
  (3,4,62),
@@ -284,8 +283,7 @@ CREATE TABLE  `mydb`.`fabrica` (
   KEY `fk_fabrica_1` (`idlocalidad`),
   CONSTRAINT `fk_fabrica_1` FOREIGN KEY (`idlocalidad`) REFERENCES `localidad` (`idlocalidad`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`fabrica` (`idfabrica`,`cantempleados`,`idlocalidad`) VALUES 
- (1,27,1),
+INSERT INTO `mydb`.`fabrica` VALUES  (1,27,1),
  (2,15,2),
  (3,54,3),
  (4,20,4),
@@ -313,8 +311,7 @@ CREATE TABLE  `mydb`.`localidad` (
   KEY `fk_localidad_1` (`idprovincia`),
   CONSTRAINT `fk_localidad_1` FOREIGN KEY (`idprovincia`) REFERENCES `provincia` (`idprovincia`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=575 DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`localidad` (`idlocalidad`,`nombre`,`idprovincia`) VALUES 
- (1,'AZUL',1),
+INSERT INTO `mydb`.`localidad` VALUES  (1,'AZUL',1),
  (2,'PUAN',1),
  (3,'LA MATANZA',1),
  (4,'TIGRE',1),
@@ -901,8 +898,7 @@ CREATE TABLE  `mydb`.`medida` (
   CONSTRAINT `fk_medida_1` FOREIGN KEY (`idnorma`) REFERENCES `norma` (`idnorma`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_medida_2` FOREIGN KEY (`idtipo`) REFERENCES `tipo` (`idtipo`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`medida` (`idmedida`,`idnorma`,`idtipo`,`tipo`,`desde`,`hasta`) VALUES 
- (1,1,1,'P','2011-02-01 00:00:00','2011-10-01 00:00:00'),
+INSERT INTO `mydb`.`medida` VALUES  (1,1,1,'P','2011-02-01 00:00:00','2011-10-01 00:00:00'),
  (2,2,1,'PP','2011-02-01 00:00:00','2011-10-01 00:00:00'),
  (3,3,1,'P','2005-02-01 00:00:00','2011-10-01 00:00:00'),
  (4,1,2,'PP','2011-02-01 00:00:00','2011-10-01 00:00:00'),
@@ -950,8 +946,11 @@ CREATE TABLE  `mydb`.`medida-producto` (
   CONSTRAINT `fk_medida_producto_1` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_medida_producto_2` FOREIGN KEY (`idmedida`) REFERENCES `medida_por_producto` (`idmedida`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`medida-producto` (`idproducto`,`idmedida`) VALUES 
+INSERT INTO `mydb`.`medida-producto` VALUES  (2,1),
  (2,3),
+ (2,8),
+ (2,10),
+ (2,11),
  (4,3),
  (6,6),
  (7,7),
@@ -1086,8 +1085,7 @@ CREATE TABLE  `mydb`.`medida_por_prod_pais` (
   KEY `fk_medida_por_prod_pais_1` (`idmedida`),
   CONSTRAINT `fk_medida_por_prod_pais_1` FOREIGN KEY (`idmedida`) REFERENCES `medida` (`idmedida`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`medida_por_prod_pais` (`idmedida`) VALUES 
- (2),
+INSERT INTO `mydb`.`medida_por_prod_pais` VALUES  (2),
  (4),
  (5),
  (9),
@@ -1100,8 +1098,7 @@ CREATE TABLE  `mydb`.`medida_por_producto` (
   KEY `fk_medida_por_producto_1` (`idmedida`),
   CONSTRAINT `fk_medida_por_producto_1` FOREIGN KEY (`idmedida`) REFERENCES `medida` (`idmedida`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`medida_por_producto` (`idmedida`) VALUES 
- (1),
+INSERT INTO `mydb`.`medida_por_producto` VALUES  (1),
  (3),
  (6),
  (7),
@@ -1113,8 +1110,7 @@ CREATE TABLE  `mydb`.`norma` (
   `idnorma` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`idnorma`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`norma` (`idnorma`) VALUES 
- (1),
+INSERT INTO `mydb`.`norma` VALUES  (1),
  (2),
  (3);
 CREATE TABLE  `mydb`.`organismo` (
@@ -1122,8 +1118,7 @@ CREATE TABLE  `mydb`.`organismo` (
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idorganismo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`organismo` (`idorganismo`,`nombre`) VALUES 
- (1,'indec'),
+INSERT INTO `mydb`.`organismo` VALUES  (1,'indec'),
  (2,'controladores anonimos'),
  (3,'seguro lo rechaza');
 CREATE TABLE  `mydb`.`pais` (
@@ -1131,8 +1126,7 @@ CREATE TABLE  `mydb`.`pais` (
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idpais`)
 ) ENGINE=InnoDB AUTO_INCREMENT=241 DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`pais` (`idpais`,`nombre`) VALUES 
- (1,'Afganistán'),
+INSERT INTO `mydb`.`pais` VALUES  (1,'Afganistán'),
  (2,'Islas Gland'),
  (3,'Albania'),
  (4,'Alemania'),
@@ -1382,8 +1376,7 @@ CREATE TABLE  `mydb`.`prod_extranjero-pais` (
   CONSTRAINT `fk_prod_extranjero_pais_1` FOREIGN KEY (`idproducto`) REFERENCES `producto_extranjero` (`productid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_prod_extranjero_pais_2` FOREIGN KEY (`idpais`) REFERENCES `pais` (`idpais`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`prod_extranjero-pais` (`idproducto`,`idpais`,`cantanual`) VALUES 
- (1,1,5),
+INSERT INTO `mydb`.`prod_extranjero-pais` VALUES  (1,1,5),
  (1,40,5),
  (3,2,7),
  (3,62,7),
@@ -1615,8 +1608,7 @@ CREATE TABLE  `mydb`.`prod_nacional_fabrica` (
   CONSTRAINT `fk_prod_nacional_fabrica_1` FOREIGN KEY (`idproducto`) REFERENCES `producto_nacional` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_prod_nacional_fabrica_2` FOREIGN KEY (`idfabrica`) REFERENCES `fabrica` (`idfabrica`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`prod_nacional_fabrica` (`idproducto`,`idfabrica`) VALUES 
- (2,1),
+INSERT INTO `mydb`.`prod_nacional_fabrica` VALUES  (2,1),
  (4,1),
  (6,1),
  (7,1),
@@ -1762,8 +1754,7 @@ CREATE TABLE  `mydb`.`producto` (
   CONSTRAINT `fk_producto_rubro` FOREIGN KEY (`rubro_idrubro`) REFERENCES `rubro` (`idrubro`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_producto_udemedida` FOREIGN KEY (`umedida`) REFERENCES `udemedida` (`udemedida`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=225 DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`producto` (`idproducto`,`nombre`,`descripcion`,`umedida`,`tipo`,`rubro_idrubro`) VALUES 
- (1,'Albaricoque','','kg','E',4),
+INSERT INTO `mydb`.`producto` VALUES  (1,'Albaricoque','','kg','E',4),
  (2,'Arandanos','','kg','N',4),
  (3,'Cereza','','kg','E',4),
  (4,'Ciruela Amarilla','','kg','N',4),
@@ -1993,8 +1984,7 @@ CREATE TABLE  `mydb`.`producto_extranjero` (
   KEY `fk_producto_extranjero_1` (`productid`),
   CONSTRAINT `fk_producto_extranjero_1` FOREIGN KEY (`productid`) REFERENCES `producto` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`producto_extranjero` (`productid`) VALUES 
- (1),
+INSERT INTO `mydb`.`producto_extranjero` VALUES  (1),
  (3),
  (5),
  (8),
@@ -2104,8 +2094,7 @@ CREATE TABLE  `mydb`.`producto_nacional` (
   KEY `fk_producto nacional_1` (`idproducto`),
   CONSTRAINT `fk_producto nacional_1` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`producto_nacional` (`idproducto`,`cantpuestos`) VALUES 
- (2,3),
+INSERT INTO `mydb`.`producto_nacional` VALUES  (2,3),
  (4,3),
  (6,6),
  (7,7),
@@ -2231,8 +2220,7 @@ CREATE TABLE  `mydb`.`provincia` (
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idprovincia`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`provincia` (`idprovincia`,`nombre`) VALUES 
- (1,'Buenos Aires'),
+INSERT INTO `mydb`.`provincia` VALUES  (1,'Buenos Aires'),
  (2,'Catamarca'),
  (3,'Chaco'),
  (4,'Chubut'),
@@ -2260,8 +2248,7 @@ CREATE TABLE  `mydb`.`rubro` (
   `nombre` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idrubro`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`rubro` (`idrubro`,`nombre`) VALUES 
- (1,'Ganaderia'),
+INSERT INTO `mydb`.`rubro` VALUES  (1,'Ganaderia'),
  (2,'Alimento'),
  (3,'Bebida'),
  (4,'Agropecuario'),
@@ -2274,8 +2261,7 @@ CREATE TABLE  `mydb`.`tipo` (
   KEY `fk_tipo_1` (`idorganismo`),
   CONSTRAINT `fk_tipo_1` FOREIGN KEY (`idorganismo`) REFERENCES `organismo` (`idorganismo`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`tipo` (`idtipo`,`nombre`,`idorganismo`) VALUES 
- (1,'monetaria',1),
+INSERT INTO `mydb`.`tipo` VALUES  (1,'monetaria',1),
  (2,'vencimiento',2),
  (3,'ingrediente',3),
  (4,'vacunacion',2);
@@ -2283,8 +2269,7 @@ CREATE TABLE  `mydb`.`udemedida` (
   `udemedida` varchar(8) NOT NULL,
   PRIMARY KEY (`udemedida`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `mydb`.`udemedida` (`udemedida`) VALUES 
- ('cm'),
+INSERT INTO `mydb`.`udemedida` VALUES  ('cm'),
  ('g'),
  ('kg'),
  ('km'),
