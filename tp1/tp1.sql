@@ -38,7 +38,7 @@ CREATE TABLE  `mydb`.`auditoria` (
   `hasta_nuevo` timestamp NULL DEFAULT NULL,
   `hasta_viejo` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`idauditoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 CREATE TABLE  `mydb`.`extranjero_pais-medpp` (
   `idproducto` int(11) NOT NULL,
   `idmedida` int(11) NOT NULL,
