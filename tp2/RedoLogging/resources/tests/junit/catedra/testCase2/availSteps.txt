@@ -1,0 +1,5 @@
+COMMIT t4
+ABORT t4
+UPDATE t4, *=*
+
+START_CKPT t4

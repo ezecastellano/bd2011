@@ -1,0 +1,10 @@
+Acciones disponibles
+******************
+START_CKPT (sin ninguna transacción)
+
+Recuperación
+*************
+WRITE T1, A=11
+WRITE T1, B=43
+WRITE T2, C=54
+FLUSH

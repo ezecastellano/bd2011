@@ -1,0 +1,40 @@
+<ubadbtools.recoveryLogAnalyzer.redo.common.RecoveryLog>
+  <logRecords>
+    <ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.StartLogRecord>
+      <transaction>T1</transaction>
+    </ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.StartLogRecord>
+    <ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.UpdateLogRecord>
+      <transaction>T1</transaction>
+      <item>A</item>
+      <newValue>1</newValue>
+    </ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.UpdateLogRecord>
+    <ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.UpdateLogRecord>
+      <transaction>T1</transaction>
+      <item>B</item>
+      <newValue>2</newValue>
+    </ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.UpdateLogRecord>
+    <ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.CommitLogRecord>
+      <transaction>T1</transaction>
+    </ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.CommitLogRecord>
+    <ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.StartLogRecord>
+      <transaction>T2</transaction>
+    </ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.StartLogRecord>
+    <ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.StartLogRecord>
+      <transaction>T3</transaction>
+    </ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.StartLogRecord>
+    <ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.UpdateLogRecord>
+      <transaction>T3</transaction>
+      <item>B</item>
+      <newValue>4</newValue>
+    </ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.UpdateLogRecord>
+  </logRecords>
+  <items class="linked-hash-set">
+    <string>A</string>
+    <string>B</string>
+  </items>
+  <transactions class="linked-hash-set">
+    <string>T1</string>
+    <string>T2</string>
+    <string>T3</string>
+  </transactions>
+</ubadbtools.recoveryLogAnalyzer.redo.common.RecoveryLog>

@@ -1,0 +1,36 @@
+Log
+****
+Representa al log del Recovery Manager.
+
+1° línea: transacciones separadas por comas
+2° línea: ítems separados por comas
+En adelante: 1 línea por registro de log
+
+Tipos de registro de log disponibles:
+START nombreTransacción
+COMMIT nombreTransacción
+ABORT nombreTransacción
+UPDATE nombreTransacción, ítem=valor
+START_CKPT nombreTransacción1, ... ,nombreTransacciónN
+END_CKPT
+
+- Los nombres de los registros de log deben ir en mayúscula
+- Se pueden agregar tantos espacios en blanco o líneas en blanco como se desee porque se descartan al momento de parsing
+
+Available Steps
+*************** 
+Representa a los pasos disponibles teniendo en cuenta el último registro del log anterior.
+
+Cada línea tiene un registro de log del mismo tipo que los descriptos anteriormente.
+IMPORTANTE: Para los registros de UPDATE, se deberá indicar con un * al ítem y al valor indicando que puede actualizarse 
+cualquiera de los ítems del log y ponerse cualquier valor.
+
+RecoveryActions
+***************
+Representa las acciones que deberá hacer el Recovery Manager para recuperarse de un crash teniendo
+el log definido en el primer punto.
+
+Cada línea puede tener cualquiera de las siguientes acciones:
+FLUSH
+ABORT nombreTransacción1, ... ,nombreTransacciónN
+WRITE nombreTransacción, ítem=valor

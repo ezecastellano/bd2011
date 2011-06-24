@@ -1,0 +1,18 @@
+Acciones disponibles
+******************
+ABORT T2
+COMMIT T2
+UPDATE T2, *=*
+
+ABORT T3
+COMMIT T3
+UPDATE T3,*=*
+
+START_CKPT T2,T3
+
+Recuperación
+*************
+ABORT T2,T3
+WRITE T1, A=1
+WRITE T1, B=2
+FLUSH
