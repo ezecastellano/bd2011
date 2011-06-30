@@ -6,7 +6,10 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 import ubadbtools.recoveryLogAnalyzer.redo.common.RecoveryLog;
-
+import ubadbtools.recoveryLogAnalyzer.redo.common.recoveryActions.*;
+import ubadbtools.recoveryLogAnalyzer.redo.common.RecoveryResult;
+import java.util.List;
+import java.util.ListIterator;
 
 
 
@@ -46,7 +49,16 @@ public class AnalyzeLogDialog extends JDialog
     //[start] AnalyzeRecoverability
     public void AnalyzeRecoverability(RecoveryLog log)
     {
-
+    	RecoveryResult pasos = log.recoverFromCrash();
+    	List<RecoveryAction> lactions=pasos.getRecoveryActions();
+    	ListIterator<RecoveryAction> liter=lactions.listIterator();
+    	while (liter.hasNext())
+    	{
+    		resultados.append( liter.next().toString() );
+    		resultados.append("\n");
+    	}
+    	
+    	
     }
     //[end]
 
@@ -83,7 +95,7 @@ public class AnalyzeLogDialog extends JDialog
         jPanel3 = new javax.swing.JPanel();
         tituloResultados = new javax.swing.JLabel();
 
-        this.setTitle("Análisis de log");
+        this.setTitle("Anï¿½lisis de log");
         setLocationByPlatform(true);
 
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
