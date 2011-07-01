@@ -75,6 +75,7 @@ public class EditLogRecordDialog extends javax.swing.JDialog {
         rbStart = new javax.swing.JRadioButton();
         rbUpdate = new javax.swing.JRadioButton();
         rbCommit = new javax.swing.JRadioButton();
+        //TODO: boton checkpoint
         jLabel2 = new javax.swing.JLabel();
         butCancelar = new javax.swing.JButton();
         butAceptar = new javax.swing.JButton();
@@ -131,7 +132,7 @@ public class EditLogRecordDialog extends javax.swing.JDialog {
         	.addContainerGap());
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel2.setText("Esto es a modo de ejemplo, acá deberían aparecer sólo las opciones disponibles"); // NOI18N
+        jLabel2.setText("Esto es a modo de ejemplo, acï¿½ deberï¿½an aparecer sï¿½lo las opciones disponibles"); // NOI18N
 
         butCancelar.setText("Cancelar"); // NOI18N
         butCancelar.addMouseListener(new java.awt.event.MouseAdapter() {

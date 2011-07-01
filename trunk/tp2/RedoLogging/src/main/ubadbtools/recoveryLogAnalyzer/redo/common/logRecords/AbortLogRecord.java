@@ -1,5 +1,6 @@
 package ubadbtools.recoveryLogAnalyzer.redo.common.logRecords;
 
+
 public class AbortLogRecord extends RecoveryLogRecord {
     
 	private String transaction;
