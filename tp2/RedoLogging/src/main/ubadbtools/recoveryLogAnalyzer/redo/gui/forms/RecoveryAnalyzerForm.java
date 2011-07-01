@@ -180,7 +180,7 @@ public class RecoveryAnalyzerForm extends JFrame
             }
         });
 
-        btnAddItem.setText("Agregar Ítem");
+        btnAddItem.setText("Agregar ï¿½tem");
         btnAddItem.setEnabled(false);
         btnAddItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,7 +188,7 @@ public class RecoveryAnalyzerForm extends JFrame
             }
         });
 
-        btnAddTransaction.setText("Agregar Transacción");
+        btnAddTransaction.setText("Agregar Transaccion");
         btnAddTransaction.setEnabled(false);
         btnAddTransaction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,7 +213,7 @@ public class RecoveryAnalyzerForm extends JFrame
 
         jLabel1.setText("Transacciones");
 
-        jLabel2.setText("Ítems");
+        jLabel2.setText("ï¿½tems");
 
         lstItems.setModel(new DefaultListModel());
         lstItems.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);

@@ -1,6 +1,7 @@
 package ubadbtools.recoveryLogAnalyzer.redo.common;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.LinkedList;
@@ -10,6 +11,8 @@ import java.util.HashSet;
 
 import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.*;
 import ubadbtools.recoveryLogAnalyzer.redo.common.recoveryActions.*;
+import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.StartLogRecord;
+
 
 
 public class RecoveryLog
@@ -74,8 +77,32 @@ public class RecoveryLog
 	 */
 	public Set<RecoveryLogRecord> getAvailableSteps()
 	{
-		//TODO: Completar
-		return null;
+		Set<RecoveryLogRecord> result = new LinkedHashSet<RecoveryLogRecord>();
+		if(!transactions.isEmpty()){
+			
+			/*
+			 * Antes de leer la lista de RecoveryLogRecords,
+			 * cualquier transacción podría hacer "start".			
+			 */
+			//[inicio]
+			Iterator<String> iter1 = transactions.iterator();
+			while(iter1.hasNext()){
+				result.add(new StartLogRecord(iter1.next()));
+			}
+			//[fin]
+			
+			/*
+			 * Ahora recorro el log y, segun el tipo de log que levante,
+			 * son las opciones que voy a agregar/eliminar
+			 * */
+			ListIterator<RecoveryLogRecord> iter2 = logRecords.listIterator();
+			while(iter2.hasNext()){
+				iter2.next();
+			}
+			
+		}
+		
+		return result;
 	}
 	
 	public RecoveryResult recoverFromCrash()
