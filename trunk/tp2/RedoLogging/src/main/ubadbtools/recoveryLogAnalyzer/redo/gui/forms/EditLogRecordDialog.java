@@ -16,9 +16,13 @@ import javax.swing.JRadioButton;
 import javax.swing.LayoutStyle;
 
 import ubadbtools.recoveryLogAnalyzer.redo.common.RecoveryLog;
+import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.AbortLogRecord;
+import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.CommitLogRecord;
 import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.EndCkptLogRecord;
 import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.RecoveryLogRecord;
 import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.StartCkptLogRecord;
+import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.StartLogRecord;
+import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.UpdateLogRecord;
 
 
 /**
@@ -64,7 +68,9 @@ public class EditLogRecordDialog extends javax.swing.JDialog {
     		System.out.print(record.toString());
     		System.out.print(", ");
     	}
-        initComponents();
+    	System.out.println("");
+        
+    	initComponents();
     }
     //[end]
     
@@ -118,19 +124,22 @@ public class EditLogRecordDialog extends javax.swing.JDialog {
         rbStart.setSelected(true);
         rbStart.setText("Start"); // NOI18N
         rbStart.setName("rbStart"); // NOI18N
+        rbStart.setEnabled(this.hayUn(StartLogRecord.class));
 
         rbgActionType.add(rbUpdate);
         rbUpdate.setText("Update"); // NOI18N
         rbUpdate.setName("rbUpdate"); // NOI18N
+        rbUpdate.setEnabled(this.hayUn(UpdateLogRecord.class));
         
         rbgActionType.add(rbAbort);
     	rbAbort.setText("Abort"); // NOI18N
     	rbAbort.setName("rbAbort"); // NOI18N
+    	rbAbort.setEnabled(this.hayUn(AbortLogRecord.class));
 
         rbgActionType.add(rbCommit);
         rbCommit.setText("Commit"); // NOI18N
         rbCommit.setName("rbCommit"); // NOI18N
-        //rbCommit.setEnabled(false);
+        rbCommit.setEnabled(this.hayUn(CommitLogRecord.class));
         
         rbgActionType.add(rbChkPt);
         rbChkPt.setText("Start Checkpoint");
@@ -140,6 +149,7 @@ public class EditLogRecordDialog extends javax.swing.JDialog {
         rbgActionType.add(rbEndChkPt);
         rbEndChkPt.setText("End Checkpoint");
         rbEndChkPt.setName("rbEndChkPt");
+        rbEndChkPt.setEnabled(this.hayUn(EndCkptLogRecord.class));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
