@@ -75,8 +75,178 @@ public class RecoveryLog
 	/**
 	 * Devuelve un conjunto porque no importa el orden de los pasos habilitados para ejecutarse en el log
 	 */
+	/**
+	 * @return
+	 */
 	public Set<RecoveryLogRecord> getAvailableSteps()
 	{
+		Set<RecoveryLogRecord> result = new LinkedHashSet<RecoveryLogRecord>();//resultado del metodo
+		Set<String> transaccionesActivas = new LinkedHashSet<String>();//acumula las transacciones activas
+		
+		RecoveryLogRecord next;//aca voy guardando el valor del iterador
+		EndCkptLogRecord endckpt = new EndCkptLogRecord();//lo uso para ir creando el resultado
+		
+		if(!transactions.isEmpty())
+		{
+			
+			/*
+			 * Antes de leer la lista de RecoveryLogRecords,
+			 * cualquier transacción podría hacer "start".
+			 */
+			Iterator<String> iter1 = transactions.iterator();
+			while(iter1.hasNext())
+			{
+				result.add(new StartLogRecord(iter1.next()));
+			}
+			
+			/*
+			 * Ahora recorro el log y, segun el tipo de log que levante,
+			 * son las opciones que voy a agregar/eliminar
+			 * */
+			ListIterator<RecoveryLogRecord> iter2 = logRecords.listIterator();
+			while(iter2.hasNext())
+			{
+				
+				/* Guardo el valor del siguiente elemento */
+				next = iter2.next();
+				
+				/* Si leo un start: lo borro del conjunto de
+				 * posibles acciones y lo agrego a las transacciones
+				 * activas */
+				if(next.getClass() == StartLogRecord.class)
+				{
+					result.remove(next);
+					transaccionesActivas.add(((StartLogRecord) next).getTransaction());
+				}
+				
+				/* Si leo un commit o abort, agrego un start 
+				 * y saco a la transaccion de las transacciones
+				 *  activas */
+				else if( 	(next.getClass() == CommitLogRecord.class) ||
+							(next.getClass() == AbortLogRecord.class) )
+				{
+					result.add(new StartLogRecord(((StartLogRecord) next).getTransaction()));
+					transaccionesActivas.remove(((StartLogRecord) next).getTransaction());
+				}
+				
+				/* Si leo un start checkpoint, agrego la posibilidad de
+				 * escribir un endcheckpoint */
+				/* TODO: ver si hace falta crearlo arriba para que siempre 
+				 * agregue o elimine el mismo. Algo me dice que usando un
+				 * new va a agregar siempre uno nuevo y a eliminar nada */
+				else if(next.getClass() == StartCkptLogRecord.class)
+				{
+					result.add(endckpt);
+				}
+				
+				/* Si leo un end checkpoint, saco la posibilidad de
+				 * escribir un endcheckpoint */
+				else if(next.getClass() == StartCkptLogRecord.class)
+				{
+					result.remove(endckpt);
+				}
+				
+				else //si es un update log record, no hago nada
+				{
+					//NADA
+				}
+			}
+			
+			//si no quedo ningun startckpt abierto y hay transacciones activas
+			if(!result.contains(endckpt) && !transaccionesActivas.isEmpty())
+			{
+				result.add(new StartCkptLogRecord(transaccionesActivas));
+			}
+			
+		}
+		
+		return result;
+	}
+	
+	public RecoveryResult recoverFromCrash()
+	{
+		//TODO: Completar
+		/*
+		Boolean conEndCkpt=false;
+		Boolean startYend=false;		
+		Set<String> empezadas =new HashSet<String>();
+		Set<String> commiteadas =new HashSet<String>();
+		List<UpdateLogRecord> rehacer=new LinkedList<UpdateLogRecord>();
+		Set<String> abortadas=new HashSet<String>();
+		
+		ListIterator<RecoveryLogRecord> iterLog = logRecords.listIterator(logRecords.size());   //creo iterador la final
+		
+		while (iterLog.hasPrevious()&&!startYend){												//busco el último StartCKPT con EndCKPT y guardo datos hasta ahi
+			
+			Object logRcd = iterLog.previous();													//agarro el elemento del iterador de logs
+			
+			if (logRcd.getClass()==EndCkptLogRecord.class)										//si encuentro un EndCkpt guardo que encontré un end
+							conEndCkpt=true;					
+					
+			if ((logRcd.getClass() == StartCkptLogRecord.class) && conEndCkpt ) 				//si encuentro un start y tenia un end listo, se donde empezar
+			{
+					startYend=true;			
+					empezadas.addAll( ((StartCkptLogRecord)logRcd).getTransactions());			//agrego como empezadas las activas desde el ultimo start con end
+			}
+												
+			if (logRcd.getClass() == CommitLogRecord.class)
+					commiteadas.add(((CommitLogRecord) logRcd).getTransaction());           	//agrego la transaccion a la lista de las que tengo que rehacer
+									
+			if (logRcd.getClass()==AbortLogRecord.class)
+					abortadas.add(((AbortLogRecord) logRcd).getTransaction());					//guardo las transacciones abortadas
+			
+			if (logRcd.getClass()==UpdateLogRecord.class)
+				if ( commiteadas.contains( ((UpdateLogRecord) logRcd).getTransaction() ) )  	// si la transaccion commiteo, guardo el update 
+						rehacer.add( ((UpdateLogRecord) logRcd) );
+			
+			if (logRcd.getClass()==AbortLogRecord.class)										//si es un abort, lo guardo en las transacciones abortadas
+					abortadas.add( ((AbortLogRecord)logRcd).getTransaction() ); 	
+			
+			if (logRcd.getClass()==StartLogRecord.class)										//si es un abort, lo guardo en las transacciones abortadas
+				empezadas.add( ((StartLogRecord)logRcd).getTransaction() ); 	
+			 
+		}
+		
+																								//tengo en commiteadas todas las transacciones que hicieron commit
+																								//en rehacer los update de las transacciones que hicieron commit, de la mas nueva a la mas antigua
+																								//en abortadas las transacciones que abortaron.
+		
+		Set<String> incompletos = empezadas;
+		incompletos.removeAll(abortadas);														//le saco a todas las transacciones las abortadas 
+		incompletos.removeAll(commiteadas);														//le saco a todas las commiteadas y incompletas las abortadas -> incompletas
+				
+		List<RecoveryAction> listarecovery=new LinkedList<RecoveryAction>();														//creo la lista de RecoveryActions que debo realizar para levantar del crash
+		
+		ListIterator<UpdateLogRecord> liter=rehacer.listIterator(rehacer.size());
+		
+		while (liter.hasPrevious())
+		{		
+				UpdateLogRecord urec=liter.previous();
+				listarecovery.add( new WriteRecoveryAction( 
+																urec.getTransaction(),
+																urec.getItem(),
+																urec.getNewValue() 
+															)
+									);  	
+		}																						//agrego desde el mas viejo al mas nuevo la lista de los logs que tengo que rehacer				
+				
+		if (incompletos.size()>0) listarecovery.add( new AbortRecoveryAction(incompletos ) );         					//agrego el AbortRecoveryActions con incompletos
+		if (listarecovery.size()>0) listarecovery.add( new FlushRecoveryAction() );											//agrego el flush record	
+		
+		return new RecoveryResult(listarecovery);*/							//devuelvo la lista de acciones
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//ESTO ES CODIGO BASURA DE MARIANO PARA TESTEAR
+		
 		Set<RecoveryLogRecord> result = new LinkedHashSet<RecoveryLogRecord>();//resultado del metodo
 		Set<String> transaccionesActivas = new LinkedHashSet<String>();//acumula las transacciones activas
 		
@@ -155,81 +325,15 @@ public class RecoveryLog
 				result.add(new StartCkptLogRecord(transaccionesActivas));
 			}
 			
+			List<RecoveryAction> listarecovery=new LinkedList<RecoveryAction>();
+			
 		}
 		
-		return result;
-	}
-	
-	public RecoveryResult recoverFromCrash()
-	{
-		//TODO: Completar
 		
-		Boolean conEndCkpt=false;
-		Boolean startYend=false;		
-		Set<String> empezadas =new HashSet<String>();
-		Set<String> commiteadas =new HashSet<String>();
-		List<UpdateLogRecord> rehacer=new LinkedList<UpdateLogRecord>();
-		Set<String> abortadas=new HashSet<String>();
 		
-		ListIterator<RecoveryLogRecord> iterLog = logRecords.listIterator(logRecords.size());   //creo iterador la final
 		
-		while (iterLog.hasPrevious()&&!startYend){												//busco el último StartCKPT con EndCKPT y guardo datos hasta ahi
-			
-			Object logRcd = iterLog.previous();													//agarro el elemento del iterador de logs
-			
-			if (logRcd.getClass()==EndCkptLogRecord.class)										//si encuentro un EndCkpt guardo que encontré un end
-							conEndCkpt=true;					
-					
-			if ((logRcd.getClass() == StartCkptLogRecord.class) && conEndCkpt ) 				//si encuentro un start y tenia un end listo, se donde empezar
-			{
-					startYend=true;			
-					empezadas.addAll( ((StartCkptLogRecord)logRcd).getTransactions());			//agrego como empezadas las activas desde el ultimo start con end
-			}
-												
-			if (logRcd.getClass() == CommitLogRecord.class)
-					commiteadas.add(((CommitLogRecord) logRcd).getTransaction());           	//agrego la transaccion a la lista de las que tengo que rehacer
-									
-			if (logRcd.getClass()==AbortLogRecord.class)
-					abortadas.add(((AbortLogRecord) logRcd).getTransaction());					//guardo las transacciones abortadas
-			
-			if (logRcd.getClass()==UpdateLogRecord.class)
-				if ( commiteadas.contains( ((UpdateLogRecord) logRcd).getTransaction() ) )  	// si la transaccion commiteo, guardo el update 
-						rehacer.add( ((UpdateLogRecord) logRcd) );
-			
-			if (logRcd.getClass()==AbortLogRecord.class)										//si es un abort, lo guardo en las transacciones abortadas
-					abortadas.add( ((AbortLogRecord)logRcd).getTransaction() ); 	
-			
-			if (logRcd.getClass()==StartLogRecord.class)										//si es un abort, lo guardo en las transacciones abortadas
-				empezadas.add( ((StartLogRecord)logRcd).getTransaction() ); 	
-			 
-		}
 		
-																								//tengo en commiteadas todas las transacciones que hicieron commit
-																								//en rehacer los update de las transacciones que hicieron commit, de la mas nueva a la mas antigua
-																								//en abortadas las transacciones que abortaron.
 		
-		Set<String> incompletos = empezadas;
-		incompletos.removeAll(abortadas);														//le saco a todas las transacciones las abortadas 
-		incompletos.removeAll(commiteadas);														//le saco a todas las commiteadas y incompletas las abortadas -> incompletas
-				
-		List<RecoveryAction> listarecovery=new LinkedList<RecoveryAction>();														//creo la lista de RecoveryActions que debo realizar para levantar del crash
 		
-		ListIterator<UpdateLogRecord> liter=rehacer.listIterator(rehacer.size());
-		
-		while (liter.hasPrevious())
-		{		
-				UpdateLogRecord urec=liter.previous();
-				listarecovery.add( new WriteRecoveryAction( 
-																urec.getTransaction(),
-																urec.getItem(),
-																urec.getNewValue() 
-															)
-									);  	
-		}																						//agrego desde el mas viejo al mas nuevo la lista de los logs que tengo que rehacer				
-				
-		if (incompletos.size()>0) listarecovery.add( new AbortRecoveryAction(incompletos ) );         					//agrego el AbortRecoveryActions con incompletos
-		if (listarecovery.size()>0) listarecovery.add( new FlushRecoveryAction() );											//agrego el flush record	
-		
-		return new RecoveryResult(listarecovery); 												//devuelvo la lista de acciones
 	}
 }
