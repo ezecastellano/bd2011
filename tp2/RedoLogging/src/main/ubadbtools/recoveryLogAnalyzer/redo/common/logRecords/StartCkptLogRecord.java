@@ -1,19 +1,18 @@
 package ubadbtools.recoveryLogAnalyzer.redo.common.logRecords;
-import java.util.List;
-
-import java.util.ListIterator;
+import java.util.Iterator;
+import java.util.Set;
 
 
 public class StartCkptLogRecord extends RecoveryLogRecord
 {
-	private List<String> transactions;
+	private Set<String> transactions;
 	
-	public StartCkptLogRecord(List<String> transactions) 
+	public StartCkptLogRecord(Set<String> transactions2) 
 	{
-		this.transactions = transactions;
+		this.transactions = transactions2;
 	}
 	
-	public List<String> getTransactions()
+	public Set<String> getTransactions()
 	{
 		return transactions;
 	}
@@ -21,7 +20,7 @@ public class StartCkptLogRecord extends RecoveryLogRecord
 	public String toString()
 	{
 		String res;
-		ListIterator<String> liter=transactions.listIterator();
+		Iterator<String> liter=transactions.iterator();
 		res="<START CKPT (";
 		
 		if (liter.hasNext()) res=res+liter.next();
