@@ -14,6 +14,7 @@ import javax.swing.JRadioButton;
 import javax.swing.LayoutStyle;
 
 import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.RecoveryLogRecord;
+import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.StartCkptLogRecord;
 
 
 /**
@@ -75,7 +76,9 @@ public class EditLogRecordDialog extends javax.swing.JDialog {
         rbStart = new javax.swing.JRadioButton();
         rbUpdate = new javax.swing.JRadioButton();
         rbCommit = new javax.swing.JRadioButton();
+        rbAbort = new javax.swing.JRadioButton();
         //TODO: boton checkpoint
+        rbChkPt = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         butCancelar = new javax.swing.JButton();
         butAceptar = new javax.swing.JButton();
@@ -93,46 +96,54 @@ public class EditLogRecordDialog extends javax.swing.JDialog {
         rbgActionType.add(rbUpdate);
         rbUpdate.setText("Update"); // NOI18N
         rbUpdate.setName("rbUpdate"); // NOI18N
-        {
-        	rbAbort = new JRadioButton();
-        	rbAbort.setText("Abort");
-        	rbAbort.setName("rbAbort");
-        	rbgActionType.add(rbAbort);
-        }
+        
+        rbgActionType.add(rbAbort);
+    	rbAbort.setText("Abort"); // NOI18N
+    	rbAbort.setName("rbAbort"); // NOI18N
 
         rbgActionType.add(rbCommit);
         rbCommit.setText("Commit"); // NOI18N
         rbCommit.setName("rbCommit"); // NOI18N
+        //rbCommit.setEnabled(false);
+        
+        rbgActionType.add(rbChkPt);
+        rbChkPt.setText("Start Checkpoint");
+        rbChkPt.setName("rbChkPt");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setVerticalGroup(jPanel1Layout.createSequentialGroup()
-        	.addComponent(rbStart, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
+    		.addComponent(rbChkPt , GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
+        	.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+        	.addComponent(rbStart , GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
         	.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
         	.addComponent(rbUpdate, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
         	.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-        	.addComponent(rbCommit, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+        	.addComponent(rbAbort , GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
         	.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-        	.addComponent(rbAbort, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE));
+        	.addComponent(rbCommit, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE));
         jPanel1Layout.setHorizontalGroup(jPanel1Layout.createSequentialGroup()
         	.addContainerGap()
         	.addGroup(jPanel1Layout.createParallelGroup()
-        	    .addGroup(GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+    			.addGroup(GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+        	        .addComponent(rbChkPt, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
+        	        .addGap(0, 6, Short.MAX_VALUE))
+            	.addGroup(GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
         	        .addComponent(rbStart, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
-        	        .addGap(0, 20, Short.MAX_VALUE))
-        	    .addGroup(jPanel1Layout.createSequentialGroup()
+        	        .addGap(0, 6, Short.MAX_VALUE))
+        	    .addGroup(GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
         	        .addComponent(rbCommit, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
-        	        .addGap(0, 0, Short.MAX_VALUE))
+        	        .addGap(0, 6, Short.MAX_VALUE))
         	    .addGroup(GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
         	        .addComponent(rbUpdate, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
         	        .addGap(0, 6, Short.MAX_VALUE))
         	    .addGroup(GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-        	        .addComponent(rbAbort, GroupLayout.PREFERRED_SIZE, 62, GroupLayout.PREFERRED_SIZE)
-        	        .addGap(0, 0, Short.MAX_VALUE)))
+        	        .addComponent(rbAbort, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
+        	        .addGap(0, 6, Short.MAX_VALUE)))
         	.addContainerGap());
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel2.setText("Esto es a modo de ejemplo, ac� deber�an aparecer s�lo las opciones disponibles"); // NOI18N
+        jLabel2.setText("Esto es a modo de ejemplo, aca deberian aparecer solo las opciones disponibles"); // NOI18N
 
         butCancelar.setText("Cancelar"); // NOI18N
         butCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -155,7 +166,7 @@ public class EditLogRecordDialog extends javax.swing.JDialog {
         	.addContainerGap()
         	.addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
         	.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-        	.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
+        	.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
         	.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
         	.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
         	    .addComponent(butAceptar, GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -193,6 +204,8 @@ public class EditLogRecordDialog extends javax.swing.JDialog {
     		logRecord = StartLogRecordDialog.showDialog(parent, transactions);
     	else if(rbCommit.isSelected())
     		logRecord = CommitLogRecordDialog.showDialog(parent, transactions);
+    	else if(rbChkPt.isSelected())
+    		logRecord = new StartCkptLogRecord(this.transactions); //XXX TODO Aca le paso todas las transacciones. En algun momento hay que ponerle solo las transacciones abiertas
     	else if(rbUpdate.isSelected())
     		logRecord = UpdateLogRecordDialog.showDialog(parent, transactions,items);
     	else if(rbAbort.isSelected())
@@ -216,6 +229,7 @@ public class EditLogRecordDialog extends javax.swing.JDialog {
     private javax.swing.JRadioButton rbCommit;
     private javax.swing.JRadioButton rbStart;
     private javax.swing.JRadioButton rbUpdate;
+    private javax.swing.JRadioButton rbChkPt;
     private javax.swing.ButtonGroup rbgActionType;
     // End of variables declaration//GEN-END:variables
     //[end]
