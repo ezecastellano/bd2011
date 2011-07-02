@@ -110,23 +110,37 @@ public class RecoveryLog
 				/* Guardo el valor del siguiente elemento */
 				next = iter2.next();
 				
-				/* Si leo un start: lo borro del conjunto de
-				 * posibles acciones y lo agrego a las transacciones
-				 * activas */
+				/* Si leo un start lo borro del conjunto de
+				 * posibles acciones, lo agrego a las transacciones
+				 * activas y agrego como posibles acciones un abort y un commit */
 				if(next.getClass() == StartLogRecord.class)
 				{
 					result.remove(next);
+					result.add(new AbortLogRecord( ((StartLogRecord) next).getTransaction()) );
+					result.add(new CommitLogRecord( ((StartLogRecord) next).getTransaction()) );
 					transaccionesActivas.add(((StartLogRecord) next).getTransaction());
 				}
 				
-				/* Si leo un commit o abort, agrego un start 
-				 * y saco a la transaccion de las transacciones
-				 *  activas */
-				else if( 	(next.getClass() == CommitLogRecord.class) ||
-							(next.getClass() == AbortLogRecord.class) )
+				/* Si leo un commit, saco el commit y el abort
+				 * de las posibles acciones, agrego un start y saco a 
+				 * la transaccion de las transacciones activas */
+				else if(next.getClass() == CommitLogRecord.class)
 				{
-					result.add(new StartLogRecord(((StartLogRecord) next).getTransaction()));
-					transaccionesActivas.remove(((StartLogRecord) next).getTransaction());
+					result.remove(new AbortLogRecord(((CommitLogRecord) next).getTransaction()));
+					result.remove(new CommitLogRecord(((CommitLogRecord) next).getTransaction()));
+					result.add(new StartLogRecord(((CommitLogRecord) next).getTransaction()));
+					transaccionesActivas.remove(((CommitLogRecord) next).getTransaction());
+				}
+				
+				/* Si leo un abort, saco el commit y el abort
+				 * de las posibles acciones, agrego un start y saco a 
+				 * la transaccion de las transacciones activas */
+				else if(next.getClass() == AbortLogRecord.class)
+				{
+					result.remove(new AbortLogRecord(((AbortLogRecord) next).getTransaction()));
+					result.remove(new CommitLogRecord(((AbortLogRecord) next).getTransaction()));
+					result.add(new StartLogRecord(((AbortLogRecord) next).getTransaction()));
+					transaccionesActivas.remove(((AbortLogRecord) next).getTransaction());
 				}
 				
 				/* Si leo un start checkpoint, agrego la posibilidad de
@@ -166,7 +180,6 @@ public class RecoveryLog
 	public RecoveryResult recoverFromCrash()
 	{
 		//TODO: Completar
-		/*
 		Boolean conEndCkpt=false;
 		Boolean startYend=false;		
 		Set<String> empezadas =new HashSet<String>();
@@ -233,107 +246,6 @@ public class RecoveryLog
 		if (incompletos.size()>0) listarecovery.add( new AbortRecoveryAction(incompletos ) );         					//agrego el AbortRecoveryActions con incompletos
 		if (listarecovery.size()>0) listarecovery.add( new FlushRecoveryAction() );											//agrego el flush record	
 		
-		return new RecoveryResult(listarecovery);*/							//devuelvo la lista de acciones
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		//ESTO ES CODIGO BASURA DE MARIANO PARA TESTEAR
-		
-		Set<RecoveryLogRecord> result = new LinkedHashSet<RecoveryLogRecord>();//resultado del metodo
-		Set<String> transaccionesActivas = new LinkedHashSet<String>();//acumula las transacciones activas
-		
-		RecoveryLogRecord next;//aca voy guardando el valor del iterador
-		EndCkptLogRecord endckpt = new EndCkptLogRecord();//lo uso para ir creando el resultado
-		
-		if(!transactions.isEmpty())
-		{
-			
-			/*
-			 * Antes de leer la lista de RecoveryLogRecords,
-			 * cualquier transacción podría hacer "start".
-			 */
-			Iterator<String> iter1 = transactions.iterator();
-			while(iter1.hasNext())
-			{
-				result.add(new StartLogRecord(iter1.next()));
-			}
-			
-			/*
-			 * Ahora recorro el log y, segun el tipo de log que levante,
-			 * son las opciones que voy a agregar/eliminar
-			 * */
-			ListIterator<RecoveryLogRecord> iter2 = logRecords.listIterator();
-			while(iter2.hasNext())
-			{
-				
-				/* Guardo el valor del siguiente elemento */
-				next = iter2.next();
-				
-				/* Si leo un start: lo borro del conjunto de
-				 * posibles acciones y lo agrego a las transacciones
-				 * activas */
-				if(next.getClass() == StartLogRecord.class)
-				{
-					result.remove(next);
-					transaccionesActivas.add(((StartLogRecord) next).getTransaction());
-				}
-				
-				/* Si leo un commit o abort, agrego un start 
-				 * y saco a la transaccion de las transacciones
-				 *  activas */
-				else if( 	(next.getClass() == CommitLogRecord.class) ||
-							(next.getClass() == AbortLogRecord.class) )
-				{
-					result.add(new StartLogRecord(((StartLogRecord) next).getTransaction()));
-					transaccionesActivas.remove(((StartLogRecord) next).getTransaction());
-				}
-				
-				/* Si leo un start checkpoint, agrego la posibilidad de
-				 * escribir un endcheckpoint */
-				/* TODO: ver si hace falta crearlo arriba para que siempre 
-				 * agregue o elimine el mismo. Algo me dice que usando un
-				 * new va a agregar siempre uno nuevo y a eliminar nada */
-				else if(next.getClass() == StartCkptLogRecord.class)
-				{
-					result.add(endckpt);
-				}
-				
-				/* Si leo un end checkpoint, saco la posibilidad de
-				 * escribir un endcheckpoint */
-				else if(next.getClass() == StartCkptLogRecord.class)
-				{
-					result.remove(endckpt);
-				}
-				
-				else //si es un update log record, no hago nada
-				{
-					//NADA
-				}
-			}
-			
-			//si no quedo ningun startckpt abierto
-			if(!result.contains(endckpt))
-			{
-				result.add(new StartCkptLogRecord(transaccionesActivas));
-			}
-			
-			List<RecoveryAction> listarecovery=new LinkedList<RecoveryAction>();
-			
-		}
-		
-		
-		
-		
-		
-		
-		
+		return new RecoveryResult(listarecovery);		
 	}
 }

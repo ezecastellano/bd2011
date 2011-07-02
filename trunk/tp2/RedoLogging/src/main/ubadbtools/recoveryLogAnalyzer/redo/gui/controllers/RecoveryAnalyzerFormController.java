@@ -99,7 +99,7 @@ public class RecoveryAnalyzerFormController
 		{
 			formTable.removeColumn(columnModel.getColumn(0));
 		}
-		//Ademï¿½s de remover las columnas, hay que llamar a este mï¿½todo (aparentemente, bug de Java: http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4283734)
+		//Además de remover las columnas, hay que llamar a este método (aparentemente, bug de Java: http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4283734)
 		formTableModel.setDataVector( new Vector<Object>(), new Vector<Object>());
 	}
 	
@@ -117,7 +117,7 @@ public class RecoveryAnalyzerFormController
 	
 	private void ShowLogInForm(RecoveryLog log)
 	{
-		// Agrego los ï¿½tems
+		// Agrego los ítems
 		for(String item : log.getItems())
 		{
 			this.AddItemToForm(item);
@@ -141,7 +141,7 @@ public class RecoveryAnalyzerFormController
 	//[start] AnalyzeLog
 	public void AnalyzeLog()
 	{
-		// Lanzo el diï¿½logo en donde se analizarï¿½ el log
+		// Lanzo el diálogo en donde se analizará el log
 		AnalyzeLogDialog.showDialog(form, log);
 	}
 	//[end]
@@ -150,7 +150,7 @@ public class RecoveryAnalyzerFormController
 	public void AddNewTransaction()
 	{
 		//Le pido al usuario un nombre
-		String newTxName = GUIHelper.showInputDialog(form,"Nombre de la nueva transacciï¿½n:");
+		String newTxName = GUIHelper.showInputDialog(form,"Nombre de la nueva transacción:");
 		
 		// Si el usuario puso algo, agrego la nueva transaccion
 		if(newTxName != null && !newTxName.trim().equals(""))
@@ -168,7 +168,7 @@ public class RecoveryAnalyzerFormController
 	public void AddNewItem()
 	{
 		// Invoco al metodo concreto para agregar al nuevo item
-		String newItem = GUIHelper.showInputDialog(form,"Nombre del nuevo ï¿½tem:");
+		String newItem = GUIHelper.showInputDialog(form,"Nombre del nuevo ítem:");
 		
 		// Si se agrego un item, lo agrego a la lista de items en el formulario
 		if(newItem != null && !newItem.trim().equals(""))
@@ -186,9 +186,9 @@ public class RecoveryAnalyzerFormController
 	public void AddNewLogRecord()
 	{
 		// Lanzo el dialogo para la edicion del registro de log
-		RecoveryLogRecord logRecord = EditLogRecordDialog.showDialog(form, log);
+		RecoveryLogRecord logRecord = EditLogRecordDialog.showDialog(form, log.getTransactions(), log.getItems());
 		
-		// Si se eligio un registro de log...
+		// Si se eligió un registro de log...
     	if(logRecord != null)
     	{
     		//Se lo agrego al log
@@ -211,7 +211,7 @@ public class RecoveryAnalyzerFormController
 	public void EditLogRecord(int recordNumber) throws GUIException
     {
     	// Lanzo el editor de registros
-    	RecoveryLogRecord logRecord = EditLogRecordDialog.showDialog(form, log);
+    	RecoveryLogRecord logRecord = EditLogRecordDialog.showDialog(form, log.getTransactions(), log.getItems());
     	
 		// Si no hay registro es porque se cancelo el dialogo
 		if(logRecord != null)
@@ -222,7 +222,7 @@ public class RecoveryAnalyzerFormController
 			// Modifico la tabla con el nuevo valor 
 			formTableModel.setValueAt(logRecord.toString(), 
 				recordNumber,
-				1);	//La columna 1 es donde estï¿½ el contenido del registro
+				1);	//La columna 1 es donde está el contenido del registro
 		}
 	}
 	//[end]
@@ -252,7 +252,7 @@ public class RecoveryAnalyzerFormController
     	int recordNumber = formTableModel.getRowCount() + 1;
 
 		// Agrego la fila a la tabla con el numero de paso en el primer campo
-    	Object[] newRow = new Object[formTableModel.getColumnCount() + 1];	//No sï¿½ por quï¿½ pero necesita el +1
+    	Object[] newRow = new Object[formTableModel.getColumnCount() + 1];	//No sé por qué pero necesita el +1
     	newRow[0] =  Integer.toString(recordNumber);
     	newRow[1] = logRecord.toString();	//La columna 1 tiene el contenido del registro
     	formTableModel.addRow(newRow);

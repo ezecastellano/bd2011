@@ -173,14 +173,14 @@ public class RecoveryAnalyzerForm extends JFrame
         jScrollPane1.setViewportView(tableLog);
 
         btnAnalyzeLog.setEnabled(false);
-        btnAnalyzeLog.setText("Analizar Log");
+        btnAnalyzeLog.setLabel("Analizar Log");
         btnAnalyzeLog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAnalyzeLogActionPerformed(evt);
             }
         });
 
-        btnAddItem.setText("Agregar item");
+        btnAddItem.setText("Agregar �tem");
         btnAddItem.setEnabled(false);
         btnAddItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
