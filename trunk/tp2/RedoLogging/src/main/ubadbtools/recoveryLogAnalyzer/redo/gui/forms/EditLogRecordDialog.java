@@ -256,21 +256,40 @@ public class EditLogRecordDialog extends javax.swing.JDialog {
     {//GEN-FIRST:event_butAceptarMouseClicked
 
     	// Genero el registro de log segun los valores en los controles del dialogo
-    	if(rbStart.isSelected())
-    		logRecord = StartLogRecordDialog.showDialog(parent, transactions);
-    	else if(rbCommit.isSelected())
-    		logRecord = CommitLogRecordDialog.showDialog(parent, transactions);
-    	else if(rbChkPt.isSelected())
-    		//XXX TODO Aca le paso todas las transacciones. En algun momento hay que ponerle solo las transacciones abiertas
-    		
-    		logRecord = new StartCkptLogRecord(this.transactions);
-    	else if(rbEndChkPt.isSelected())
+		if(rbStart.isSelected()){
+			Set<RecoveryLogRecord> starters=this.getAll(StartLogRecord.class);
+			Set<String> tr=new LinkedHashSet<String>();
+			Iterator<RecoveryLogRecord> it = starters.iterator();
+	    	while(it.hasNext()) tr.add(((StartLogRecord)it.next()).getTransaction());
+    		logRecord = StartLogRecordDialog.showDialog(parent, tr);
+		}else if(rbCommit.isSelected()){
+			Set<RecoveryLogRecord> commiters=this.getAll(CommitLogRecord.class);
+			Set<String> tr=new LinkedHashSet<String>();
+			Iterator<RecoveryLogRecord> it = commiters.iterator();
+	    	while(it.hasNext()) tr.add(((CommitLogRecord)it.next()).getTransaction());
+    		logRecord = CommitLogRecordDialog.showDialog(parent, tr);
+		}else if(rbChkPt.isSelected()){
+    		logRecord = this.getAll(StartCkptLogRecord.class).iterator().next();//new StartCkptLogRecord(this.transactions);
+		}else if(rbEndChkPt.isSelected()){
     		logRecord = new EndCkptLogRecord();
-    	else if(rbUpdate.isSelected())
-    		logRecord = UpdateLogRecordDialog.showDialog(parent, transactions,items);
-    	else if(rbAbort.isSelected())
-    		logRecord = AbortLogRecordDialog.showDialog(parent, transactions);
-    	
+		}else if(rbUpdate.isSelected()){
+			Set<RecoveryLogRecord> updaters=this.getAll(UpdateLogRecord.class);
+			Set<String> tr=new LinkedHashSet<String>();
+			Set<String> its=new LinkedHashSet<String>();
+			Iterator<RecoveryLogRecord> it = updaters.iterator();
+	    	while(it.hasNext()){
+	    		UpdateLogRecord el=(UpdateLogRecord)it.next();
+    			tr.add(el.getTransaction());
+    			//its.add(el.getItem());
+	    	}
+    		logRecord = UpdateLogRecordDialog.showDialog(parent, tr,items);
+		}else if(rbAbort.isSelected()){
+			Set<RecoveryLogRecord> aborters=this.getAll(AbortLogRecord.class);
+			Set<String> tr=new LinkedHashSet<String>();
+			Iterator<RecoveryLogRecord> it = aborters.iterator();
+	    	while(it.hasNext()) tr.add(((AbortLogRecord)it.next()).getTransaction());
+    		logRecord = AbortLogRecordDialog.showDialog(parent, tr);
+		}
     	this.setVisible(false);
     }//GEN-LAST:event_butAceptarMouseClicked
 
