@@ -171,6 +171,14 @@ public class RecoveryLog
 			{
 				result.add(new StartCkptLogRecord(transaccionesActivas));
 			}
+			if(!transaccionesActivas.isEmpty())
+			{
+				iter1 = transaccionesActivas.iterator();
+				while(iter1.hasNext()){
+					result.add(new UpdateLogRecord(iter1.next(), "*", "*"));
+				}
+				
+			}
 			
 		}
 		
