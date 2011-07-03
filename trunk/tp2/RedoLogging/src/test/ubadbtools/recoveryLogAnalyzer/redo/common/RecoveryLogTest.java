@@ -15,17 +15,17 @@ public class RecoveryLogTest
 	
 	@Test
 	/**
-	 * Para verificar parte de su implementación, deben hacer que pasen los tests de la cátedra
+	 * Para verificar parte de su implementaciï¿½n, deben hacer que pasen los tests de la cï¿½tedra
 	 */
 	public void catedraTestCases() throws Exception
 	{
-		//AVISO IMPORTANTE: Cuando agreguen clases para el Start Ckpt y End Ckpt van a tener que implementar el equals y además actualizar el parser
+		//AVISO IMPORTANTE: Cuando agreguen clases para el Start Ckpt y End Ckpt van a tener que implementar el equals y ademï¿½s actualizar el parser
 		performTests(BASE_FOLDER + "catedra/testCase", 2);
 	}
 	
 	@Test
 	/**
-	 * Además, pueden realizar sus propios tests (solamente son obligatorios los manuales)
+	 * Ademï¿½s, pueden realizar sus propios tests (solamente son obligatorios los manuales)
 	 */
 	public void alumnosTestCases() throws Exception
 	{
@@ -34,7 +34,7 @@ public class RecoveryLogTest
 	
 	@Test
 	/**
-	 * Durante la demo la cátedra llevará sus propios tests para verificar su implementación
+	 * Durante la demo la cï¿½tedra llevarï¿½ sus propios tests para verificar su implementaciï¿½n
 	 */
 	public void demoTestCases() throws Exception
 	{
