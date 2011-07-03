@@ -119,9 +119,9 @@ public class UpdateLogRecordDialog extends javax.swing.JDialog {
                 .addGap(36, 36, 36))
         );
 
-        jLabel1.setText("Transacción");
+        jLabel1.setText("TransacciÃ³n");
 
-        jLabel2.setText("Ítem");
+        jLabel2.setText("Item");
 
         jLabel3.setText("Valor Nuevo");
 
@@ -180,7 +180,7 @@ public class UpdateLogRecordDialog extends javax.swing.JDialog {
     		cbItems.getSelectedItem()==null ||
     		txtOldValue.getText().trim().equals(""))
     	{
-        	GUIHelper.showWarningMessage(this, "Falta ingresar algún dato");
+        	GUIHelper.showWarningMessage(this, "Falta ingresar algÃºn dato");
     	}
     	else
     	{

@@ -24,7 +24,7 @@ public class RecoveryLog
 	public RecoveryLog()
 	{
 		logRecords 	= new ArrayList<RecoveryLogRecord>();
-		items 		= new LinkedHashSet<String>();	//Provee un orden de iteraci�n predecible (no como HashSet)
+		items 		= new LinkedHashSet<String>();	//Provee un orden de iteracion predecible (no como HashSet)
 		transactions= new LinkedHashSet<String>();
 	}
 

@@ -95,7 +95,7 @@ public class AnalyzeLogDialog extends JDialog
         jPanel3 = new javax.swing.JPanel();
         tituloResultados = new javax.swing.JLabel();
 
-        this.setTitle("An�lisis de log");
+        this.setTitle("Análisis de log");
         setLocationByPlatform(true);
 
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
