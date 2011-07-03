@@ -252,7 +252,7 @@ public class RecoveryLog
 		}																						//agrego desde el mas viejo al mas nuevo la lista de los logs que tengo que rehacer				
 				
 		if (incompletos.size()>0) listarecovery.add( new AbortRecoveryAction(incompletos ) );         					//agrego el AbortRecoveryActions con incompletos
-		if (listarecovery.size()>0) listarecovery.add( new FlushRecoveryAction() );											//agrego el flush record	
+		if (incompletos.size()>0) listarecovery.add( new FlushRecoveryAction() );											//agrego el flush record	
 		
 		return new RecoveryResult(listarecovery);		
 	}
