@@ -166,11 +166,9 @@ public class RecoveryLog
 				}
 			}
 			
-			//si no quedo ningun startckpt abierto y hay transacciones activas
-			if(!result.contains(endckpt) && !transaccionesActivas.isEmpty())
-			{
-				result.add(new StartCkptLogRecord(transaccionesActivas));
-			}
+			/* Agrego la posibilidad de hacer un start checkpoint */
+			result.add(new StartCkptLogRecord(transaccionesActivas));
+			
 			if(!transaccionesActivas.isEmpty())
 			{
 				iter1 = transaccionesActivas.iterator();
