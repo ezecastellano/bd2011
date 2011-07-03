@@ -10,7 +10,9 @@ import java.util.Set;
 
 import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.AbortLogRecord;
 import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.CommitLogRecord;
+import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.EndCkptLogRecord;
 import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.RecoveryLogRecord;
+import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.StartCkptLogRecord;
 import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.StartLogRecord;
 import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.UpdateLogRecord;
 import ubadbtools.recoveryLogAnalyzer.redo.common.recoveryActions.AbortRecoveryAction;
@@ -22,16 +24,19 @@ public class RecoveryLogParser
 {
 	public static void main(String[] args) throws Exception
 	{
-		RecoveryLogParser parser = new RecoveryLogParser();
-		RecoveryLog log = parser.parseLog("resources/tests/catedra/testCase1/log.txt");
-		Set<RecoveryLogRecord> logRecords = parser.parseAvailableSteps("resources/tests/catedra/testCase1/availSteps.txt");
-		RecoveryResult recoveryResult = parser.parseRecoveryResult("resources/tests/catedra/testCase1/recoveryResult.txt");
+		/*RecoveryLogParser parser = new RecoveryLogParser();
+		RecoveryLog log = parser.parseLog("resources/tests/junit/catedra/testCase1/log.txt");
+		Set<RecoveryLogRecord> logRecords = parser.parseAvailableSteps("resources/tests/junit/catedra/testCase1/availSteps.txt");
+		RecoveryResult recoveryResult = parser.parseRecoveryResult("resources/tests/junit/catedra/testCase1/recoveryResult.txt");
 		System.out.println(log.getItems());
 		System.out.println(log.getTransactions());
 		System.out.println(log.getLogRecords());
 		
 		System.out.println(logRecords);
-		System.out.println(recoveryResult.getRecoveryActions());
+		System.out.println(recoveryResult.getRecoveryActions());*/
+		
+		RecoveryLogTest catedra = new RecoveryLogTest();
+		catedra.catedraTestCases();
 	}
 
 	public RecoveryLog parseLog(String file) throws Exception
@@ -98,12 +103,12 @@ public class RecoveryLogParser
 		}
 		else if ("END_CKPT".equals(type))
 		{
-			//TODO: Completar
-			//ret = "endckpt";
+			//TODO: VER SI ESTA BIEN LO QUE HICE!!!
+			ret = new EndCkptLogRecord();
 		}
 		else
 		{
-			throw new Exception("Tipo de registro de log inv·lido (" + type + ")");
+			throw new Exception("Tipo de registro de log inv√°lido (" + type + ")");
 		}
 		return ret;
 	}
@@ -153,8 +158,8 @@ public class RecoveryLogParser
 	{
 		Set<String> transactions = parseElementsAsSet(content);
 		
-		//TODO: Completar
-		return null;
+		//TODO: Verificar que est√© bien esto que devuelvo
+		return new StartCkptLogRecord(transactions);
 	}
 
 	public RecoveryResult parseRecoveryResult(String file) throws Exception
@@ -197,7 +202,7 @@ public class RecoveryLogParser
 		}
 		else
 		{
-			throw new Exception("Tipo de acciÛn de recuperaciÛn inv·lido (" + type + ")");
+			throw new Exception("Tipo de acci√≥n de recuperaci√≥n inv√°lido (" + type + ")");
 		}
 		
 		return ret;
