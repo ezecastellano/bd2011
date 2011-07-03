@@ -96,7 +96,7 @@ public class AbortLogRecordDialog extends javax.swing.JDialog {
                 .addGap(36, 36, 36))
         );
 
-        jLabel1.setText("Transacción");
+        jLabel1.setText("TransacciÃ³n");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -130,7 +130,7 @@ public class AbortLogRecordDialog extends javax.swing.JDialog {
 
     private void btAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAceptarActionPerformed
 		if (cbTransactions.getSelectedItem() == null)
-			GUIHelper.showWarningMessage(this, "Falta ingresar algún dato");
+			GUIHelper.showWarningMessage(this, "Falta ingresar algÃºn dato");
 		else {
 			logRecord = new AbortLogRecord((String) cbTransactions
 					.getSelectedItem());

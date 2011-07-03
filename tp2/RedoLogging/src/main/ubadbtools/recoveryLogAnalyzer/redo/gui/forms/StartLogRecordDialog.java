@@ -97,7 +97,7 @@ public class StartLogRecordDialog extends javax.swing.JDialog {
         	.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
         	.addComponent(btCancelar, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE));
 
-        jLabel1.setText("Transacción");
+        jLabel1.setText("TransacciÃ³n");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -133,7 +133,7 @@ public class StartLogRecordDialog extends javax.swing.JDialog {
     //[start] Eventos
     private void btAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAceptarActionPerformed
     	if(cbTransactions.getSelectedItem()==null)
-        	GUIHelper.showWarningMessage(this, "Falta ingresar algún dato");
+        	GUIHelper.showWarningMessage(this, "Falta ingresar algÃºn dato");
     	else
     	{
 	    	logRecord = new StartLogRecord((String)cbTransactions.getSelectedItem());
