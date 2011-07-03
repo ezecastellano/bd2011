@@ -85,6 +85,7 @@ public class RecoveryLog
 		
 		RecoveryLogRecord next;//aca voy guardando el valor del iterador
 		EndCkptLogRecord endckpt = new EndCkptLogRecord();//lo uso para ir creando el resultado
+		Iterator<String> iter1;
 		
 		if(!transactions.isEmpty())
 		{
@@ -93,7 +94,7 @@ public class RecoveryLog
 			 * Antes de leer la lista de RecoveryLogRecords,
 			 * cualquier transacción podría hacer "start".
 			 */
-			Iterator<String> iter1 = transactions.iterator();
+			iter1 = transactions.iterator();
 			while(iter1.hasNext())
 			{
 				result.add(new StartLogRecord(iter1.next()));
@@ -166,16 +167,16 @@ public class RecoveryLog
 				}
 			}
 			
-			/* Agrego la posibilidad de hacer un start checkpoint */
-			result.add(new StartCkptLogRecord(transaccionesActivas));
-			
-			if(!transaccionesActivas.isEmpty())
-			{
-				iter1 = transaccionesActivas.iterator();
-				while(iter1.hasNext()){
-					result.add(new UpdateLogRecord(iter1.next(), "*", "*"));
-				}
-				
+		}
+		
+		/* Agrego la posibilidad de hacer un start checkpoint */
+		result.add(new StartCkptLogRecord(transaccionesActivas));
+		
+		if(!transaccionesActivas.isEmpty())
+		{
+			iter1 = transaccionesActivas.iterator();
+			while(iter1.hasNext()){
+				result.add(new UpdateLogRecord(iter1.next(), "*", "*"));
 			}
 			
 		}
