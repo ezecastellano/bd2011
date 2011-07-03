@@ -186,7 +186,7 @@ public class RecoveryAnalyzerFormController
 	public void AddNewLogRecord()
 	{
 		// Lanzo el dialogo para la edicion del registro de log
-		RecoveryLogRecord logRecord = EditLogRecordDialog.showDialog(form, log.getTransactions(), log.getItems());
+		RecoveryLogRecord logRecord = EditLogRecordDialog.showDialog(form, log);
 		
 		// Si se eligio un registro de log...
     	if(logRecord != null)
@@ -211,7 +211,7 @@ public class RecoveryAnalyzerFormController
 	public void EditLogRecord(int recordNumber) throws GUIException
     {
     	// Lanzo el editor de registros
-    	RecoveryLogRecord logRecord = EditLogRecordDialog.showDialog(form, log.getTransactions(), log.getItems());
+    	RecoveryLogRecord logRecord = EditLogRecordDialog.showDialog(form, log);
     	
 		// Si no hay registro es porque se cancelo el dialogo
 		if(logRecord != null)

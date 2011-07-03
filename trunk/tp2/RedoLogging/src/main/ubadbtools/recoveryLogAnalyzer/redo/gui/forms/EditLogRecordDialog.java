@@ -7,14 +7,22 @@
 package ubadbtools.recoveryLogAnalyzer.redo.gui.forms;
 
 import java.awt.Frame;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import javax.swing.GroupLayout;
 import javax.swing.JRadioButton;
 import javax.swing.LayoutStyle;
 
+import ubadbtools.recoveryLogAnalyzer.redo.common.RecoveryLog;
+import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.AbortLogRecord;
+import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.CommitLogRecord;
+import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.EndCkptLogRecord;
 import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.RecoveryLogRecord;
 import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.StartCkptLogRecord;
+import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.StartLogRecord;
+import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.UpdateLogRecord;
 
 
 /**
@@ -38,29 +46,62 @@ public class EditLogRecordDialog extends javax.swing.JDialog {
 	private JRadioButton rbAbort;
 	private Set<String> items;
 	private Frame parent;
+	private RecoveryLog log;
+	private Set<RecoveryLogRecord> available;
 	//[end]
 	
 	//[start] Constructor
-    public EditLogRecordDialog(java.awt.Frame parent, boolean modal, Set<String> transactions, Set<String> items)
+    public EditLogRecordDialog(java.awt.Frame parent, boolean modal, RecoveryLog log)
     {
         super(parent, modal);
-        initComponents();
         
-        this.transactions = transactions;
-        this.items = items;
+        this.transactions = log.getTransactions();
+        this.items = log.getItems();
+        this.log=log;
+        this.available=log.getAvailableSteps();
         this.parent = parent;
+        
+    	Iterator<RecoveryLogRecord> it = this.available.iterator();
+    	System.out.print("POSIBLES: ");
+    	while(it.hasNext()){
+    		RecoveryLogRecord record = it.next();
+    		System.out.print(record.toString());
+    		System.out.print(", ");
+    	}
+    	System.out.println("");
+        
+    	initComponents();
     }
     //[end]
     
     //[start] showDialog
-    public static RecoveryLogRecord showDialog(Frame parent, Set<String> transactions, Set<String> items)
+    public static RecoveryLogRecord showDialog(Frame parent, RecoveryLog log)
     {
-    	EditLogRecordDialog dialog = new EditLogRecordDialog(parent, true, transactions, items);
+    	EditLogRecordDialog dialog = new EditLogRecordDialog(parent, true, log);
         dialog.setVisible(true);
         
         return dialog.logRecord;
     }
     //[end]
+    
+    private Boolean hayUn(Class<?> c){
+    	Iterator<RecoveryLogRecord> it = this.available.iterator();
+    	while(it.hasNext()){
+    		RecoveryLogRecord record = it.next();
+    		if(record.getClass().equals(c)) return true;
+    	}
+    	return false;
+    }
+    
+    private Set<RecoveryLogRecord> getAll(Class<?> c){
+    	Set<RecoveryLogRecord> all=new LinkedHashSet<RecoveryLogRecord>();    	
+    	Iterator<RecoveryLogRecord> it = this.available.iterator();
+    	while(it.hasNext()){
+    		RecoveryLogRecord record = it.next();
+    		if(record.getClass().equals(c)) all.add(record);
+    	}
+		return all;
+    }
     
     //[start] InitComponents (AUTO-GENERATED)
     /** This method is called from within the constructor to
@@ -79,6 +120,7 @@ public class EditLogRecordDialog extends javax.swing.JDialog {
         rbAbort = new javax.swing.JRadioButton();
         //TODO: boton checkpoint
         rbChkPt = new javax.swing.JRadioButton();
+        rbEndChkPt = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         butCancelar = new javax.swing.JButton();
         butAceptar = new javax.swing.JButton();
@@ -92,28 +134,39 @@ public class EditLogRecordDialog extends javax.swing.JDialog {
         rbStart.setSelected(true);
         rbStart.setText("Start"); // NOI18N
         rbStart.setName("rbStart"); // NOI18N
+        rbStart.setEnabled(this.hayUn(StartLogRecord.class));
 
         rbgActionType.add(rbUpdate);
         rbUpdate.setText("Update"); // NOI18N
         rbUpdate.setName("rbUpdate"); // NOI18N
+        rbUpdate.setEnabled(this.hayUn(UpdateLogRecord.class));
         
         rbgActionType.add(rbAbort);
     	rbAbort.setText("Abort"); // NOI18N
     	rbAbort.setName("rbAbort"); // NOI18N
+    	rbAbort.setEnabled(this.hayUn(AbortLogRecord.class));
 
         rbgActionType.add(rbCommit);
         rbCommit.setText("Commit"); // NOI18N
         rbCommit.setName("rbCommit"); // NOI18N
-        //rbCommit.setEnabled(false);
+        rbCommit.setEnabled(this.hayUn(CommitLogRecord.class));
         
         rbgActionType.add(rbChkPt);
         rbChkPt.setText("Start Checkpoint");
         rbChkPt.setName("rbChkPt");
+        rbChkPt.setEnabled(this.hayUn(StartCkptLogRecord.class));
+        
+        rbgActionType.add(rbEndChkPt);
+        rbEndChkPt.setText("End Checkpoint");
+        rbEndChkPt.setName("rbEndChkPt");
+        rbEndChkPt.setEnabled(this.hayUn(EndCkptLogRecord.class));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setVerticalGroup(jPanel1Layout.createSequentialGroup()
     		.addComponent(rbChkPt , GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
+        	.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+        	.addComponent(rbEndChkPt , GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
         	.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
         	.addComponent(rbStart , GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
         	.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -127,6 +180,9 @@ public class EditLogRecordDialog extends javax.swing.JDialog {
         	.addGroup(jPanel1Layout.createParallelGroup()
     			.addGroup(GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
         	        .addComponent(rbChkPt, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
+        	        .addGap(0, 6, Short.MAX_VALUE))
+                .addGroup(GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+        	        .addComponent(rbEndChkPt, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
         	        .addGap(0, 6, Short.MAX_VALUE))
             	.addGroup(GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
         	        .addComponent(rbStart, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -166,7 +222,7 @@ public class EditLogRecordDialog extends javax.swing.JDialog {
         	.addContainerGap()
         	.addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
         	.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-        	.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
+        	.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
         	.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
         	.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
         	    .addComponent(butAceptar, GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -205,7 +261,11 @@ public class EditLogRecordDialog extends javax.swing.JDialog {
     	else if(rbCommit.isSelected())
     		logRecord = CommitLogRecordDialog.showDialog(parent, transactions);
     	else if(rbChkPt.isSelected())
-    		logRecord = new StartCkptLogRecord(this.transactions); //XXX TODO Aca le paso todas las transacciones. En algun momento hay que ponerle solo las transacciones abiertas
+    		//XXX TODO Aca le paso todas las transacciones. En algun momento hay que ponerle solo las transacciones abiertas
+    		
+    		logRecord = new StartCkptLogRecord(this.transactions);
+    	else if(rbEndChkPt.isSelected())
+    		logRecord = new EndCkptLogRecord();
     	else if(rbUpdate.isSelected())
     		logRecord = UpdateLogRecordDialog.showDialog(parent, transactions,items);
     	else if(rbAbort.isSelected())
@@ -230,6 +290,7 @@ public class EditLogRecordDialog extends javax.swing.JDialog {
     private javax.swing.JRadioButton rbStart;
     private javax.swing.JRadioButton rbUpdate;
     private javax.swing.JRadioButton rbChkPt;
+    private javax.swing.JRadioButton rbEndChkPt;
     private javax.swing.ButtonGroup rbgActionType;
     // End of variables declaration//GEN-END:variables
     //[end]
