@@ -154,7 +154,7 @@ public class RecoveryLog
 				
 				/* Si leo un end checkpoint, saco la posibilidad de
 				 * escribir un endcheckpoint */
-				else if(next.getClass() == StartCkptLogRecord.class)
+				else if(next.getClass() == EndCkptLogRecord.class)
 				{
 					result.remove(endckpt);
 				}

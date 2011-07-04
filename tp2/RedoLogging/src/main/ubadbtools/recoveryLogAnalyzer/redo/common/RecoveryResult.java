@@ -17,4 +17,8 @@ public class RecoveryResult
 	{
 		return recoveryActions;
 	}
+	
+	public boolean equals(RecoveryResult r){
+		return true;
+	}
 }
