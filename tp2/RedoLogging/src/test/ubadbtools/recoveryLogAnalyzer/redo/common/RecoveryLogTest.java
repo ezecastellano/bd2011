@@ -53,7 +53,7 @@ public class RecoveryLogTest
 			
 			//Asserts
 			assertEquals(expectedAvailableSteps,recoveryLog.getAvailableSteps());
-			//assertEquals(expectedRecoveryResult,recoveryLog.recoverFromCrash());
+			assertEquals(expectedRecoveryResult,recoveryLog.recoverFromCrash());
 			
 			System.out.println("Passed: " + subPath + i);
 		}
