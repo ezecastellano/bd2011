@@ -233,7 +233,9 @@ public class RecoveryLog
 		incompletos.removeAll(abortadas);														//le saco a todas las transacciones las abortadas 
 		incompletos.removeAll(commiteadas);														//le saco a todas las commiteadas y incompletas las abortadas -> incompletas
 				
-		List<RecoveryAction> listarecovery=new LinkedList<RecoveryAction>();														//creo la lista de RecoveryActions que debo realizar para levantar del crash
+		List<RecoveryAction> listarecovery=new LinkedList<RecoveryAction>();					//creo la lista de RecoveryActions que debo realizar para levantar del crash
+		
+		if (incompletos.size()>0) listarecovery.add( new AbortRecoveryAction(incompletos ) ); 	//agrego el AbortRecoveryActions con incompletos  
 		
 		ListIterator<UpdateLogRecord> liter=rehacer.listIterator(rehacer.size());
 		
@@ -248,8 +250,8 @@ public class RecoveryLog
 									);  	
 		}																						//agrego desde el mas viejo al mas nuevo la lista de los logs que tengo que rehacer				
 				
-		if (incompletos.size()>0) listarecovery.add( new AbortRecoveryAction(incompletos ) );         					//agrego el AbortRecoveryActions con incompletos
-		if (incompletos.size()>0) listarecovery.add( new FlushRecoveryAction() );											//agrego el flush record	
+		       				
+		if (incompletos.size()>0) listarecovery.add( new FlushRecoveryAction() );				//agrego el flush record, sólo si habia alguna transaccion incompleta a la que le escribí un abort	
 		
 		return new RecoveryResult(listarecovery);		
 	}
