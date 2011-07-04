@@ -123,24 +123,22 @@ public class RecoveryLog
 				}
 				
 				/* Si leo un commit, saco el commit y el abort
-				 * de las posibles acciones, agrego un start y saco a 
+				 * de las posibles acciones y saco a 
 				 * la transaccion de las transacciones activas */
 				else if(next.getClass() == CommitLogRecord.class)
 				{
 					result.remove(new AbortLogRecord(((CommitLogRecord) next).getTransaction()));
 					result.remove(new CommitLogRecord(((CommitLogRecord) next).getTransaction()));
-					result.add(new StartLogRecord(((CommitLogRecord) next).getTransaction()));
 					transaccionesActivas.remove(((CommitLogRecord) next).getTransaction());
 				}
 				
 				/* Si leo un abort, saco el commit y el abort
-				 * de las posibles acciones, agrego un start y saco a 
+				 * de las posibles acciones y saco a 
 				 * la transaccion de las transacciones activas */
 				else if(next.getClass() == AbortLogRecord.class)
 				{
 					result.remove(new AbortLogRecord(((AbortLogRecord) next).getTransaction()));
 					result.remove(new CommitLogRecord(((AbortLogRecord) next).getTransaction()));
-					result.add(new StartLogRecord(((AbortLogRecord) next).getTransaction()));
 					transaccionesActivas.remove(((AbortLogRecord) next).getTransaction());
 				}
 				
