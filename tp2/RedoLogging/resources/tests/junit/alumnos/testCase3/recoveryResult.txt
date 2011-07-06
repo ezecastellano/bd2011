@@ -1,0 +1,5 @@
+ABORT t4,t5
+WRITE t2, a=2000
+WRITE t2, b=200
+WRITE t3, c=2
+FLUSH
