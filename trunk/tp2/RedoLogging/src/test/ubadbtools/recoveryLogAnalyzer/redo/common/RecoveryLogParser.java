@@ -158,8 +158,6 @@ public class RecoveryLogParser
 	private RecoveryLogRecord parseStartCkptLogRecord(String content)
 	{
 		Set<String> transactions = parseElementsAsSet(content);
-		System.out.print(content+" ");
-		System.out.print("tamaño del la lista startckpt: "+transactions.size()+"\n");
 		//TODO: Verificar que esté bien esto que devuelvo
 		return new StartCkptLogRecord(transactions);
 	}
