@@ -188,6 +188,7 @@ public class RecoveryLog
 		Boolean conEndCkpt=false;
 		Boolean startYend=false;		
 		Set<String> empezadas =new HashSet<String>();
+		Set<String> activasHastaStart =new HashSet<String>();
 		Set<String> commiteadas =new HashSet<String>();
 		List<UpdateLogRecord> rehacer=new LinkedList<UpdateLogRecord>();
 		Set<String> abortadas=new HashSet<String>();
@@ -205,6 +206,8 @@ public class RecoveryLog
 			{
 					startYend=true;			
 					empezadas.addAll( ((StartCkptLogRecord)logRcd).getTransactions());			//agrego como empezadas las activas desde el ultimo start con end
+					activasHastaStart.addAll(  (((StartCkptLogRecord)logRcd).getTransactions()));	//agrego como activas hasta start las activas desde el ultimo start con end, que commitearon!, son las que tengo que revisar hacia atras despues!
+					activasHastaStart.retainAll(commiteadas);									//dejo solo las activas que luego hicieron commit
 			}
 												
 			if (logRcd.getClass() == CommitLogRecord.class)
@@ -223,7 +226,23 @@ public class RecoveryLog
 			if (logRcd.getClass()==StartLogRecord.class)										//si es un abort, lo guardo en las transacciones abortadas
 				empezadas.add( ((StartLogRecord)logRcd).getTransaction() ); 	
 			 
+		}    
+		//ME FALTA BUSCAR LOS UPDATE DE LAS QUE ESTABAN ACTIVAS ANTERIORES AL START_CKPT, RECORRO PARA ELLAS HASTA ENCONTRAR SUS START Y GUARDANDO SUS UPDATE
+		//iterLog esta en ese estart o en el principio
+			
+		while (iterLog.hasPrevious()&&activasHastaStart.size()>0){												//busco el último StartCKPT con EndCKPT y guardo datos hasta ahi
+			// Reviso y guardo updates solo de las activas hasta start, cuando encontre start de todas paro!
+			Object logRcd = iterLog.previous();													//agarro el elemento del iterador de logs
+																													
+			if (logRcd.getClass()==UpdateLogRecord.class)
+				if ( activasHastaStart.contains( ((UpdateLogRecord) logRcd).getTransaction() ) )  	// si la transaccion era de las activas que busco, guardo el update 
+						rehacer.add( ((UpdateLogRecord) logRcd) );
+						
+			if (logRcd.getClass()==StartLogRecord.class)										//si es un abort, lo guardo en las transacciones abortadas
+				activasHastaStart.remove( ((StartLogRecord)logRcd).getTransaction() ); 			//la saco del conjunto, termina cuando todas las activas con commit se fueron del conjunto 	
+			 
 		}
+					
 		
 																								//tengo en commiteadas todas las transacciones que hicieron commit
 																								//en rehacer los update de las transacciones que hicieron commit, de la mas nueva a la mas antigua
