@@ -66,6 +66,15 @@ public class RecoveryLogRecordTest
 	@Test
 	public void equalsEndCheckpoint()
 	{
-		//TODO: Completar si quieren!!
+		
+		RecoveryLogRecord endckpt = new EndCkptLogRecord();
+		
+		assertTrue(endckpt.equals(endckpt));
+		assertTrue(endckpt.equals(new EndCkptLogRecord()));
+		assertTrue((new EndCkptLogRecord()).equals(endckpt));
+		assertFalse(endckpt.equals(new StartCkptLogRecord(null)));
+		assertFalse(endckpt.equals(null));
+		assertFalse(endckpt.equals(new UpdateLogRecord("t","a","1")));
+		
 	}
 }

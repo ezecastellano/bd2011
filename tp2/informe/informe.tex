@@ -1,0 +1,69 @@
+\documentclass[11pt, a4paper]{article}
+
+% Configuración de márgenes de las páginas
+	%\usepackage[left=3cm,right=3cm,top=2cm, bottom=2cm]{geometry}
+	\usepackage{a4wide}
+
+% Paquete de acentos para Linux
+	\usepackage[utf8]{inputenc}
+
+% Paquete de acentos para windows
+%	\usepackage[latin1]{inputenc}
+
+% Paquete para reconocer la separación en sílabas en español
+	\usepackage[spanish]{babel}
+
+% Paquetes especiales para el TP
+	\usepackage{./otros/caratula}
+
+% Paquete para incluir hypervinculos
+	\usepackage{color}
+	\usepackage{url}
+	\definecolor{lnk}{rgb}{0,0,0.4}
+	\usepackage[colorlinks=true,linkcolor=lnk,citecolor=blue,urlcolor=blue]{hyperref}
+
+% Paquete para armar índices
+	\usepackage{makeidx}
+	\makeindex
+
+% Más espacio entre líneas
+	\parskip=1.5pt
+
+
+\begin{document}
+
+% Carátula
+	\titulo{Segundo Trabajo Práctico}
+	\fecha{6 de Julio de 2011}
+	\materia{Bases de Datos}
+	\integrante{Bianchi, Mariano}{92/08}{bianchi-mariano@hotmail.com}
+	\integrante{Brusco, Pablo}{527/08}{pablo.brusco@gmail.com}
+	\integrante{Allekotte, Kevin}{490/08}{kevinalle@gmail.com}
+	\integrante{Dondero, Julián}{696/07}{juliandondero@gmail.com}
+	\maketitle
+
+% Índice
+%\newpage \printindex \tableofcontents
+
+% Cuerpo del informe
+\section{Aclaraciones}
+
+\subsection{Algoritmo getAvailableSteps}
+\paragraph{}
+El algoritmo en general no trajo mayores dificultades. La idea que aplicamos fue ir leyendo el log de arriba hacia abajo y para cada entrada encontrada, se procedía a sacar o ingresar una nueva opción del conjunto de posibles pasos que se iba a terminar devolviendo.
+\paragraph{}
+Ni bien comienza el algoritmo, se agrega como posibles acciones que cualquier transacción disponible pueda hacer un start. Luego se lee el log de arriba hacia abajo, y con cada lectura de una entrada del log hacíamos lo siguiente:
+\begin{itemize}
+	\item En caso de leer un ``start t'', se elimina esa opción del conjunto de opciones disponibles y se agrega al conjunto la posibilidad de hacer un ``abort t'' y un ``commit t''.
+	\item En caso de leer un ``abort t'' o un ``commit t'', se elminan ambas opciones del conjunto.\footnote{En un comienzo pensamos que había que agregar la opción de que dicha transacción pueda hacer nuevamente un ``start'' pero en una consulta por mail nos aclararon que no se debía agregar nuevamente esta opción.}
+	\item En caso de leer un ``startckpt'' se agrega al conjunto la chance de hacer un ``endckpt''. Si ya existía antes la opción de ingresar un ``endckpt'' (por ejemplo, si hay más de un ``starckpt'' abierto), no se agrega otro ``endckpt'', de manera que sólo haya uno por vez.
+	\item En caso de leer un ``endckpt'', se elmina el ``endckpt'' que existía como opción en el conjunto de pasos disponibles.
+	\item En cualquier otro caso (por ejemplo, el de los updates) no se realizaba ninguna acción
+\end{itemize}
+
+\paragraph{}
+Además, durante este algoritmo, se iban acumulando las transacciones que quedaban activas. De esta manera, al finalizar de recorrer el log, si habían quedado transacciones activas, se agregaba al conjunto de opciones la opción de que cada una de estas transacciones haga un ``update''. Finalmente, utilizando este mismo conjunto de transacciones activas, se agrega la opción de hacer un ``starckpt''.
+
+
+
+\end{document}
