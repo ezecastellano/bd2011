@@ -64,6 +64,24 @@ Ni bien comienza el algoritmo, se agrega como posibles acciones que cualquier tr
 \paragraph{}
 Además, durante este algoritmo, se iban acumulando las transacciones que quedaban activas. De esta manera, al finalizar de recorrer el log, si habían quedado transacciones activas, se agregaba al conjunto de opciones la opción de que cada una de estas transacciones haga un ``update''. Finalmente, utilizando este mismo conjunto de transacciones activas, se agrega la opción de hacer un ``starckpt''.
 
+\subsection{Algoritmo recoveryFromCrash}
+\paragraph{}
+La idea principal del algoritmo fue recorrer la lista de Logs Record desde el final hacia el comienzo, buscando ``endchkpt'' y ``startchkpt'', y al mismo tiempo guardando los registros de ``commit'' y ``updates'' que se encontraban. Estos últimos, solo de las transacciones que tenian ``commit'' (estos sí o sí eran encontrados anteriormente en el recorrido). \\
+El recorrido finalizaba de dos maneras posibles:
+\begin {itemize}
+	\item  La primera consiste en encontrar un ``startchkp'', habiendo encontrado un ``endchkpt'' anteriormente. Así solamente se rehacen las transacciones que hicieron un ``commit'' despues del ``startckpt'' que sabemos finalizó. Sin embargo, necesitábamos seguir recorriendo hacia atrás, buscando los updates de las transacciones activas en el momento de dicho ``startckpt''. 
+Para esto, una vez llegado al primer ``startckpt'' con su respectivo ``endckpt'', guardamos en un conjunto las transacciones que hicieron ``commit'' y que estaban en la lista de transacciones activas en dicho ``startckpt''. Luego continuamos recorriendo acumulando los ``update'' de estas, y sacandolas de dicho conjunto a medida que veíamos sus respectivos ``start''. Este segundo recorrido finaliza al vaciar totalmente este conjunto que es al momento de llegar al ``start'' de la transacción que empezó
+primera, que ``commiteo'' despues del ``startckpt'' y que está en la lista de transacciones activas.
+Al finalizar esta segunda etapa del recorrido, teníamos guardados todos los ``update'' que había que rehacer, en orden inverso, es decir desde los más nuevos a los más antiguos. Tambien teníamos las transacciones que hicieron ``commit'', y las que abortaron.
+Teníamos que hacer un ``abort'' por todas las transacciones incompletas, estas las obtuvimos restando de todas las transacciones, las abortadas y las commiteadas al momento del checkpoint. \\
+	\item La segunda se produce cuando no hay un ``endckpt'' registrado, con lo cual se leerá todo el Log entero. También tendremos la información guardada de la misma manera que en el item anterior.\\
+\end{itemize}
 
+Con toda esta información armamos luego la lista de acciones para devolver el Recovery Result, abortando el conjunto de transacciones que debian abortar y recorriendo inversamente la lista de ``updates'' que había que rehacer. Finalmente, se realiza un ``flush'' del log solamente si el conjunto de las transacciones incpompletas, es decir las que debían abortarse, tenía almenos un elemento.
+\paragraph{}
+
+\subsection{Test}
+\paragraph{}
+Realizamos test manuales con el emulador, y 8 test de Unidad con JUnit, cubriendo los casos que nos parecieron pertinentes. Realizamos instancias con ``startckpt'' y sus respectivos ``endckpt'' como tambien instancias de solo ``startckpt''. Transacciones que commitearon antes y despues de los checkpoints y que abortaron o quedaron incompletas. Tratamos de cubrir lo más posible las diversas situaciones en una caída de una base de datos. Todos estos rest se encuentran en la carpeta ``alumnos'' junto a la carpeta ``catedra'' en la seccion de Test.
 
 \end{document}
