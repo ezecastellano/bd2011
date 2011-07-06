@@ -2,7 +2,6 @@ package ubadbtools.recoveryLogAnalyzer.redo.common;
 
 import java.util.List;
 
-import ubadbtools.recoveryLogAnalyzer.redo.common.logRecords.StartLogRecord;
 import ubadbtools.recoveryLogAnalyzer.redo.common.recoveryActions.RecoveryAction;
 
 public class RecoveryResult 
