@@ -29,7 +29,7 @@ public class RecoveryLogTest
 	 */
 	public void alumnosTestCases() throws Exception
 	{
-		performTests(BASE_FOLDER + "alumnos/testCase", 4);
+		performTests(BASE_FOLDER + "alumnos/testCase", 8);
 	}
 	
 	@Test
