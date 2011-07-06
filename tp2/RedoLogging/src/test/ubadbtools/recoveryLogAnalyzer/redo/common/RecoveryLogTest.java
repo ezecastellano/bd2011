@@ -29,7 +29,7 @@ public class RecoveryLogTest
 	 */
 	public void alumnosTestCases() throws Exception
 	{
-		performTests(BASE_FOLDER + "alumnos/testCase", 3);
+		performTests(BASE_FOLDER + "alumnos/testCase", 4);
 	}
 	
 	@Test
@@ -52,7 +52,7 @@ public class RecoveryLogTest
 			RecoveryResult expectedRecoveryResult = parser.parseRecoveryResult(subPath + i + "/recoveryResult.txt");
 			
 			//Asserts
-			//assertEquals(expectedAvailableSteps,recoveryLog.getAvailableSteps());
+			assertEquals(expectedAvailableSteps,recoveryLog.getAvailableSteps());
 			assertEquals(expectedRecoveryResult,recoveryLog.recoverFromCrash());
 			
 			System.out.println("Passed: " + subPath + i);
