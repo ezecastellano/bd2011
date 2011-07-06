@@ -20,4 +20,8 @@ public class EndCkptLogRecord extends RecoveryLogRecord
 		return true;
 		
 	}
+	@Override
+	public int hashCode() {
+		return 1;
+	}
 }
